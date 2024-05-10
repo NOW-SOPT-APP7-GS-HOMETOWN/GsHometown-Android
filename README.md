@@ -1,3 +1,6 @@
+# Notion  
+[모바일 7조 협업 노션](https://www.notion.so/sopt-official/7-7847f21060c647f79a38bc47581093e9?pvs=4)
+
 # Github Convention
 
 ## 공통 타입
