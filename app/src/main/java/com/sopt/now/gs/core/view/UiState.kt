@@ -1,14 +1,14 @@
-package com.sopt.now.core.view
+package com.sopt.now.gs.core.view
 
 sealed interface UiState<out T> {
 
-    object Loading : UiState<Nothing>
+    data object Loading : UiState<Nothing>
 
     data class Success<T>(
-        val data: T
+        val data: T,
     ) : UiState<T>
 
     data class Failure(
-        val errorMessage: String
+        val errorMessage: String,
     ) : UiState<Nothing>
 }
