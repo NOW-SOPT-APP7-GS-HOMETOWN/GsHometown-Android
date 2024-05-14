@@ -9,7 +9,7 @@ class ReserveFragment : BindingFragment<FragmentReserveBinding>(R.layout.fragmen
     override fun initView() {
         val memberId = arguments?.getInt(KeyStorage.USER_ID) ?: -1
         if (memberId != -1) {
-            binding.tvReserveExample.text = "Member ID: $memberId"
+            binding.tvReserveExample.text = "홈에서 받아온 Member ID: $memberId"
         }
     }
 }

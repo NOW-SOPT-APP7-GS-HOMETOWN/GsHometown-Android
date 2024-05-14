@@ -10,6 +10,7 @@ import com.sopt.now.gs.feature.util.KeyStorage
 class HomeFragment : BindingFragment<FragmentHomeBinding>(R.layout.fragment_home) {
     override fun initView() {
         val id = 1
+        binding.tvHomeExample.text = "홈화면에서의 Member ID: $id"
         binding.btnHomeReserve.setOnClickListener { navigateToReserve(id) }
     }
 
