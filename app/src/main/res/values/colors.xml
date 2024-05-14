@@ -1,5 +1,38 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="black">#FF000000</color>
-    <color name="white">#FFFFFFFF</color>
+<!--Main color-->
+    <color name="blue_01">#FFCEF5FC</color>
+    <color name="blue_02">#FF87EFFA</color>
+    <color name="blue_03">#FF03D2EA</color>
+    <color name="blue_04">#FF007F8C</color>
+    <color name="blue_05">#FF00646F</color>
+    <color name="mint_01">#FF68F8B3</color>
+    <color name="mint_02">#FF09E27C</color>
+    <color name="mint_03">#FF05884A</color>
+    <color name="mint_04">#FF00573F</color>
+<!--Sub color-->
+    <color name="orange_01">#FFFEE1CF</color>
+    <color name="orange_02">#FFFFDC20</color>
+    <color name="orange_03">#FFFF8A00</color>
+    <color name="yellow_01">#FFFFFFAF</color>
+    <color name="yellow_02">#FFFFF997</color>
+    <color name="pink_01">#FFFEE7ED</color>
+    <color name="pink_02">#FFFFBCB9</color>
+    <color name="green_01">#FFD3F9A4</color>
+    <color name="red_01">#FFF5484F</color>
+    <color name="navy_01">#FF1E2430</color>
+<!--Grey color-->
+    <color name="grey_00">#FFFFFFFF</color>
+    <color name="grey_01">#FFFAFBFD</color>
+    <color name="grey_02">#FFF4F5FB</color>
+    <color name="grey_03">#FFF2F3F7</color>
+    <color name="grey_04">#FFE5E8F0</color>
+    <color name="grey_05">#FFE7E7E7</color>
+    <color name="grey_06">#FFC0C2C6</color>
+    <color name="grey_07">#FF939AAA</color>
+    <color name="grey_08">#FF838A93</color>
+    <color name="grey_09">#FF565960</color>
+    <color name="grey_10">#FF1E2530</color>
+    <color name="grey_11">#FF060606</color>
+    <color name="grey_12">#80000000</color>
 </resources>
