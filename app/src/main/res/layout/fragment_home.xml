@@ -11,16 +11,27 @@
         android:layout_height="match_parent">
 
         <TextView
-            android:id="@+id/text_home"
+            android:id="@+id/tv_home_example"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="홈"
             android:textSize="24sp"
             android:textStyle="bold"
-            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintBottom_toTopOf="@id/btn_home_reserve"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
+
+        <Button
+            android:id="@+id/btn_home_reserve"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="사전예약으로"
+            android:textSize="24sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_home_example" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
