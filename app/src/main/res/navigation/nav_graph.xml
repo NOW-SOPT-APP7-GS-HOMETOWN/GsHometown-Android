@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/fragment_home">
+
+    <fragment
+        android:id="@+id/fragment_home"
+        android:name="com.sopt.now.gs.feature.home.HomeFragment"
+        android:label="HomeFragment"
+        tools:layout="@layout/fragment_home">
+        <action
+            android:id="@+id/action_fragment_home_to_reserveFragment"
+            app:destination="@id/fragment_reserve" />
+    </fragment>
+    <fragment
+        android:id="@+id/fragment_search"
+        android:name="com.sopt.now.gs.feature.search.SearchFragment"
+        android:label="SerachFragment"
+        tools:layout="@layout/fragment_search" />
+    <fragment
+        android:id="@+id/fragment_pay"
+        android:name="com.sopt.now.gs.feature.pay.PayFragment"
+        android:label="PayFragment"
+        tools:layout="@layout/fragment_pay" />
+    <fragment
+        android:id="@+id/fragment_order"
+        android:name="com.sopt.now.gs.feature.order.OrderFragment"
+        android:label="OrderFragment"
+        tools:layout="@layout/fragment_order" />
+    <fragment
+        android:id="@+id/fragment_my_page"
+        android:name="com.sopt.now.gs.feature.mypage.MyPageFragment"
+        android:label="MyPageFragment"
+        tools:layout="@layout/fragment_my_page" />
+    <fragment
+        android:id="@+id/fragment_reserve"
+        android:name="com.sopt.now.gs.feature.reserve.ReserveFragment"
+        android:label="ReserveFragment"
+        tools:layout="@layout/fragment_reserve" />
+</navigation>
