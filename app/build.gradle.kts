@@ -46,11 +46,16 @@ android {
     }
     buildFeatures {
         dataBinding = true
+        viewBinding = true
         buildConfig = true
     }
 }
 
 dependencies {
+    // jetpack navigation
+    implementation(libs.androidx.navigation.fragment.ktx)
+    implementation(libs.androidx.navigation.ui.ktx)
+
     // Network
     implementation(platform(libs.squareup.okhttp.bom))
     implementation(libs.okhttp)
