@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="Typography.GsHomeTown" parent="">
+        <item name="android:textAllCaps">false</item>
+        <item name="android:textStyle">normal</item>
+        <item name="android:includeFontPadding">false</item>
+    </style>
+
+    <style name="Typography.GsHomeTown.Heading1">
+        <item name="fontFamily">@font/pretendard_bold</item>
+        <item name="android:textSize">26sp</item>
+        <item name="android:lineSpacingExtra">0sp</item>
+    </style>
+
+    <style name="Typography.GsHomeTown.Heading2">
+        <item name="fontFamily">@font/pretendard_bold</item>
+        <item name="android:textSize">23sp</item>
+        <item name="lineHeight">20sp</item>
+        <item name="android:lineSpacingExtra">-1sp</item>
+    </style>
+
+    <style name="Typography.GsHomeTown.Heading3">
+        <item name="fontFamily">@font/pretendard_bold</item>
+        <item name="android:textSize">20sp</item>
+        <item name="android:lineSpacingExtra">0sp</item>
+    </style>
+
+    <style name="Typography.GsHomeTown.Heading4">
+        <item name="fontFamily">@font/pretendard_semibold</item>
+        <item name="android:textSize">19sp</item>
+        <item name="lineHeight">20sp</item>
+        <item name="android:lineSpacingExtra">-3sp</item>
+    </style>
+
+    <style name="Typography.GsHomeTown.Heading5">
+        <item name="fontFamily">@font/pretendard_semibold</item>
+        <item name="android:textSize">18sp</item>
+        <item name="android:lineSpacingExtra">0sp</item>
+    </style>
+
+    <style name="Typography.GsHomeTown.Heading6">
+        <item name="fontFamily">@font/pretendard_semibold</item>
+        <item name="android:textSize">17sp</item>
+        <item name="lineHeight">20sp</item>
+        <item name="android:lineSpacingExtra">-2sp</item>
+    </style>
+
+    <style name="Typography.GsHomeTown.Heading7">
+        <item name="fontFamily">@font/pretendard_light</item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:lineSpacingExtra">0sp</item>
+    </style>
+
+    <style name="Typography.GsHomeTown.Body1">
+        <item name="fontFamily">@font/pretendard_medium</item>
+        <item name="android:textSize">14sp</item>
+        <item name="lineHeight">20sp</item>
+        <item name="android:lineSpacingExtra">0sp</item>
+    </style>
+
+    <style name="Typography.GsHomeTown.Body2">
+        <item name="fontFamily">@font/pretendard_semibold</item>
+        <item name="android:textSize">13sp</item>
+        <item name="android:lineSpacingExtra">1sp</item>
+    </style>
+
+    <style name="Typography.GsHomeTown.Body2.Medium">
+        <item name="fontFamily">@font/pretendard_medium</item>
+        <item name="android:textSize">12sp</item>
+        <item name="android:lineSpacingExtra">0sp</item>
+    </style>
+
+    <style name="Typography.GsHomeTown.Body3">
+        <item name="fontFamily">@font/pretendard_semibold</item>
+        <item name="android:textSize">11sp</item>
+        <item name="android:lineSpacingExtra">-1sp</item>
+    </style>
+
+    <style name="Typography.GsHomeTown.Body3.Medium">
+        <item name="fontFamily">@font/pretendard_medium</item>
+        <item name="android:textSize">12sp</item>
+        <item name="android:lineSpacingExtra">0sp</item>
+    </style>
+
+    <style name="Typography.GsHomeTown.Body3.Medium3">
+        <item name="fontFamily">@font/pretendard_medium</item>
+        <item name="android:textSize">12sp</item>
+        <item name="android:lineSpacingExtra">-3sp</item>
+    </style>
+
+    <style name="Typography.GsHomeTown.Body4">
+        <item name="fontFamily">@font/pretendard_semibold</item>
+        <item name="android:textSize">11sp</item>
+        <item name="lineHeight">14sp</item>
+        <item name="android:lineSpacingExtra">-2sp</item>
+    </style>
+
+    <style name="Typography.GsHomeTown.Body4.Medium">
+        <item name="fontFamily">@font/pretendard_medium</item>
+        <item name="android:textSize">11sp</item>
+        <item name="lineHeight">20sp</item>
+        <item name="android:lineSpacingExtra">-2sp</item>
+    </style>
+
+    <style name="Typography.GsHomeTown.Body4.Medium11">
+        <item name="fontFamily">@font/pretendard_medium</item>
+        <item name="android:textSize">11sp</item>
+        <item name="android:lineSpacingExtra">-11sp</item>
+    </style>
+
+    <style name="Typography.GsHomeTown.Body4.Regular">
+        <item name="fontFamily">@font/pretendard_regular</item>
+        <item name="android:textSize">11sp</item>
+        <item name="lineHeight">20sp</item>
+        <item name="android:lineSpacingExtra">0sp</item>
+    </style>
+
+    <style name="Typography.GsHomeTown.Detail">
+        <item name="fontFamily">@font/pretendard_semibold</item>
+        <item name="android:textSize">10sp</item>
+        <item name="android:lineSpacingExtra">0sp</item>
+    </style>
+
+    <style name="Typography.GsHomeTown.Detail.Medium">
+        <item name="fontFamily">@font/pretendard_medium</item>
+        <item name="android:textSize">10sp</item>
+        <item name="android:lineSpacingExtra">0sp</item>
+    </style>
+</resources>
