@@ -1,12 +1,15 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
-    <!-- Base application theme. -->
+    <!-- Base application theme. dark 모드 제거 -->
     <style name="Base.Theme.GSHometownAndroid" parent="Theme.Material3.Light.NoActionBar">
-        <!-- Customize your light theme here. -->
-        <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
+        <!-- primary color-->
+        <item name="colorPrimary">@color/grey_11</item>
+        <!-- font padding 제거-->
         <item name="android:includeFontPadding">false</item>
-
+        <!-- Status bar color. -->
         <item name="android:statusBarColor">@android:color/transparent</item>
         <item name="android:windowLightStatusBar">true</item>
+        <!-- 기본 배경색 -->
+        <item name="android:windowBackground">@color/grey_00</item>
     </style>
 
     <style name="Theme.GSHometownAndroid" parent="Base.Theme.GSHometownAndroid" />
