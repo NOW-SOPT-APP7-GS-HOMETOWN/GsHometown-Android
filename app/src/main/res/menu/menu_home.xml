@@ -3,21 +3,21 @@
     <item
         android:id="@+id/fragment_home"
         android:icon="@drawable/ic_nav_home_black_24"
-        android:title="홈" />
+        android:title="@string/menu_item_home" />
     <item
         android:id="@+id/fragment_search"
         android:icon="@drawable/ic_nav_search_black_24"
-        android:title="검색" />
+        android:title="@string/menu_item_search" />
     <item
         android:id="@+id/fragment_pay"
         android:icon="@drawable/ic_nav_pay_grey_24"
-        android:title="결제·적립" />
+        android:title="@string/menu_item_pay" />
     <item
         android:id="@+id/fragment_order"
         android:icon="@drawable/ic_nav_order_black_24"
-        android:title="주문내역" />
+        android:title="@string/menu_item_order" />
     <item
         android:id="@+id/fragment_my_page"
         android:icon="@drawable/ic_nav_my_page_black_24"
-        android:title="MY" />
+        android:title="@string/menu_item_my_page" />
 </menu>

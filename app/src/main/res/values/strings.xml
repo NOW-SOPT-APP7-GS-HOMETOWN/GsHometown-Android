@@ -1,3 +1,10 @@
 <resources>
+    <!-- menu -->
     <string name="app_name">GS-Hometown-Android</string>
+    <string name="menu_item_home">홈</string>
+    <string name="menu_item_search">검색</string>
+    <string name="menu_item_pay">결제·적립</string>
+    <string name="menu_item_order">주문내역</string>
+    <string name="menu_item_my_page">MY</string>
+    <!-- home -->
 </resources>
