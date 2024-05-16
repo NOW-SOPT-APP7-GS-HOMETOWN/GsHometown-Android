@@ -4,15 +4,15 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
-import com.sopt.now.gs.databinding.ItemMainTopBannerBinding
+import com.sopt.now.gs.databinding.ItemMainBannerBinding
 
-class HomeBannerAdapter:
+class HomeBannerAdapter :
     ListAdapter<HomeBanner, HomeBannerViewHolder>(diffUtil) {
 
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): HomeBannerViewHolder {
         return HomeBannerViewHolder(
-            ItemMainTopBannerBinding.inflate(
+            ItemMainBannerBinding.inflate(
                 LayoutInflater.from(parent.context),
                 parent,
                 false

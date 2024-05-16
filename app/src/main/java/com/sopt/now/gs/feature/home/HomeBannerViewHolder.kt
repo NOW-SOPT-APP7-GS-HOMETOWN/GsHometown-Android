@@ -1,10 +1,10 @@
 package com.sopt.now.gs.feature.home
 
 import androidx.recyclerview.widget.RecyclerView
-import com.sopt.now.gs.databinding.ItemMainTopBannerBinding
+import com.sopt.now.gs.databinding.ItemMainBannerBinding
 
 class HomeBannerViewHolder(
-    private val binding: ItemMainTopBannerBinding
+    private val binding: ItemMainBannerBinding
 ) : RecyclerView.ViewHolder(binding.root) {
 
     fun onBind(data: HomeBanner) {

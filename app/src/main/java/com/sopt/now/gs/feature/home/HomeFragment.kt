@@ -13,14 +13,20 @@ import kotlinx.coroutines.launch
 
 class HomeFragment : BindingFragment<FragmentHomeBinding>(R.layout.fragment_home) {
     private val homeViewModel by viewModels<HomeViewModel>()
-    private var adapter: HomeBannerAdapter? = null
-    var currentPosition = 0
-    var job: Job? = null
+    private var topBannerAdapter: HomeBannerAdapter? = null
+    private var bottomBannerAdapter: HomeBannerAdapter? = null
+
+    var topBannerCurrentPosition = 0
+    var topBannerJob: Job? = null
+    var bottomBannerCurrentPosition = 0
+    var bottomBannerJob: Job? = null
     override fun initView() {
-        adapter = HomeBannerAdapter()
+        topBannerAdapter = HomeBannerAdapter()
+        bottomBannerAdapter = HomeBannerAdapter()
 
         initPreReservationBtnClickListener()
         initTopBanner()
+        initBottomBanner()
     }
 
     private fun initPreReservationBtnClickListener() {
@@ -37,27 +43,59 @@ class HomeFragment : BindingFragment<FragmentHomeBinding>(R.layout.fragment_home
             HomeBanner(R.drawable.img_main_top_banner2),
             HomeBanner(R.drawable.img_main_top_banner3)
         )
-        binding.vpMainTopBanner.adapter = adapter
-        adapter?.submitList(itemList)
+        binding.vpMainTopBanner.adapter = topBannerAdapter
+        topBannerAdapter?.submitList(itemList)
 
         binding.vpMainTopBanner.registerOnPageChangeCallback(object :
             ViewPager2.OnPageChangeCallback() {
             override fun onPageSelected(position: Int) {
                 super.onPageSelected(position)
-                currentPosition = position
+                topBannerCurrentPosition = position
             }
         })
-        initJob()
+        initTopBannerJob()
     }
 
-    private fun initJob() {
-        job = lifecycleScope.launch {
+    private fun initTopBannerJob() {
+        topBannerJob = lifecycleScope.launch {
             while (true) {
                 delay(2000)
-                if (currentPosition == 3) {
+                if (topBannerCurrentPosition == 3) {
                     binding.vpMainTopBanner.setCurrentItem(0, true)
                 } else {
-                    binding.vpMainTopBanner.setCurrentItem(currentPosition++, true)
+                    binding.vpMainTopBanner.setCurrentItem(topBannerCurrentPosition++, true)
+                }
+            }
+        }
+    }
+
+    private fun initBottomBanner() {
+        val bottomItemList: List<HomeBanner> = listOf(
+            HomeBanner(R.drawable.img_main_bottom_banner),
+            HomeBanner(R.drawable.img_main_bottom_banner2),
+            HomeBanner(R.drawable.img_main_bottom_banner3)
+        )
+        binding.vpMainBottomBanner.adapter = bottomBannerAdapter
+        bottomBannerAdapter?.submitList(bottomItemList)
+
+        binding.vpMainBottomBanner.registerOnPageChangeCallback(object :
+            ViewPager2.OnPageChangeCallback() {
+            override fun onPageSelected(position: Int) {
+                super.onPageSelected(position)
+                bottomBannerCurrentPosition = position
+            }
+        })
+        initBottomBannerJob()
+    }
+
+    private fun initBottomBannerJob() {
+        bottomBannerJob = lifecycleScope.launch {
+            while (true) {
+                delay(2000)
+                if (bottomBannerCurrentPosition == 3) {
+                    binding.vpMainBottomBanner.setCurrentItem(0, true)
+                } else {
+                    binding.vpMainBottomBanner.setCurrentItem(bottomBannerCurrentPosition++, true)
                 }
             }
         }

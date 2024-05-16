@@ -101,10 +101,10 @@
                     android:layout_marginHorizontal="14dp"
                     android:layout_marginTop="53dp"
                     android:orientation="horizontal"
-                    tools:listitem="@layout/item_main_top_banner"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent">
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:listitem="@layout/item_main_banner">
 
                 </androidx.viewpager2.widget.ViewPager2>
 
@@ -331,26 +331,29 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/iv_main_month_event" />
 
-                <ImageView
-                    android:id="@+id/iv_main_bottom_banner"
+
+                <androidx.viewpager2.widget.ViewPager2
+                    android:id="@+id/vp_main_bottom_banner"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginHorizontal="14dp"
-                    android:adjustViewBounds="true"
-                    android:src="@drawable/img_main_bottom_banner"
+                    android:orientation="horizontal"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/iv_main_week_event" />
+                    app:layout_constraintTop_toBottomOf="@id/iv_main_week_event"
+                    tools:listitem="@layout/item_main_banner">
+
+                </androidx.viewpager2.widget.ViewPager2>
 
                 <ImageView
-                    android:id="@+id/iv_main_business_infi"
+                    android:id="@+id/iv_main_business_info"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="36dp"
                     android:adjustViewBounds="true"
                     android:src="@drawable/img_main_business_info"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/iv_main_bottom_banner" />
+                    app:layout_constraintTop_toBottomOf="@id/vp_main_bottom_banner" />
             </androidx.constraintlayout.widget.ConstraintLayout>
         </androidx.core.widget.NestedScrollView>
     </androidx.coordinatorlayout.widget.CoordinatorLayout>
