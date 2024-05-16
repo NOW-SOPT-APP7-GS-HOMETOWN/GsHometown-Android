@@ -9,9 +9,7 @@ import com.sopt.now.gs.feature.util.KeyStorage
 
 class HomeFragment : BindingFragment<FragmentHomeBinding>(R.layout.fragment_home) {
     override fun initView() {
-        val id = 1
-        binding.tvHomeExample.text = "홈화면에서의 Member ID: $id"
-        binding.btnHomeReserve.setOnClickListener { navigateToReserve(id) }
+        initPreReservationBtnClickListener()
     }
 
     private fun navigateToReserve(id: Int) {
@@ -19,5 +17,13 @@ class HomeFragment : BindingFragment<FragmentHomeBinding>(R.layout.fragment_home
             R.id.fragment_reserve,
             bundleOf(KeyStorage.USER_ID to id),
         )
+    }
+
+    private fun initPreReservationBtnClickListener() {
+        binding.ivMainGs25PreReservation.setOnClickListener {
+            findNavController().navigate(
+                R.id.fragment_reserve
+            )
+        }
     }
 }

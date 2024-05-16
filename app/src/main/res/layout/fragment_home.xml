@@ -6,32 +6,348 @@
 
     </data>
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:layout_marginTop="5dp">
 
-        <TextView
-            android:id="@+id/tv_home_example"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="홈"
-            android:textSize="24sp"
-            android:textStyle="bold"
-            app:layout_constraintBottom_toTopOf="@id/btn_home_reserve"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+        <com.google.android.material.appbar.AppBarLayout
+            android:id="@+id/top_app_bar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
 
-        <Button
-            android:id="@+id/btn_home_reserve"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="사전예약으로"
-            android:textSize="24sp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tv_home_example" />
+            <com.google.android.material.appbar.CollapsingToolbarLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/grey_00"
+                app:expandedTitleGravity="center"
+                app:layout_scrollFlags="scroll|enterAlways"
+                app:scrimVisibleHeightTrigger="150dp">
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="36dp">
+
+                    <TextView
+                        android:id="@+id/tv_main_my_address"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginVertical="8dp"
+                        android:layout_marginStart="16dp"
+                        android:fontFamily="@font/pretendard_medium"
+                        android:text="우리집"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <ImageView
+                        android:id="@+id/iv_main_select_address"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="4dp"
+                        android:layout_marginStart="5dp"
+                        android:src="@drawable/ic_main_arrow"
+                        app:layout_constraintBottom_toBottomOf="@id/tv_main_my_address"
+                        app:layout_constraintStart_toEndOf="@id/tv_main_my_address"
+                        app:layout_constraintTop_toTopOf="@id/tv_main_my_address" />
+
+                    <ImageView
+                        android:id="@+id/iv_main_chat_bot"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="241dp"
+                        android:src="@drawable/ic_main_chat_bot"
+                        app:layout_constraintEnd_toStartOf="@id/iv_main_alarm"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <ImageView
+                        android:id="@+id/iv_main_alarm"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/ic_main_alarm"
+                        app:layout_constraintEnd_toStartOf="@id/iv_main_shopping_basket"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <ImageView
+                        android:id="@+id/iv_main_shopping_basket"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="9dp"
+                        android:src="@drawable/ic_main_shopping_basket"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <Toolbar
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp" />
+            </com.google.android.material.appbar.CollapsingToolbarLayout>
+
+        </com.google.android.material.appbar.AppBarLayout>
+
+        <androidx.core.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:overScrollMode="never">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <ImageView
+                    android:id="@+id/iv_main_top_banner"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="14dp"
+                    android:layout_marginTop="53dp"
+                    android:adjustViewBounds="true"
+                    android:src="@drawable/img_main_top_banner"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/cv_main_gs25_pre_reservation"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:layout_marginStart="14dp"
+                    android:layout_marginTop="6dp"
+                    android:layout_marginEnd="5dp"
+                    app:cardBackgroundColor="@color/blue_02"
+                    app:cardCornerRadius="30dp"
+                    app:layout_constraintDimensionRatio="1"
+                    app:layout_constraintEnd_toStartOf="@id/cv_market_pre_reservation"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/iv_main_top_banner">
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <TextView
+                            android:id="@+id/tv_main_gs25"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="20dp"
+                            android:layout_marginTop="14dp"
+                            android:text="GS25"
+                            android:theme="@style/Typography.GsHomeTown.Heading6"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                        <TextView
+                            android:id="@+id/tv_main_gs25_additional"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:text="언제나 가까이"
+                            android:theme="@style/Typography.GsHomeTown.Body4.Medium"
+                            app:layout_constraintStart_toStartOf="@id/tv_main_gs25"
+                            app:layout_constraintTop_toBottomOf="@id/tv_main_gs25" />
+
+                        <ImageView
+                            android:layout_width="0dp"
+                            android:layout_height="0dp"
+                            android:layout_marginStart="89dp"
+                            android:layout_marginTop="11dp"
+                            android:layout_marginEnd="12dp"
+                            android:layout_marginBottom="106dp"
+                            android:adjustViewBounds="true"
+                            android:src="@drawable/img_main_gs25_pre_reservation"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                        <ImageView
+                            android:id="@+id/iv_main_gs25_pickup"
+                            android:layout_width="0dp"
+                            android:layout_height="0dp"
+                            android:layout_marginStart="16dp"
+                            android:layout_marginTop="57dp"
+                            android:layout_marginEnd="4dp"
+                            android:layout_marginBottom="60dp"
+                            android:adjustViewBounds="true"
+                            android:src="@drawable/img_main_gs25_pickup"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toStartOf="@id/iv_main_gs25_delivery"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                        <ImageView
+                            android:id="@+id/iv_main_gs25_delivery"
+                            android:layout_width="0dp"
+                            android:layout_height="0dp"
+                            android:layout_marginStart="4dp"
+                            android:layout_marginEnd="16dp"
+                            android:adjustViewBounds="true"
+                            android:src="@drawable/img_main_gs25_delivery"
+                            app:layout_constraintBottom_toBottomOf="@id/iv_main_gs25_pickup"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toEndOf="@id/iv_main_gs25_pickup"
+                            app:layout_constraintTop_toTopOf="@id/iv_main_gs25_pickup" />
+
+                        <ImageView
+                            android:id="@+id/iv_main_gs25_pre_reservation"
+                            android:layout_width="0dp"
+                            android:layout_height="0dp"
+                            android:adjustViewBounds="true"
+                            android:src="@drawable/img_main_gs25_pre_reservation_btn"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="@id/iv_main_gs25_delivery"
+                            app:layout_constraintStart_toStartOf="@id/iv_main_gs25_pickup"
+                            app:layout_constraintTop_toBottomOf="@id/iv_main_gs25_delivery" />
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+                </androidx.cardview.widget.CardView>
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/cv_market_pre_reservation"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:layout_marginStart="5dp"
+                    android:layout_marginTop="6dp"
+                    android:layout_marginEnd="17dp"
+                    app:cardBackgroundColor="@color/mint_01"
+                    app:cardCornerRadius="30dp"
+                    app:layout_constraintDimensionRatio="1"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@id/cv_main_gs25_pre_reservation"
+                    app:layout_constraintTop_toBottomOf="@id/iv_main_top_banner">
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <TextView
+                            android:id="@+id/tv_main_gsfresh"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="20dp"
+                            android:layout_marginTop="14dp"
+                            android:text="GS더프레시"
+                            android:theme="@style/Typography.GsHomeTown.Heading6"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                        <TextView
+                            android:id="@+id/tv_main_gsfresh_additional"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:text="신선함이 가득"
+                            android:theme="@style/Typography.GsHomeTown.Body4.Medium"
+                            app:layout_constraintStart_toStartOf="@id/tv_main_gsfresh"
+                            app:layout_constraintTop_toBottomOf="@id/tv_main_gsfresh" />
+
+                        <ImageView
+                            android:layout_width="0dp"
+                            android:layout_height="0dp"
+                            android:layout_marginStart="89dp"
+                            android:layout_marginTop="11dp"
+                            android:layout_marginEnd="12dp"
+                            android:layout_marginBottom="106dp"
+                            android:adjustViewBounds="true"
+                            android:src="@drawable/img_main_gsfresh_pre_reservation"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                        <ImageView
+                            android:id="@+id/iv_main_gsfresh_pickup"
+                            android:layout_width="0dp"
+                            android:layout_height="0dp"
+                            android:layout_marginStart="16dp"
+                            android:layout_marginTop="57dp"
+                            android:layout_marginEnd="4dp"
+                            android:layout_marginBottom="60dp"
+                            android:adjustViewBounds="true"
+                            android:src="@drawable/img_main_gsfresh_pickup"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toStartOf="@id/iv_main_gsfresh_delivery"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                        <ImageView
+                            android:id="@+id/iv_main_gsfresh_delivery"
+                            android:layout_width="0dp"
+                            android:layout_height="0dp"
+                            android:layout_marginStart="4dp"
+                            android:layout_marginEnd="16dp"
+                            android:adjustViewBounds="true"
+                            android:src="@drawable/img_main_gsfresh_delivery"
+                            app:layout_constraintBottom_toBottomOf="@id/iv_main_gsfresh_pickup"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toEndOf="@id/iv_main_gsfresh_pickup"
+                            app:layout_constraintTop_toTopOf="@id/iv_main_gsfresh_pickup" />
+
+                        <ImageView
+                            android:id="@+id/iv_main_gsfresh_pre_reservation"
+                            android:layout_width="0dp"
+                            android:layout_height="0dp"
+                            android:adjustViewBounds="true"
+                            android:src="@drawable/img_main_gsfresh_pre_reservation_btn"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="@id/iv_main_gsfresh_delivery"
+                            app:layout_constraintStart_toStartOf="@id/iv_main_gsfresh_pickup"
+                            app:layout_constraintTop_toBottomOf="@id/iv_main_gsfresh_pickup" />
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+                </androidx.cardview.widget.CardView>
+
+                <ImageView
+                    android:id="@+id/iv_main_my_refrigerator"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:adjustViewBounds="true"
+                    android:src="@drawable/img_main_refrigerator"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/cv_main_gs25_pre_reservation" />
+
+                <ImageView
+                    android:id="@+id/iv_main_service"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:adjustViewBounds="true"
+                    android:src="@drawable/img_main_service"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/iv_main_my_refrigerator" />
+
+                <ImageView
+                    android:id="@+id/iv_main_month_event"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:adjustViewBounds="true"
+                    android:src="@drawable/img_main_month_event"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/iv_main_service" />
+
+                <ImageView
+                    android:id="@+id/iv_main_week_event"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:adjustViewBounds="true"
+                    android:src="@drawable/img_main_week_event"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/iv_main_month_event" />
+
+                <ImageView
+                    android:id="@+id/iv_main_bottom_banner"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="14dp"
+                    android:adjustViewBounds="true"
+                    android:src="@drawable/img_main_bottom_banner"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/iv_main_week_event" />
+
+                <ImageView
+                    android:id="@+id/iv_main_business_infi"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="36dp"
+                    android:adjustViewBounds="true"
+                    android:src="@drawable/img_main_business_info"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/iv_main_bottom_banner" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.core.widget.NestedScrollView>
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
 </layout>
