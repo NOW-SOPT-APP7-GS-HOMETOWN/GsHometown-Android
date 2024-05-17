@@ -230,6 +230,127 @@
                 app:layout_constraintTop_toBottomOf="@id/tv_reserve_discount_date"
                 tools:listitem="@layout/item_reserve_discount_menu" />
 
+            <ImageView
+                android:id="@+id/iv_reserve_grey_line2"
+                android:layout_width="0dp"
+                android:layout_height="7dp"
+                android:layout_marginTop="7dp"
+                android:src="@drawable/shape_grey03_fill_0_rect"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/rc_reserve_disount_menu" />
+
+            <TextView
+                android:id="@+id/tv_reserve_event_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="14dp"
+                android:layout_marginTop="20dp"
+                android:textAppearance="@style/Typography.GsHomeTown.Heading7"
+                android:textColor="@color/grey_10"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/iv_reserve_grey_line2"
+                tools:text="푸냥이 푸딩젤리 2탄!복숭아맛🍑" />
+
+            <TextView
+                android:id="@+id/tv_reserve_event_more"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="더보기"
+                android:textAppearance="@style/Typography.GsHomeTown.Body3.Medium3"
+                android:textColor="@color/grey_09"
+                app:layout_constraintBottom_toBottomOf="@id/tv_reserve_event_title"
+                app:layout_constraintEnd_toStartOf="@id/iv_reserve_event_more"
+                app:layout_constraintTop_toTopOf="@id/tv_reserve_event_title" />
+
+            <ImageView
+                android:id="@+id/iv_reserve_event_more"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="15dp"
+                android:src="@drawable/ic_reserve_arrow_right"
+                app:layout_constraintBottom_toBottomOf="@id/tv_reserve_event_more"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@id/tv_reserve_event_more" />
+
+            <TextView
+                android:id="@+id/tv_reserve_event_date"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="14dp"
+                android:layout_marginTop="13dp"
+                android:textAppearance="@style/Typography.GsHomeTown.Body3.Medium3"
+                android:textColor="@color/grey_08"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tv_reserve_event_title"
+                tools:text="2024.05.17 ~ 2024.05.19" />
+
+            <ImageView
+                android:id="@+id/iv_reserve_event_menu_image"
+                android:layout_width="110dp"
+                android:layout_height="111dp"
+                android:layout_marginStart="14dp"
+                android:layout_marginTop="17dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tv_reserve_event_date" />
+
+            <TextView
+                android:id="@+id/tv_reserve_event_menu_label_blue"
+                android:layout_width="47dp"
+                android:layout_height="17dp"
+                android:layout_marginTop="3dp"
+                android:background="@drawable/shape_blue01_fill_9_rect"
+                android:gravity="center"
+                android:text="매장수령"
+                android:textAppearance="@style/Typography.GsHomeTown.Detail.Medium"
+                android:textColor="@color/grey_10"
+                app:layout_constraintStart_toStartOf="@id/iv_reserve_event_menu_image"
+                app:layout_constraintTop_toBottomOf="@id/iv_reserve_event_menu_image" />
+
+            <ImageView
+                android:id="@+id/iv_reserve_event_menu_basket"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_marginStart="44dp"
+                android:src="@drawable/ic_reserve_basket"
+                app:layout_constraintStart_toEndOf="@id/tv_reserve_event_menu_label_blue"
+                app:layout_constraintTop_toBottomOf="@id/iv_reserve_event_menu_image" />
+
+            <TextView
+                android:id="@+id/tv_reserve_event_menu_title"
+                android:layout_width="103dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:maxLines="2"
+                android:text=""
+                android:textAppearance="@style/Typography.GsHomeTown.Body3.Medium3"
+                android:textColor="@color/grey_09"
+                app:layout_constraintStart_toStartOf="@id/iv_reserve_event_menu_image"
+                app:layout_constraintTop_toBottomOf="@id/tv_reserve_event_menu_label_blue"
+                tools:text="(예약)핑크푸냥이푸딩젤리(2입)" />
+
+            <TextView
+                android:id="@+id/tv_reserve_event_menu_price"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:textAppearance="@style/Typography.GsHomeTown.Body2"
+                android:textColor="@color/grey_10"
+                app:layout_constraintStart_toStartOf="@id/iv_reserve_event_menu_image"
+                app:layout_constraintTop_toBottomOf="@id/tv_reserve_event_menu_title"
+                tools:text="5,000원" />
+
+            <ImageView
+                android:id="@+id/iv_reserve_grey_line3"
+                android:layout_width="0dp"
+                android:layout_height="7dp"
+                android:layout_marginTop="7dp"
+                android:src="@drawable/shape_grey03_fill_0_rect"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tv_reserve_event_menu_price" />
+
+
         </androidx.constraintlayout.widget.ConstraintLayout>
 
     </androidx.core.widget.NestedScrollView>
