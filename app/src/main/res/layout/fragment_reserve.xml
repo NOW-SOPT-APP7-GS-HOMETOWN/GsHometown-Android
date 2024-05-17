@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
 
     <data>
 
@@ -86,7 +87,67 @@
                 app:layout_constraintEnd_toEndOf="@id/iv_reserve_pick_up_store"
                 app:layout_constraintTop_toTopOf="@id/iv_reserve_pick_up_store" />
 
+            <androidx.viewpager2.widget.ViewPager2
+                android:id="@+id/vp_reserve_top_banner"
+                android:layout_width="332dp"
+                android:layout_height="149dp"
+                android:layout_marginTop="19dp"
+                android:orientation="horizontal"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/iv_reserve_pick_up_store" />
 
+            <TextView
+                android:id="@+id/iv_reserve_top_banner_label"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="286dp"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/shape_grey00_fill_circle"
+                android:gravity="center"
+                android:text="사전\n예약"
+                android:textAppearance="@style/Typography.GsHomeTown.Detail"
+                android:textColor="@color/grey_10"
+                app:layout_constraintStart_toStartOf="@id/vp_reserve_top_banner"
+                app:layout_constraintTop_toTopOf="@id/vp_reserve_top_banner" />
+
+            <ImageView
+                android:id="@+id/iv_reserve_pages"
+                android:layout_width="44dp"
+                android:layout_height="22dp"
+                android:layout_marginStart="277dp"
+                android:layout_marginTop="117dp"
+                android:layout_marginEnd="11dp"
+                android:layout_marginBottom="10dp"
+                android:background="@drawable/shape_grey12_fill_999_rect"
+                app:layout_constraintBottom_toBottomOf="@id/vp_reserve_top_banner"
+                app:layout_constraintEnd_toEndOf="@id/vp_reserve_top_banner"
+                app:layout_constraintStart_toStartOf="@id/vp_reserve_top_banner"
+                app:layout_constraintTop_toTopOf="@id/vp_reserve_top_banner" />
+
+            <TextView
+                android:id="@+id/tv_reserve_pages"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="6dp"
+                android:textAppearance="@style/Typography.GsHomeTown.Body4.Medium"
+                android:textColor="@color/grey_00"
+                app:layout_constraintBottom_toBottomOf="@id/iv_reserve_pages"
+                app:layout_constraintStart_toStartOf="@id/iv_reserve_pages"
+                app:layout_constraintTop_toTopOf="@id/iv_reserve_pages"
+                tools:text="4/6" />
+
+            <ImageView
+                android:id="@+id/tv_reserve_pages_union"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="26dp"
+                android:layout_marginEnd="6dp"
+                android:src="@drawable/ic_reserve_union"
+                app:layout_constraintBottom_toBottomOf="@id/tv_reserve_pages"
+                app:layout_constraintStart_toStartOf="@id/iv_reserve_pages"
+                app:layout_constraintEnd_toEndOf="@id/iv_reserve_pages"
+                app:layout_constraintTop_toTopOf="@id/tv_reserve_pages" />
         </androidx.constraintlayout.widget.ConstraintLayout>
 
     </androidx.core.widget.NestedScrollView>
