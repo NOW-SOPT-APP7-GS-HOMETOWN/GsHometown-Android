@@ -15,19 +15,6 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/tv_reserve_discount_menu_label_black"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="7.38dp"
-        android:layout_marginTop="8.44dp"
-        android:background="@drawable/shape_grey10_fill_3_rect"
-        android:gravity="center"
-        android:text="가격할인"
-        android:textColor="@color/grey_00"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
         android:id="@+id/tv_reserve_discount_menu_label_blue"
         android:layout_width="47dp"
         android:layout_height="17dp"

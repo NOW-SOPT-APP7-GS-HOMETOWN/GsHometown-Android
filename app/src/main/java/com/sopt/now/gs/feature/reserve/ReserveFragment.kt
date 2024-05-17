@@ -22,12 +22,12 @@ class ReserveFragment : BindingFragment<FragmentReserveBinding>(R.layout.fragmen
         //임시 데이터 생성
         val list: ArrayList<DataPage> = ArrayList<DataPage>().let {
             it.apply {
-                add(DataPage(R.drawable.shape_blue01_fill_9_rect, "1"))
-                add(DataPage(R.drawable.shape_blue01_fill_9_rect, "2"))
-                add(DataPage(R.drawable.shape_blue01_fill_9_rect, "3"))
-                add(DataPage(R.drawable.shape_blue01_fill_9_rect, "4"))
-                add(DataPage(R.drawable.shape_blue01_fill_9_rect, "5"))
-                add(DataPage(R.drawable.shape_blue01_fill_9_rect, "6"))
+                add(DataPage(R.drawable.img_reserve_top_banner1, "1"))
+                add(DataPage(R.drawable.img_reserve_top_banner2, "2"))
+                add(DataPage(R.drawable.img_reserve_top_banner1, "3"))
+                add(DataPage(R.drawable.img_reserve_top_banner2, "4"))
+                add(DataPage(R.drawable.img_reserve_top_banner1, "5"))
+                add(DataPage(R.drawable.img_reserve_top_banner2, "6"))
             }
         }
 
