@@ -145,9 +145,22 @@
                 android:layout_marginEnd="6dp"
                 android:src="@drawable/ic_reserve_union"
                 app:layout_constraintBottom_toBottomOf="@id/tv_reserve_pages"
-                app:layout_constraintStart_toStartOf="@id/iv_reserve_pages"
                 app:layout_constraintEnd_toEndOf="@id/iv_reserve_pages"
+                app:layout_constraintStart_toStartOf="@id/iv_reserve_pages"
                 app:layout_constraintTop_toTopOf="@id/tv_reserve_pages" />
+
+            <!--의문 height 설정을 wrap 으로 하면 한 줄만 나온다...-->
+            <GridView
+                android:id="@+id/gv_reserve_menu_category"
+                android:layout_width="0dp"
+                android:layout_height="258dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="7dp"
+                android:layout_marginEnd="16dp"
+                android:numColumns="4"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/vp_reserve_top_banner"/>
         </androidx.constraintlayout.widget.ConstraintLayout>
 
     </androidx.core.widget.NestedScrollView>
