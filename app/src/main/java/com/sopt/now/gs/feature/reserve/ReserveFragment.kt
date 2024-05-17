@@ -7,6 +7,7 @@ import com.sopt.now.gs.databinding.FragmentReserveBinding
 
 class ReserveFragment : BindingFragment<FragmentReserveBinding>(R.layout.fragment_reserve) {
     private val menuListitems = mutableListOf<GridMenuListItem>()
+    private val menuCategoryitems = mutableListOf<GridMenuCategoryItem>()
     private val viewModel by viewModels<DiscountMenuViewModel>()
 
     override fun initView() {
@@ -24,13 +25,22 @@ class ReserveFragment : BindingFragment<FragmentReserveBinding>(R.layout.fragmen
             add(GridMenuListItem(R.drawable.img_reserve_hamburger, "샌드위치/햄버거"))
         }
 
-        val menuCategoryAdapter = GridMenuCategoryAdapter(requireContext(), menuListitems)
-        binding.gvReserveMenuList.adapter = menuCategoryAdapter
-
+        val menuListAdapter = GridMenuListAdapter(requireContext(), menuListitems)
+        binding.gvReserveMenuList.adapter = menuListAdapter
 
         val discountMenuAdapter = DiscountMenuAdapter()
         binding.rcReserveDisountMenu.adapter = discountMenuAdapter
         discountMenuAdapter.setFriendList(viewModel.mockFriendList)
+
+        //임시 데이터
+        menuCategoryitems.apply {
+            add(GridMenuCategoryItem(R.drawable.ic_launcher_background,"넷플릭스)BIG반반닭강정","9,000원"))
+            add(GridMenuCategoryItem(R.drawable.ic_launcher_background,"넷플릭스)BIG반반닭강정","9,000원"))
+            add(GridMenuCategoryItem(R.drawable.ic_launcher_background,"넷플릭스)BIG반반닭강정","9,000원"))
+            add(GridMenuCategoryItem(R.drawable.ic_launcher_background,"넷플릭스)BIG반반닭강정","9,000원"))
+        }
+        val menuCategoryAdapter = GridMenuCategoryAdapter(requireContext(), menuCategoryitems)
+        binding.gvReserveCategory1Menu.adapter = menuCategoryAdapter
     }
 
 }

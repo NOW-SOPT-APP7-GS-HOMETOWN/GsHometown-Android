@@ -6,7 +6,7 @@
     android:layout_height="86dp">
 
     <ImageView
-        android:id="@+id/iv_reserve_menu_category_image"
+        android:id="@+id/iv_reserve_list_image"
         android:layout_width="48dp"
         android:layout_height="48dp"
         android:layout_marginStart="9.5dp"
@@ -16,7 +16,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/iv_reserve_menu_category_title"
+        android:id="@+id/iv_reserve_list_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
@@ -26,6 +26,6 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/iv_reserve_menu_category_image"
+        app:layout_constraintTop_toBottomOf="@id/iv_reserve_list_image"
         tools:text="메뉴이름" />
 </androidx.constraintlayout.widget.ConstraintLayout>
