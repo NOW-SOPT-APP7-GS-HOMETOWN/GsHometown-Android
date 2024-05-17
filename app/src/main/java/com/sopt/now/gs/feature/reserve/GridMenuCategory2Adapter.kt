@@ -26,9 +26,9 @@ class GridMenuCategory2Adapter(
         view.findViewById<TextView>(R.id.tv_reserve_category2_price).text =
             currentItem.menuCategoryPrice
         view.findViewById<TextView>(R.id.tv_reserve_category2_star_rate).text =
-            currentItem.menuCategoryPrice
+            currentItem.menuCategoryRate
         view.findViewById<TextView>(R.id.tv_reserve_category2_review).text =
-            currentItem.menuCategoryPrice
+            currentItem.menuCategoryReview
 
         return view
     }
