@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:drawable="@drawable/sel_reserve_drawble_tab_selected_item"
+        android:state_selected="true"/>
+    <item
+        android:drawable="@drawable/sel_reserve_drawble_tab_unselected_item"
+        android:state_selected="false"/>
+</selector>
