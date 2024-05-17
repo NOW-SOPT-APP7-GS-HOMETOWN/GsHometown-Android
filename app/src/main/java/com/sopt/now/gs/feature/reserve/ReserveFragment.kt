@@ -25,7 +25,7 @@ class ReserveFragment : BindingFragment<FragmentReserveBinding>(R.layout.fragmen
         }
 
         val menuCategoryAdapter = GridMenuCategoryAdapter(requireContext(), menuCategoryitems)
-        binding.gvReserveMenuCategory.adapter = menuCategoryAdapter
+        binding.gvReserveMenuList.adapter = menuCategoryAdapter
 
 
         val discountMenuAdapter = DiscountMenuAdapter()
