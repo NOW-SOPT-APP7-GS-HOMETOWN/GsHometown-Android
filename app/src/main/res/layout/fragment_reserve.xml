@@ -160,7 +160,76 @@
                 android:numColumns="4"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/vp_reserve_top_banner"/>
+                app:layout_constraintTop_toBottomOf="@id/vp_reserve_top_banner" />
+
+            <ImageView
+                android:id="@+id/iv_reserve_grey_line"
+                android:layout_width="0dp"
+                android:layout_height="7dp"
+                android:layout_marginTop="6dp"
+                android:src="@drawable/shape_grey03_fill_0_rect"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/gv_reserve_menu_category" />
+
+            <TextView
+                android:id="@+id/tv_reserve_discount_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="14dp"
+                android:layout_marginTop="19dp"
+                android:textAppearance="@style/Typography.GsHomeTown.Heading7"
+                android:textColor="@color/grey_10"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/iv_reserve_grey_line"
+                tools:text="[GS Pay 추가 할인] GS25 정육상품 4" />
+
+            <TextView
+                android:id="@+id/tv_reserve_discount_more"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="더보기"
+                android:textAppearance="@style/Typography.GsHomeTown.Body3.Medium3"
+                android:textColor="@color/grey_09"
+                app:layout_constraintBottom_toBottomOf="@id/tv_reserve_discount_title"
+                app:layout_constraintEnd_toStartOf="@id/iv_reserve_discount_more"
+                app:layout_constraintTop_toTopOf="@id/tv_reserve_discount_title" />
+
+            <ImageView
+                android:id="@+id/iv_reserve_discount_more"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="15dp"
+                android:src="@drawable/ic_reserve_arrow_right"
+                app:layout_constraintBottom_toBottomOf="@id/tv_reserve_discount_more"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@id/tv_reserve_discount_more" />
+
+            <TextView
+                android:id="@+id/tv_reserve_discount_date"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="14dp"
+                android:layout_marginTop="13dp"
+                android:textAppearance="@style/Typography.GsHomeTown.Body3.Medium3"
+                android:textColor="@color/grey_08"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tv_reserve_discount_title"
+                tools:text="2024.05.17 ~ 2024.05.19" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rc_reserve_disount_menu"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="14dp"
+                android:layout_marginTop="14dp"
+                android:orientation="horizontal"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tv_reserve_discount_date"
+                tools:listitem="@layout/item_reserve_discount_menu" />
+
         </androidx.constraintlayout.widget.ConstraintLayout>
 
     </androidx.core.widget.NestedScrollView>
