@@ -9,7 +9,7 @@ import android.widget.ImageView
 import android.widget.TextView
 import com.sopt.now.gs.R
 
-class GridMenuCategoryAdapter(val context: Context, private val items: MutableList<GridMenuCategoryItem>) :
+class GridMenuCategoryAdapter(val context: Context, private val items: MutableList<GridMenuListItem>) :
     BaseAdapter() {
     override fun getView(position: Int, p1: View?, p2: ViewGroup?): View {
         val view : View = LayoutInflater.from(context).inflate(R.layout.item_reserve_menu_list,null)
@@ -23,7 +23,7 @@ class GridMenuCategoryAdapter(val context: Context, private val items: MutableLi
     }
     override fun getCount(): Int = items.size
 
-    override fun getItem(position: Int): GridMenuCategoryItem = items[position]
+    override fun getItem(position: Int): GridMenuListItem = items[position]
 
     override fun getItemId(position: Int): Long = position.toLong()
 
@@ -48,4 +48,4 @@ class GridMenuCategoryAdapter(val context: Context, private val items: MutableLi
 //    }
 }
 
-data class GridMenuCategoryItem(val menuCategoryImage: Int, val menuCategoryTitle: String)
+data class GridMenuListItem(val menuCategoryImage: Int, val menuCategoryTitle: String)
