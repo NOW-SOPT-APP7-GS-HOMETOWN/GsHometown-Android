@@ -306,21 +306,95 @@
 
                 <ImageView
                     android:id="@+id/iv_main_service"
-                    android:layout_width="0dp"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:adjustViewBounds="true"
                     android:src="@drawable/img_main_service"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/iv_main_my_refrigerator" />
 
-                <ImageView
-                    android:id="@+id/iv_main_month_event"
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/cv_main_month_event"
                     android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:adjustViewBounds="true"
-                    android:src="@drawable/img_main_month_event"
+                    android:layout_height="0dp"
+                    android:layout_marginHorizontal="14dp"
+                    android:orientation="horizontal"
+                    app:cardCornerRadius="24dp"
+                    app:layout_constraintDimensionRatio="1"
+                    app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/iv_main_service" />
+                    app:layout_constraintTop_toBottomOf="@id/iv_main_service">
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <TextView
+                            android:id="@+id/tv_main_month_event_title"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="16dp"
+                            android:layout_marginTop="13dp"
+                            android:text="GS25 이달의 행사"
+                            android:theme="@style/Typography.GsHomeTown.Heading6"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                        <TextView
+                            android:id="@+id/tv_main_month_event_sub_title"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="두근두근 기대되는 이달의 편의점 행사는?"
+                            app:layout_constraintStart_toStartOf="@id/tv_main_month_event_title"
+                            app:layout_constraintTop_toBottomOf="@id/tv_main_month_event_title" />
+
+                        <androidx.viewpager2.widget.ViewPager2
+                            android:id="@+id/vp_main_month_event1"
+                            android:layout_width="0dp"
+                            android:layout_height="0dp"
+                            android:layout_marginTop="12dp"
+                            android:layout_marginEnd="108dp"
+                            android:layout_marginBottom="13dp"
+                            android:orientation="vertical"
+                            android:src="@drawable/img_main_month_event1"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="@id/tv_main_month_event_sub_title"
+                            app:layout_constraintTop_toBottomOf="@id/tv_main_month_event_sub_title"
+                            tools:listitem="@layout/item_main_banner" />
+
+                        <ImageView
+                            android:id="@+id/iv_main_month_event_window"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="6dp"
+                            android:layout_marginEnd="15dp"
+                            android:adjustViewBounds="true"
+                            android:elevation="10dp"
+                            android:src="@drawable/img_main_month_event_window"
+                            app:layout_constraintBottom_toBottomOf="@id/vp_main_month_event1"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintHorizontal_bias="0.0"
+                            app:layout_constraintStart_toEndOf="@id/vp_main_month_event1"
+                            app:layout_constraintTop_toTopOf="@id/vp_main_month_event1"
+                            app:layout_constraintVertical_bias="0.0" />
+
+                        <androidx.viewpager2.widget.ViewPager2
+                            android:id="@+id/vp_main_month_event2"
+                            android:layout_width="0dp"
+                            android:layout_height="0dp"
+                            android:layout_marginBottom="9dp"
+                            android:elevation="0dp"
+                            android:orientation="vertical"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="@id/iv_main_month_event_window"
+                            app:layout_constraintStart_toStartOf="@id/iv_main_month_event_window"
+                            app:layout_constraintTop_toTopOf="@id/iv_main_month_event_window"
+                            tools:listitem="@layout/item_main_month_event" />
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                </androidx.cardview.widget.CardView>
+
 
                 <ImageView
                     android:id="@+id/iv_main_week_event"
@@ -329,7 +403,7 @@
                     android:adjustViewBounds="true"
                     android:src="@drawable/img_main_week_event"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/iv_main_month_event" />
+                    app:layout_constraintTop_toBottomOf="@id/cv_main_month_event" />
 
 
                 <androidx.viewpager2.widget.ViewPager2
