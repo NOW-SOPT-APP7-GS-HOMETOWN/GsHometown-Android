@@ -8,6 +8,7 @@ import com.sopt.now.gs.databinding.FragmentReserveBinding
 class ReserveFragment : BindingFragment<FragmentReserveBinding>(R.layout.fragment_reserve) {
     private val menuListitems = mutableListOf<GridMenuListItem>()
     private val menuCategoryitems = mutableListOf<GridMenuCategoryItem>()
+    private val menuCategory2items = mutableListOf<GridMenuCategory2Item>()
     private val viewModel by viewModels<DiscountMenuViewModel>()
 
     override fun initView() {
@@ -41,6 +42,16 @@ class ReserveFragment : BindingFragment<FragmentReserveBinding>(R.layout.fragmen
         }
         val menuCategoryAdapter = GridMenuCategoryAdapter(requireContext(), menuCategoryitems)
         binding.gvReserveCategory1Menu.adapter = menuCategoryAdapter
+
+        //임시 데이터
+        menuCategory2items.apply {
+            add(GridMenuCategory2Item(R.drawable.ic_launcher_background,"핫매콤야끼우동","9,000원","5.0","(후기4)"))
+            add(GridMenuCategory2Item(R.drawable.ic_launcher_background,"핫매콤야끼우동","9,000원","5.0","(후기4)"))
+            add(GridMenuCategory2Item(R.drawable.ic_launcher_background,"핫매콤야끼우동","9,000원","5.0","(후기4)"))
+            add(GridMenuCategory2Item(R.drawable.ic_launcher_background,"핫매콤야끼우동","9,000원","5.0","(후기4)"))
+        }
+        val menuCategory2Adapter = GridMenuCategory2Adapter(requireContext(), menuCategory2items)
+        binding.gvReserveCategory2Menu.adapter = menuCategory2Adapter
     }
 
 }

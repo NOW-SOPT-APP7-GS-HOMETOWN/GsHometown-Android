@@ -395,7 +395,59 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/iv_reserve_category1_more" />
 
+            <ImageView
+                android:id="@+id/iv_reserve_grey_line4"
+                android:layout_width="0dp"
+                android:layout_height="7dp"
+                android:src="@drawable/shape_grey03_fill_0_rect"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/gv_reserve_category1_menu" />
 
+            <TextView
+                android:id="@+id/tv_reserve_category2_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="14dp"
+                android:layout_marginTop="13dp"
+                android:textAppearance="@style/Typography.GsHomeTown.Heading5"
+                android:textColor="@color/grey_10"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/iv_reserve_grey_line4"
+                tools:text="냉장간편식" />
+
+            <TextView
+                android:id="@+id/tv_reserve_category2_more"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="더보기"
+                android:textAppearance="@style/Typography.GsHomeTown.Body3.Medium3"
+                android:textColor="@color/grey_09"
+                app:layout_constraintBottom_toBottomOf="@id/tv_reserve_category2_title"
+                app:layout_constraintEnd_toStartOf="@id/iv_reserve_category2_more"
+                app:layout_constraintTop_toTopOf="@id/tv_reserve_category2_title" />
+
+            <ImageView
+                android:id="@+id/iv_reserve_category2_more"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="15dp"
+                android:src="@drawable/ic_reserve_arrow_right"
+                app:layout_constraintBottom_toBottomOf="@id/tv_reserve_category2_more"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@id/tv_reserve_category2_more" />
+
+            <GridView
+                android:id="@+id/gv_reserve_category2_menu"
+                android:layout_width="wrap_content"
+                android:layout_height="654dp"
+                android:layout_marginHorizontal="14dp"
+                android:layout_marginTop="22dp"
+                android:layout_marginBottom="5dp"
+                android:numColumns="2"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/iv_reserve_category2_more" />
         </androidx.constraintlayout.widget.ConstraintLayout>
 
     </androidx.core.widget.NestedScrollView>
