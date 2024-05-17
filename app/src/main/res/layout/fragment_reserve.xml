@@ -97,20 +97,6 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/iv_reserve_pick_up_store" />
 
-            <TextView
-                android:id="@+id/iv_reserve_top_banner_label"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="286dp"
-                android:layout_marginTop="10dp"
-                android:background="@drawable/shape_grey00_fill_circle"
-                android:gravity="center"
-                android:text="사전\n예약"
-                android:textAppearance="@style/Typography.GsHomeTown.Detail"
-                android:textColor="@color/grey_10"
-                app:layout_constraintStart_toStartOf="@id/vp_reserve_top_banner"
-                app:layout_constraintTop_toTopOf="@id/vp_reserve_top_banner" />
-
             <ImageView
                 android:id="@+id/iv_reserve_pages"
                 android:layout_width="44dp"

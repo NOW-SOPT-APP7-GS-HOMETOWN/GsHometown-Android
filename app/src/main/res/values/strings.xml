@@ -7,4 +7,6 @@
     <string name="menu_item_order">주문내역</string>
     <string name="menu_item_my_page">MY</string>
     <!-- home -->
+    <!--reserve-->
+    <string name="reserve_top_banner">%1$d/%2$d</string>
 </resources>

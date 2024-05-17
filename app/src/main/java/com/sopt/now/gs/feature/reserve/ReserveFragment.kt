@@ -1,17 +1,69 @@
 package com.sopt.now.gs.feature.reserve
 
 import androidx.fragment.app.viewModels
+import androidx.lifecycle.lifecycleScope
+import androidx.viewpager2.widget.ViewPager2
 import com.sopt.now.gs.R
 import com.sopt.now.gs.core.base.BindingFragment
 import com.sopt.now.gs.databinding.FragmentReserveBinding
+import kotlinx.coroutines.Job
+import kotlinx.coroutines.delay
+import kotlin.math.ceil
 
 class ReserveFragment : BindingFragment<FragmentReserveBinding>(R.layout.fragment_reserve) {
     private val menuListitems = mutableListOf<GridMenuListItem>()
     private val menuCategoryitems = mutableListOf<GridMenuCategoryItem>()
     private val menuCategory2items = mutableListOf<GridMenuCategory2Item>()
     private val viewModel by viewModels<DiscountMenuViewModel>()
+    private var bannerPosition = 0
+    lateinit var job: Job
 
     override fun initView() {
+        //임시 데이터 생성
+        val list: ArrayList<DataPage> = ArrayList<DataPage>().let {
+            it.apply {
+                add(DataPage(R.drawable.shape_blue01_fill_9_rect, "1"))
+                add(DataPage(R.drawable.shape_blue01_fill_9_rect, "2"))
+                add(DataPage(R.drawable.shape_blue01_fill_9_rect, "3"))
+                add(DataPage(R.drawable.shape_blue01_fill_9_rect, "4"))
+                add(DataPage(R.drawable.shape_blue01_fill_9_rect, "5"))
+                add(DataPage(R.drawable.shape_blue01_fill_9_rect, "6"))
+            }
+        }
+
+        binding.vpReserveTopBanner.adapter = ViewPagerAdapter(list)
+        binding.vpReserveTopBanner.orientation = ViewPager2.ORIENTATION_HORIZONTAL
+        binding.tvReservePages.text = getString(R.string.reserve_top_banner, 1, list.size)
+
+        binding.vpReserveTopBanner.registerOnPageChangeCallback(object :
+            ViewPager2.OnPageChangeCallback() {
+            //사용자가 스크롤 했을때 position 수정
+            override fun onPageSelected(position: Int) {
+                super.onPageSelected(position)
+                bannerPosition = position
+                binding.tvReservePages.text = getString(
+                    R.string.reserve_top_banner,
+                    (bannerPosition % list.size) + 1,
+                    list.size
+                )
+            }
+
+            override fun onPageScrollStateChanged(state: Int) {
+                super.onPageScrollStateChanged(state)
+                when (state) {
+                    ViewPager2.SCROLL_STATE_IDLE ->{
+                        if (!job.isActive) scrollJobCreate()
+                    }
+
+                    ViewPager2.SCROLL_STATE_DRAGGING -> job.cancel()
+
+                    ViewPager2.SCROLL_STATE_SETTLING -> {}
+                }
+            }
+        })
+        bannerPosition = Int.MAX_VALUE / 2 - ceil(list.size.toDouble() / 2).toInt()
+        binding.vpReserveTopBanner.setCurrentItem(bannerPosition, false)
+
         menuListitems.apply {
             add(GridMenuListItem(R.drawable.img_reserve_pystor, "편스토랑"))
             add(GridMenuListItem(R.drawable.img_reserve_meal, "밀박스25"))
@@ -35,23 +87,72 @@ class ReserveFragment : BindingFragment<FragmentReserveBinding>(R.layout.fragmen
 
         //임시 데이터
         menuCategoryitems.apply {
-            add(GridMenuCategoryItem(R.drawable.ic_launcher_background,"넷플릭스)BIG반반닭강정","9,000원"))
-            add(GridMenuCategoryItem(R.drawable.ic_launcher_background,"넷플릭스)BIG반반닭강정","9,000원"))
-            add(GridMenuCategoryItem(R.drawable.ic_launcher_background,"넷플릭스)BIG반반닭강정","9,000원"))
-            add(GridMenuCategoryItem(R.drawable.ic_launcher_background,"넷플릭스)BIG반반닭강정","9,000원"))
+            add(GridMenuCategoryItem(R.drawable.ic_launcher_background, "넷플릭스)BIG반반닭강정", "9,000원"))
+            add(GridMenuCategoryItem(R.drawable.ic_launcher_background, "넷플릭스)BIG반반닭강정", "9,000원"))
+            add(GridMenuCategoryItem(R.drawable.ic_launcher_background, "넷플릭스)BIG반반닭강정", "9,000원"))
+            add(GridMenuCategoryItem(R.drawable.ic_launcher_background, "넷플릭스)BIG반반닭강정", "9,000원"))
         }
         val menuCategoryAdapter = GridMenuCategoryAdapter(requireContext(), menuCategoryitems)
         binding.gvReserveCategory1Menu.adapter = menuCategoryAdapter
 
         //임시 데이터
         menuCategory2items.apply {
-            add(GridMenuCategory2Item(R.drawable.ic_launcher_background,"핫매콤야끼우동","9,000원","5.0","(후기4)"))
-            add(GridMenuCategory2Item(R.drawable.ic_launcher_background,"핫매콤야끼우동","9,000원","5.0","(후기4)"))
-            add(GridMenuCategory2Item(R.drawable.ic_launcher_background,"핫매콤야끼우동","9,000원","5.0","(후기4)"))
-            add(GridMenuCategory2Item(R.drawable.ic_launcher_background,"핫매콤야끼우동","9,000원","5.0","(후기4)"))
+            add(
+                GridMenuCategory2Item(
+                    R.drawable.ic_launcher_background,
+                    "핫매콤야끼우동",
+                    "9,000원",
+                    "5.0",
+                    "(후기4)"
+                )
+            )
+            add(
+                GridMenuCategory2Item(
+                    R.drawable.ic_launcher_background,
+                    "핫매콤야끼우동",
+                    "9,000원",
+                    "5.0",
+                    "(후기4)"
+                )
+            )
+            add(
+                GridMenuCategory2Item(
+                    R.drawable.ic_launcher_background,
+                    "핫매콤야끼우동",
+                    "9,000원",
+                    "5.0",
+                    "(후기4)"
+                )
+            )
+            add(
+                GridMenuCategory2Item(
+                    R.drawable.ic_launcher_background,
+                    "핫매콤야끼우동",
+                    "9,000원",
+                    "5.0",
+                    "(후기4)"
+                )
+            )
         }
         val menuCategory2Adapter = GridMenuCategory2Adapter(requireContext(), menuCategory2items)
         binding.gvReserveCategory2Menu.adapter = menuCategory2Adapter
+
     }
 
+    override fun onResume() {
+        super.onResume()
+        scrollJobCreate()
+    }
+
+    override fun onPause() {
+        super.onPause()
+        job.cancel()
+    }
+
+    fun scrollJobCreate() {
+        job = lifecycleScope.launchWhenResumed {
+            delay(1500)
+            binding.vpReserveTopBanner.setCurrentItem(++bannerPosition, true)
+        }
+    }
 }
