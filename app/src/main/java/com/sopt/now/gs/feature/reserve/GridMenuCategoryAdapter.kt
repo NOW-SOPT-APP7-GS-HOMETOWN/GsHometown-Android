@@ -12,7 +12,7 @@ import com.sopt.now.gs.R
 class GridMenuCategoryAdapter(val context: Context, private val items: MutableList<GridMenuCategoryItem>) :
     BaseAdapter() {
     override fun getView(position: Int, p1: View?, p2: ViewGroup?): View {
-        val view : View = LayoutInflater.from(context).inflate(R.layout.item_reserve_menu_category,null)
+        val view : View = LayoutInflater.from(context).inflate(R.layout.item_reserve_menu_list,null)
 
         val currentItem = items[position]
 
