@@ -40,7 +40,51 @@
                     android:text="택배상품" />
             </com.google.android.material.tabs.TabLayout>
 
+            <ImageView
+                android:id="@+id/btn_reserve_pick_up_store"
+                android:layout_width="0dp"
+                android:layout_height="36dp"
+                android:layout_marginStart="14dp"
+                android:layout_marginTop="18dp"
+                android:layout_marginEnd="13dp"
+                android:background="@drawable/shape_navy01_fill_18_rect"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tab_reserve_tab" />
 
+            <TextView
+                android:id="@+id/tv_reserve_pick_up_store_label"
+                android:layout_width="58dp"
+                android:layout_height="22dp"
+                android:layout_marginStart="8dp"
+                android:background="@drawable/shape_blue03_fill_11_rect"
+                android:gravity="center"
+                android:text="수령매장"
+                android:textAppearance="@style/Typography.GsHomeTown.Body3.Medium"
+                android:textColor="@color/grey_10"
+                app:layout_constraintBottom_toBottomOf="@id/btn_reserve_pick_up_store"
+                app:layout_constraintStart_toStartOf="@id/btn_reserve_pick_up_store"
+                app:layout_constraintTop_toTopOf="@id/btn_reserve_pick_up_store" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:text="GS25 당산진미점·6.5km"
+                android:textAppearance="@style/Typography.GsHomeTown.Body4.Regular"
+                android:textColor="@color/grey_00"
+                app:layout_constraintBottom_toBottomOf="@id/btn_reserve_pick_up_store"
+                app:layout_constraintStart_toEndOf="@id/tv_reserve_pick_up_store_label"
+                app:layout_constraintTop_toTopOf="@id/btn_reserve_pick_up_store" />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="12dp"
+                android:src="@drawable/ic_reserve_arrow_right"
+                app:layout_constraintBottom_toBottomOf="@id/btn_reserve_pick_up_store"
+                app:layout_constraintEnd_toEndOf="@id/btn_reserve_pick_up_store"
+                app:layout_constraintTop_toTopOf="@id/btn_reserve_pick_up_store" />
         </androidx.constraintlayout.widget.ConstraintLayout>
 
     </androidx.core.widget.NestedScrollView>
