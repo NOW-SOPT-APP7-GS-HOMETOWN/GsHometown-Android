@@ -87,10 +87,10 @@ class ReserveFragment : BindingFragment<FragmentReserveBinding>(R.layout.fragmen
 
         //임시 데이터
         menuCategoryitems.apply {
-            add(GridMenuCategoryItem(R.drawable.ic_launcher_background, "넷플릭스)BIG반반닭강정", "9,000원"))
-            add(GridMenuCategoryItem(R.drawable.ic_launcher_background, "넷플릭스)BIG반반닭강정", "9,000원"))
-            add(GridMenuCategoryItem(R.drawable.ic_launcher_background, "넷플릭스)BIG반반닭강정", "9,000원"))
-            add(GridMenuCategoryItem(R.drawable.ic_launcher_background, "넷플릭스)BIG반반닭강정", "9,000원"))
+            add(GridMenuCategoryItem(R.drawable.img_reserve_category1_chicken, "넷플릭스)BIG반반닭강정", "9,000원"))
+            add(GridMenuCategoryItem(R.drawable.img_reserve_category1_chicken_half, "넷플릭스)BIG반반닭강정", "9,000원"))
+            add(GridMenuCategoryItem(R.drawable.img_reserve_category1_cutlet, "넷플릭스)BIG반반닭강정", "9,000원"))
+            add(GridMenuCategoryItem(R.drawable.img_reserve_category1_pork_skin, "넷플릭스)BIG반반닭강정", "9,000원"))
         }
         val menuCategoryAdapter = GridMenuCategoryAdapter(requireContext(), menuCategoryitems)
         binding.gvReserveCategory1Menu.adapter = menuCategoryAdapter
@@ -99,7 +99,7 @@ class ReserveFragment : BindingFragment<FragmentReserveBinding>(R.layout.fragmen
         menuCategory2items.apply {
             add(
                 GridMenuCategory2Item(
-                    R.drawable.ic_launcher_background,
+                    R.drawable.img_reserve_category2_chicken_soup,
                     "핫매콤야끼우동",
                     "9,000원",
                     "5.0",
@@ -108,7 +108,7 @@ class ReserveFragment : BindingFragment<FragmentReserveBinding>(R.layout.fragmen
             )
             add(
                 GridMenuCategory2Item(
-                    R.drawable.ic_launcher_background,
+                    R.drawable.img_reserve_category2_meat_soup,
                     "핫매콤야끼우동",
                     "9,000원",
                     "5.0",
@@ -117,7 +117,7 @@ class ReserveFragment : BindingFragment<FragmentReserveBinding>(R.layout.fragmen
             )
             add(
                 GridMenuCategory2Item(
-                    R.drawable.ic_launcher_background,
+                    R.drawable.img_reserve_category2_noodle,
                     "핫매콤야끼우동",
                     "9,000원",
                     "5.0",
@@ -126,7 +126,7 @@ class ReserveFragment : BindingFragment<FragmentReserveBinding>(R.layout.fragmen
             )
             add(
                 GridMenuCategory2Item(
-                    R.drawable.ic_launcher_background,
+                    R.drawable.img_reserve_category2_potato_soup,
                     "핫매콤야끼우동",
                     "9,000원",
                     "5.0",

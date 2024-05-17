@@ -278,7 +278,8 @@
                 android:layout_marginStart="14dp"
                 android:layout_marginTop="17dp"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/tv_reserve_event_date" />
+                app:layout_constraintTop_toBottomOf="@id/tv_reserve_event_date"
+                tools:src="@drawable/img_reserve_event" />
 
             <TextView
                 android:id="@+id/tv_reserve_event_menu_label_blue"
