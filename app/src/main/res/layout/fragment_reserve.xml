@@ -8,6 +8,7 @@
     </data>
 
     <androidx.core.widget.NestedScrollView
+        android:id="@+id/sv_reserve"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
@@ -434,6 +435,18 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/iv_reserve_category2_more" />
+
+            <com.google.android.material.floatingactionbutton.FloatingActionButton
+                android:id="@+id/fab_reserve_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="18dp"
+                android:layout_marginBottom="18dp"
+                android:backgroundTint="@color/grey_00"
+                android:src="@drawable/ic_reserve_arrow_top"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent" />
+
         </androidx.constraintlayout.widget.ConstraintLayout>
 
     </androidx.core.widget.NestedScrollView>
