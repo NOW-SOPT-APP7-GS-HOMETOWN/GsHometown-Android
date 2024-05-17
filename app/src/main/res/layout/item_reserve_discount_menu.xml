@@ -3,14 +3,15 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="116dp"
-    android:layout_height="250dp">
+    android:layout_height="250dp"
+    android:layout_marginEnd="10dp">
 
     <ImageView
         android:id="@+id/iv_reserve_discount_menu_image"
         android:layout_width="116dp"
         android:layout_height="116dp"
-        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
@@ -74,7 +75,7 @@
         app:layout_constraintTop_toBottomOf="@id/tv_reserve_discount_menu_title" />
 
     <TextView
-        android:id="@+id/tv_reserve_discount_menu_price_red"
+        android:id="@+id/tv_reserve_discount_menu_card_price"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="@style/Typography.GsHomeTown.Body3.Medium3"
@@ -84,26 +85,26 @@
         tools:text="8,900원" />
 
     <TextView
-        android:id="@+id/tv_reserve_discount_menu_price_black"
+        android:id="@+id/tv_reserve_discount_menu_price"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="2dp"
         android:textAppearance="@style/Typography.GsHomeTown.Body2"
         android:textColor="@color/grey_10"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/tv_reserve_discount_menu_price_red"
+        app:layout_constraintTop_toBottomOf="@id/tv_reserve_discount_menu_card_price"
         tools:text="9,900원" />
 
     <TextView
-        android:id="@+id/tv_reserve_discount_menu_price_grey"
+        android:id="@+id/tv_reserve_discount_menu_original_price"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="2dp"
         android:textAppearance="@style/Typography.GsHomeTown.Detail"
         android:textColor="@color/grey_06"
-        app:layout_constraintBottom_toBottomOf="@id/tv_reserve_discount_menu_price_black"
-        app:layout_constraintStart_toEndOf="@id/tv_reserve_discount_menu_price_black"
-        app:layout_constraintTop_toTopOf="@id/tv_reserve_discount_menu_price_black"
+        app:layout_constraintBottom_toBottomOf="@id/tv_reserve_discount_menu_price"
+        app:layout_constraintStart_toEndOf="@id/tv_reserve_discount_menu_price"
+        app:layout_constraintTop_toTopOf="@id/tv_reserve_discount_menu_price"
         tools:text="12,900원" />
 
     <ImageView
@@ -113,5 +114,5 @@
         android:layout_marginTop="4dp"
         android:src="@drawable/ic_reserve_discount_chip"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/tv_reserve_discount_menu_price_black" />
+        app:layout_constraintTop_toBottomOf="@id/tv_reserve_discount_menu_price" />
 </androidx.constraintlayout.widget.ConstraintLayout>
