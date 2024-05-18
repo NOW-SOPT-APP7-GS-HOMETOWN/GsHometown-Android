@@ -379,13 +379,15 @@
                             app:layout_constraintTop_toTopOf="@id/vp_main_month_event1"
                             app:layout_constraintVertical_bias="0.0" />
 
-                        <androidx.viewpager2.widget.ViewPager2
+                        <androidx.recyclerview.widget.RecyclerView
                             android:id="@+id/vp_main_month_event2"
+                            android:layout_marginStart="7dp"
                             android:layout_width="0dp"
                             android:layout_height="0dp"
                             android:layout_marginBottom="9dp"
                             android:elevation="0dp"
                             android:orientation="vertical"
+                            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
                             app:layout_constraintBottom_toBottomOf="parent"
                             app:layout_constraintEnd_toEndOf="@id/iv_main_month_event_window"
                             app:layout_constraintStart_toStartOf="@id/iv_main_month_event_window"
