@@ -14,20 +14,20 @@ class ReserveFragment : BindingFragment<FragmentReserveBinding>(R.layout.fragmen
     private val menuListitems = mutableListOf<GridMenuListItem>()
     private val menuCategoryitems = mutableListOf<GridMenuCategoryItem>()
     private val menuCategory2items = mutableListOf<GridMenuCategory2Item>()
-    private val viewModel by viewModels<DiscountMenuViewModel>()
+    private val viewModel by viewModels<ReserveDiscountViewModel>()
     private var bannerPosition = 0
     lateinit var job: Job
 
     override fun initView() {
         //임시 데이터 생성
-        val list: ArrayList<DataPage> = ArrayList<DataPage>().let {
+        val list: ArrayList<ReserveBannerPage> = ArrayList<ReserveBannerPage>().let {
             it.apply {
-                add(DataPage(R.drawable.img_reserve_banner1, "1"))
-                add(DataPage(R.drawable.img_reserve_banner2, "2"))
-                add(DataPage(R.drawable.img_reserve_banner1, "3"))
-                add(DataPage(R.drawable.img_reserve_banner2, "4"))
-                add(DataPage(R.drawable.img_reserve_banner1, "5"))
-                add(DataPage(R.drawable.img_reserve_banner2, "6"))
+                add(ReserveBannerPage(R.drawable.img_reserve_banner1, "1"))
+                add(ReserveBannerPage(R.drawable.img_reserve_banner2, "2"))
+                add(ReserveBannerPage(R.drawable.img_reserve_banner1, "3"))
+                add(ReserveBannerPage(R.drawable.img_reserve_banner2, "4"))
+                add(ReserveBannerPage(R.drawable.img_reserve_banner1, "5"))
+                add(ReserveBannerPage(R.drawable.img_reserve_banner2, "6"))
             }
         }
 
@@ -81,7 +81,7 @@ class ReserveFragment : BindingFragment<FragmentReserveBinding>(R.layout.fragmen
         val menuListAdapter = GridMenuListAdapter(requireContext(), menuListitems)
         binding.gvReserveMenuList.adapter = menuListAdapter
 
-        val discountMenuAdapter = DiscountMenuAdapter()
+        val discountMenuAdapter = ReserveDiscountAdapter()
         binding.rcReserveDisountMenu.adapter = discountMenuAdapter
         discountMenuAdapter.setFriendList(viewModel.mockFriendList)
 

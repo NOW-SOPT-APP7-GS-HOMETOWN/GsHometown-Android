@@ -4,10 +4,10 @@ import android.graphics.Paint
 import androidx.recyclerview.widget.RecyclerView
 import com.sopt.now.gs.databinding.ItemReserveDiscountMenuBinding
 
-class DiscountMenuViewHolder(private val binding: ItemReserveDiscountMenuBinding) :
+class ReserveDiscountViewHolder(private val binding: ItemReserveDiscountMenuBinding) :
     RecyclerView.ViewHolder(binding.root) {
 
-    fun onBind(discountMenuData: DiscountMenu) {
+    fun onBind(discountMenuData: ReserveDiscountMenu) {
         binding.run {
             ivReserveDiscountMenuImage.setImageResource(discountMenuData.image)
             tvReserveDiscountMenuTitle.text = discountMenuData.title

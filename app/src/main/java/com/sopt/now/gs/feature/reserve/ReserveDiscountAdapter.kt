@@ -5,22 +5,22 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.sopt.now.gs.databinding.ItemReserveDiscountMenuBinding
 
-class DiscountMenuAdapter() : RecyclerView.Adapter<DiscountMenuViewHolder>() {
-    private var discountMenuList: List<DiscountMenu> = emptyList()
+class ReserveDiscountAdapter() : RecyclerView.Adapter<ReserveDiscountViewHolder>() {
+    private var discountMenuList: List<ReserveDiscountMenu> = emptyList()
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): DiscountMenuViewHolder {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ReserveDiscountViewHolder {
         val inflater = LayoutInflater.from(parent.context)
         val binding = ItemReserveDiscountMenuBinding.inflate(inflater, parent, false)
-        return DiscountMenuViewHolder(binding)
+        return ReserveDiscountViewHolder(binding)
     }
 
-    override fun onBindViewHolder(holder: DiscountMenuViewHolder, position: Int) {
+    override fun onBindViewHolder(holder: ReserveDiscountViewHolder, position: Int) {
         holder.onBind(discountMenuList[position])
     }
 
     override fun getItemCount() = discountMenuList.size
 
-    fun setFriendList(friendList: List<DiscountMenu>) {
+    fun setFriendList(friendList: List<ReserveDiscountMenu>) {
         this.discountMenuList = friendList.toList()
         notifyDataSetChanged()
     }

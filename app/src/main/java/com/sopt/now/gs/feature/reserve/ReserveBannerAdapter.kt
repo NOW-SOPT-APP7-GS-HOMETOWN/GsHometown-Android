@@ -7,7 +7,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.sopt.now.gs.R
 import com.sopt.now.gs.databinding.ItemReserveTopBannerBinding
 
-class ViewPagerAdapter(private val listData: ArrayList<DataPage>) : RecyclerView.Adapter<ViewHolderPage>() {
+class ViewPagerAdapter(private val listData: ArrayList<ReserveBannerPage>) : RecyclerView.Adapter<ViewHolderPage>() {
     lateinit var binding: ItemReserveTopBannerBinding
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolderPage {
@@ -25,7 +25,7 @@ class ViewPagerAdapter(private val listData: ArrayList<DataPage>) : RecyclerView
 }
 
 class ViewHolderPage(val binding: ItemReserveTopBannerBinding) : RecyclerView.ViewHolder(binding.root) {
-    fun onBind(data: DataPage) {
+    fun onBind(data: ReserveBannerPage) {
         binding.ivReserveBanner.setImageResource(data.image)
     }
 }
