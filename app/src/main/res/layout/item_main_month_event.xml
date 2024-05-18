@@ -5,14 +5,19 @@
     android:layout_height="wrap_content">
 
     <ImageView
-        android:paddingBottom="10dp"
         android:id="@+id/iv_main_month_event_img"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:adjustViewBounds="true"
         android:src="@drawable/img_main_month_event_banner1"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <View
+        android:layout_width="0dp"
+        android:layout_height="10dp"
+        app:layout_constraintEnd_toEndOf="@id/iv_main_month_event_img"
+        app:layout_constraintStart_toStartOf="@id/iv_main_month_event_img"
+        app:layout_constraintTop_toBottomOf="@id/iv_main_month_event_img" />
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -25,8 +25,6 @@ class HomeFragment : BindingFragment<FragmentHomeBinding>(R.layout.fragment_home
     var bottomBannerJob: Job? = null
     var monthEventCurrentPosition = 0
     var monthEventJob: Job? = null
-
-    //TODO
     var monthEventCurrentPosition2 = 0
     var monthEventJob2: Job? = null
 
@@ -39,7 +37,6 @@ class HomeFragment : BindingFragment<FragmentHomeBinding>(R.layout.fragment_home
         initTopBanner()
         initBottomBanner()
         initMonthEvent()
-
         initRecyclerView()
     }
 
@@ -171,10 +168,8 @@ class HomeFragment : BindingFragment<FragmentHomeBinding>(R.layout.fragment_home
                     binding.vpMainMonthEvent2.smoothScrollToPosition(0)
                     monthEventCurrentPosition2 = 0
                 } else {
-                    binding.vpMainMonthEvent2.smoothScrollToPosition(++monthEventCurrentPosition2)
-
+                    binding.vpMainMonthEvent2.smoothScrollToPosition(monthEventCurrentPosition2++)
                 }
-
             }
         }
     }
