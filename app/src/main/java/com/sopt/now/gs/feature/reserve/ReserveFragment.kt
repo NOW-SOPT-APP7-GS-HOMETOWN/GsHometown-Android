@@ -22,20 +22,20 @@ class ReserveFragment : BindingFragment<FragmentReserveBinding>(R.layout.fragmen
         //임시 데이터 생성
         val list: ArrayList<DataPage> = ArrayList<DataPage>().let {
             it.apply {
-                add(DataPage(R.drawable.img_reserve_top_banner1, "1"))
-                add(DataPage(R.drawable.img_reserve_top_banner2, "2"))
-                add(DataPage(R.drawable.img_reserve_top_banner1, "3"))
-                add(DataPage(R.drawable.img_reserve_top_banner2, "4"))
-                add(DataPage(R.drawable.img_reserve_top_banner1, "5"))
-                add(DataPage(R.drawable.img_reserve_top_banner2, "6"))
+                add(DataPage(R.drawable.img_reserve_banner1, "1"))
+                add(DataPage(R.drawable.img_reserve_banner2, "2"))
+                add(DataPage(R.drawable.img_reserve_banner1, "3"))
+                add(DataPage(R.drawable.img_reserve_banner2, "4"))
+                add(DataPage(R.drawable.img_reserve_banner1, "5"))
+                add(DataPage(R.drawable.img_reserve_banner2, "6"))
             }
         }
 
-        binding.vpReserveTopBanner.adapter = ViewPagerAdapter(list)
-        binding.vpReserveTopBanner.orientation = ViewPager2.ORIENTATION_HORIZONTAL
+        binding.vpReserveBanner.adapter = ViewPagerAdapter(list)
+        binding.vpReserveBanner.orientation = ViewPager2.ORIENTATION_HORIZONTAL
         binding.tvReservePages.text = getString(R.string.reserve_top_banner, 1, list.size)
 
-        binding.vpReserveTopBanner.registerOnPageChangeCallback(object :
+        binding.vpReserveBanner.registerOnPageChangeCallback(object :
             ViewPager2.OnPageChangeCallback() {
             //사용자가 스크롤 했을때 position 수정
             override fun onPageSelected(position: Int) {
@@ -62,7 +62,7 @@ class ReserveFragment : BindingFragment<FragmentReserveBinding>(R.layout.fragmen
             }
         })
         bannerPosition = Int.MAX_VALUE / 2 - ceil(list.size.toDouble() / 2).toInt()
-        binding.vpReserveTopBanner.setCurrentItem(bannerPosition, false)
+        binding.vpReserveBanner.setCurrentItem(bannerPosition, false)
 
         menuListitems.apply {
             add(GridMenuListItem(R.drawable.img_reserve_pystor, "편스토랑"))
@@ -152,7 +152,7 @@ class ReserveFragment : BindingFragment<FragmentReserveBinding>(R.layout.fragmen
     fun scrollJobCreate() {
         job = lifecycleScope.launchWhenResumed {
             delay(1500)
-            binding.vpReserveTopBanner.setCurrentItem(++bannerPosition, true)
+            binding.vpReserveBanner.setCurrentItem(++bannerPosition, true)
         }
     }
 }

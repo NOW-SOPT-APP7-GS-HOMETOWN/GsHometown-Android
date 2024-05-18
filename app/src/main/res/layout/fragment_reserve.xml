@@ -34,7 +34,9 @@
                 <com.google.android.material.tabs.TabItem
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="매장수령" />
+                    android:text="매장수령"
+                    tools:layout_editor_absoluteX="14dp"
+                    tools:layout_editor_absoluteY="10dp" />
 
                 <com.google.android.material.tabs.TabItem
                     android:layout_width="wrap_content"
@@ -89,51 +91,40 @@
                 app:layout_constraintTop_toTopOf="@id/iv_reserve_pick_up_store" />
 
             <androidx.viewpager2.widget.ViewPager2
-                android:id="@+id/vp_reserve_top_banner"
-                android:layout_width="332dp"
-                android:layout_height="149dp"
+                android:id="@+id/vp_reserve_banner"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_marginHorizontal="14dp"
                 android:layout_marginTop="19dp"
                 android:orientation="horizontal"
+                app:layout_constraintDimensionRatio="332:149"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/iv_reserve_pick_up_store" />
-
-            <ImageView
-                android:id="@+id/iv_reserve_pages"
-                android:layout_width="44dp"
-                android:layout_height="22dp"
-                android:layout_marginStart="277dp"
-                android:layout_marginTop="117dp"
-                android:layout_marginEnd="11dp"
-                android:layout_marginBottom="10dp"
-                android:background="@drawable/shape_grey12_fill_999_rect"
-                app:layout_constraintBottom_toBottomOf="@id/vp_reserve_top_banner"
-                app:layout_constraintEnd_toEndOf="@id/vp_reserve_top_banner"
-                app:layout_constraintStart_toStartOf="@id/vp_reserve_top_banner"
-                app:layout_constraintTop_toTopOf="@id/vp_reserve_top_banner" />
 
             <TextView
                 android:id="@+id/tv_reserve_pages"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="6dp"
+                android:layout_marginEnd="11dp"
+                android:layout_marginBottom="10dp"
+                android:background="@drawable/shape_grey12_fill_999_rect"
+                android:gravity="start|center_vertical"
+                android:paddingStart="6dp"
                 android:textAppearance="@style/Typography.GsHomeTown.Body4.Medium"
                 android:textColor="@color/grey_00"
-                app:layout_constraintBottom_toBottomOf="@id/iv_reserve_pages"
-                app:layout_constraintStart_toStartOf="@id/iv_reserve_pages"
-                app:layout_constraintTop_toTopOf="@id/iv_reserve_pages"
+                app:layout_constraintBottom_toBottomOf="@id/vp_reserve_banner"
+                app:layout_constraintEnd_toEndOf="@id/vp_reserve_banner"
                 tools:text="4/6" />
 
             <ImageView
                 android:id="@+id/tv_reserve_pages_union"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="26dp"
-                android:layout_marginEnd="6dp"
+                android:layout_marginEnd="10dp"
                 android:src="@drawable/ic_reserve_union"
                 app:layout_constraintBottom_toBottomOf="@id/tv_reserve_pages"
-                app:layout_constraintEnd_toEndOf="@id/iv_reserve_pages"
-                app:layout_constraintStart_toStartOf="@id/iv_reserve_pages"
+                app:layout_constraintEnd_toEndOf="@id/tv_reserve_pages"
                 app:layout_constraintTop_toTopOf="@id/tv_reserve_pages" />
 
             <!--의문 height 설정을 wrap 으로 하면 한 줄만 나온다...-->
@@ -146,14 +137,14 @@
                 android:numColumns="4"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/vp_reserve_top_banner" />
+                app:layout_constraintTop_toBottomOf="@id/vp_reserve_banner" />
 
-            <ImageView
+            <com.google.android.material.divider.MaterialDivider
                 android:id="@+id/iv_reserve_grey_line"
                 android:layout_width="0dp"
                 android:layout_height="7dp"
                 android:layout_marginTop="6dp"
-                android:src="@drawable/shape_grey03_fill_0_rect"
+                app:dividerColor="@color/grey_03"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/gv_reserve_menu_list" />
@@ -164,11 +155,11 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="14dp"
                 android:layout_marginTop="19dp"
+                android:text="[GS Pay 추가 할인] GS25 정육상품 4"
                 android:textAppearance="@style/Typography.GsHomeTown.Heading7"
                 android:textColor="@color/grey_10"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/iv_reserve_grey_line"
-                tools:text="[GS Pay 추가 할인] GS25 정육상품 4" />
+                app:layout_constraintTop_toBottomOf="@id/iv_reserve_grey_line" />
 
             <TextView
                 android:id="@+id/tv_reserve_discount_more"
@@ -197,11 +188,11 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="14dp"
                 android:layout_marginTop="13dp"
+                android:text="2024.05.17 ~ 2024.05.19"
                 android:textAppearance="@style/Typography.GsHomeTown.Body3.Medium3"
                 android:textColor="@color/grey_08"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/tv_reserve_discount_title"
-                tools:text="2024.05.17 ~ 2024.05.19" />
+                app:layout_constraintTop_toBottomOf="@id/tv_reserve_discount_title" />
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/rc_reserve_disount_menu"
@@ -211,17 +202,17 @@
                 android:layout_marginTop="14dp"
                 android:orientation="horizontal"
                 app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/tv_reserve_discount_date"
                 tools:listitem="@layout/item_reserve_discount_menu" />
 
-            <ImageView
+            <com.google.android.material.divider.MaterialDivider
                 android:id="@+id/iv_reserve_grey_line2"
                 android:layout_width="0dp"
                 android:layout_height="7dp"
                 android:layout_marginTop="7dp"
-                android:src="@drawable/shape_grey03_fill_0_rect"
+                app:dividerColor="@color/grey_03"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/rc_reserve_disount_menu" />
@@ -232,11 +223,11 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="14dp"
                 android:layout_marginTop="20dp"
+                android:text="푸냥이 푸딩젤리 2탄!복숭아맛🍑"
                 android:textAppearance="@style/Typography.GsHomeTown.Heading7"
                 android:textColor="@color/grey_10"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/iv_reserve_grey_line2"
-                tools:text="푸냥이 푸딩젤리 2탄!복숭아맛🍑" />
+                app:layout_constraintTop_toBottomOf="@id/iv_reserve_grey_line2" />
 
             <TextView
                 android:id="@+id/tv_reserve_event_more"
@@ -265,11 +256,11 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="14dp"
                 android:layout_marginTop="13dp"
+                android:text="2024.05.17 ~ 2024.05.19"
                 android:textAppearance="@style/Typography.GsHomeTown.Body3.Medium3"
                 android:textColor="@color/grey_08"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/tv_reserve_event_title"
-                tools:text="2024.05.17 ~ 2024.05.19" />
+                app:layout_constraintTop_toBottomOf="@id/tv_reserve_event_title" />
 
             <ImageView
                 android:id="@+id/iv_reserve_event_menu_image"
@@ -277,9 +268,9 @@
                 android:layout_height="111dp"
                 android:layout_marginStart="14dp"
                 android:layout_marginTop="17dp"
+                android:src="@drawable/img_reserve_event"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/tv_reserve_event_date"
-                tools:src="@drawable/img_reserve_event" />
+                app:layout_constraintTop_toBottomOf="@id/tv_reserve_event_date" />
 
             <TextView
                 android:id="@+id/tv_reserve_event_menu_label_blue"
@@ -309,30 +300,29 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="5dp"
                 android:maxLines="2"
-                android:text=""
+                android:text="(예약)핑크푸냥이푸딩젤리(2입)"
                 android:textAppearance="@style/Typography.GsHomeTown.Body3.Medium3"
                 android:textColor="@color/grey_09"
                 app:layout_constraintStart_toStartOf="@id/iv_reserve_event_menu_image"
-                app:layout_constraintTop_toBottomOf="@id/tv_reserve_event_menu_label_blue"
-                tools:text="(예약)핑크푸냥이푸딩젤리(2입)" />
+                app:layout_constraintTop_toBottomOf="@id/tv_reserve_event_menu_label_blue" />
 
             <TextView
                 android:id="@+id/tv_reserve_event_menu_price"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="5dp"
+                android:text="5,000원"
                 android:textAppearance="@style/Typography.GsHomeTown.Body2"
                 android:textColor="@color/grey_10"
                 app:layout_constraintStart_toStartOf="@id/iv_reserve_event_menu_image"
-                app:layout_constraintTop_toBottomOf="@id/tv_reserve_event_menu_title"
-                tools:text="5,000원" />
+                app:layout_constraintTop_toBottomOf="@id/tv_reserve_event_menu_title" />
 
-            <ImageView
+            <com.google.android.material.divider.MaterialDivider
                 android:id="@+id/iv_reserve_grey_line3"
                 android:layout_width="0dp"
                 android:layout_height="7dp"
                 android:layout_marginTop="7dp"
-                android:src="@drawable/shape_grey03_fill_0_rect"
+                app:dividerColor="@color/grey_03"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/tv_reserve_event_menu_price" />
@@ -343,11 +333,11 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="14dp"
                 android:layout_marginTop="13dp"
+                android:text="요리반찬/조리면"
                 android:textAppearance="@style/Typography.GsHomeTown.Heading5"
                 android:textColor="@color/grey_10"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/iv_reserve_grey_line3"
-                tools:text="요리반찬/조리면" />
+                app:layout_constraintTop_toBottomOf="@id/iv_reserve_grey_line3" />
 
             <TextView
                 android:id="@+id/tv_reserve_category1_more"
@@ -382,11 +372,11 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/iv_reserve_category1_more" />
 
-            <ImageView
+            <com.google.android.material.divider.MaterialDivider
                 android:id="@+id/iv_reserve_grey_line4"
                 android:layout_width="0dp"
                 android:layout_height="7dp"
-                android:src="@drawable/shape_grey03_fill_0_rect"
+                app:dividerColor="@color/grey_03"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/gv_reserve_category1_menu" />
@@ -397,11 +387,11 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="14dp"
                 android:layout_marginTop="13dp"
+                android:text="냉장간편식"
                 android:textAppearance="@style/Typography.GsHomeTown.Heading5"
                 android:textColor="@color/grey_10"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/iv_reserve_grey_line4"
-                tools:text="냉장간편식" />
+                app:layout_constraintTop_toBottomOf="@id/iv_reserve_grey_line4" />
 
             <TextView
                 android:id="@+id/tv_reserve_category2_more"

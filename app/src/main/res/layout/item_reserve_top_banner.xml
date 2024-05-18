@@ -12,28 +12,26 @@
         android:layout_height="match_parent">
 
         <ImageView
-            android:id="@+id/iv_reserve_top_banner"
-            android:layout_width="332dp"
-            android:layout_height="149dp"
-            android:orientation="horizontal"
-            android:src="@color/grey_09"
+            android:id="@+id/iv_reserve_banner"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/img_reserve_banner1"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
-            android:id="@+id/iv_reserve_top_banner_label"
+            android:id="@+id/iv_reserve_banner_label"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="286dp"
             android:layout_marginTop="10dp"
+            android:layout_marginEnd="12dp"
             android:background="@drawable/shape_grey00_fill_circle"
             android:gravity="center"
             android:text="사전\n예약"
             android:textAppearance="@style/Typography.GsHomeTown.Detail"
             android:textColor="@color/grey_10"
-            app:layout_constraintStart_toStartOf="@id/iv_reserve_top_banner"
-            app:layout_constraintTop_toTopOf="@id/iv_reserve_top_banner" />
-
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

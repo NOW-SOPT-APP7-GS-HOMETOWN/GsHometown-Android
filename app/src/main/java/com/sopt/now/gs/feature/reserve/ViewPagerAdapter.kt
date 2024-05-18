@@ -26,6 +26,6 @@ class ViewPagerAdapter(private val listData: ArrayList<DataPage>) : RecyclerView
 
 class ViewHolderPage(val binding: ItemReserveTopBannerBinding) : RecyclerView.ViewHolder(binding.root) {
     fun onBind(data: DataPage) {
-        binding.ivReserveTopBanner.setImageResource(data.image)
+        binding.ivReserveBanner.setImageResource(data.image)
     }
 }
