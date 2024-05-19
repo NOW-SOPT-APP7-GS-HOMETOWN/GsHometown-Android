@@ -1,7 +1,9 @@
 package com.sopt.now.gs.feature
 
 import android.os.Bundle
+import android.view.View
 import androidx.appcompat.app.AppCompatActivity
+import androidx.navigation.NavController
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.ui.setupWithNavController
@@ -23,5 +25,15 @@ class MainActivity : AppCompatActivity() {
             (supportFragmentManager.findFragmentById(R.id.fcv_home) as NavHostFragment)
                 .findNavController()
         binding.bnvHome.setupWithNavController(navController)
+        setBottomNavigationVisibility(navController)
+    }
+
+    private fun setBottomNavigationVisibility(navController: NavController) {
+        navController.addOnDestinationChangedListener { _, destination, _ ->
+            binding.bnvHome.visibility = when (destination.id) {
+                R.id.fragment_purchase_detail -> View.GONE
+                else -> View.VISIBLE
+            }
+        }
     }
 }
