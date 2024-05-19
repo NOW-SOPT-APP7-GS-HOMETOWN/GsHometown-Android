@@ -11,9 +11,11 @@ class ReserveDiscountViewHolder(private val binding: ItemReserveDiscountMenuBind
         binding.run {
             ivReserveDiscountMenuImage.setImageResource(discountMenuData.image)
             tvReserveDiscountMenuTitle.text = discountMenuData.title
-            tvReserveDiscountMenuPrice.text = discountMenuData.price.toString()
-            tvReserveDiscountMenuOriginalPrice.text = discountMenuData.originalPrice.toString()
-            tvReserveDiscountMenuOriginalPrice.paintFlags = tvReserveDiscountMenuOriginalPrice.paintFlags or Paint.STRIKE_THRU_TEXT_FLAG //취소선
-            tvReserveDiscountMenuCardPrice.text = discountMenuData.cardPrice.toString() }
+            tvReserveDiscountMenuPrice.text = "${discountMenuData.price}원"
+            tvReserveDiscountMenuOriginalPrice.text = "${discountMenuData.originalPrice}원"
+            tvReserveDiscountMenuOriginalPrice.paintFlags =
+                tvReserveDiscountMenuOriginalPrice.paintFlags or Paint.STRIKE_THRU_TEXT_FLAG //취소선
+            tvReserveDiscountMenuCardPrice.text = "${discountMenuData.cardPrice}원"
+        }
     }
 }

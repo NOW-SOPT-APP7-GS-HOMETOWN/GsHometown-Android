@@ -11,7 +11,7 @@ import com.sopt.now.gs.R
 
 class GridMenuCategory2Adapter(
     val context: Context,
-    private val items: MutableList<GridMenuCategory2Item>
+    private val items: MutableList<ReserveMenuCategory2Item>
 ) :
     BaseAdapter() {
     override fun getView(position: Int, p1: View?, p2: ViewGroup?): View {
@@ -24,27 +24,19 @@ class GridMenuCategory2Adapter(
         view.findViewById<TextView>(R.id.tv_reserve_category2_title).text =
             currentItem.menuCategoryTitle
         view.findViewById<TextView>(R.id.tv_reserve_category2_price).text =
-            currentItem.menuCategoryPrice
+            "${currentItem.menuCategoryPrice}원"
         view.findViewById<TextView>(R.id.tv_reserve_category2_star_rate).text =
-            currentItem.menuCategoryRate
+            currentItem.menuCategoryRate.toString()
         view.findViewById<TextView>(R.id.tv_reserve_category2_review).text =
-            currentItem.menuCategoryReview
+            "후기${currentItem.menuCategoryReview}"
 
         return view
     }
 
     override fun getCount(): Int = items.size
 
-    override fun getItem(position: Int): GridMenuCategory2Item = items[position]
+    override fun getItem(position: Int): ReserveMenuCategory2Item = items[position]
 
     override fun getItemId(position: Int): Long = position.toLong()
 
 }
-
-data class GridMenuCategory2Item(
-    val menuCategoryImage: Int,
-    val menuCategoryTitle: String,
-    val menuCategoryPrice: String,
-    val menuCategoryRate: String,
-    val menuCategoryReview: String
-)
