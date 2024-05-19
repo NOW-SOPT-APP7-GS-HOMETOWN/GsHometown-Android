@@ -457,7 +457,7 @@
                     android:numColumns="2"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/iv_reserve_category1_more" />
+                    app:layout_constraintTop_toBottomOf="@id/tv_reserve_category1_title" />
 
                 <com.google.android.material.divider.MaterialDivider
                     android:id="@+id/iv_reserve_grey_line4"
@@ -511,7 +511,7 @@
                     android:numColumns="2"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/iv_reserve_category2_more" />
+                    app:layout_constraintTop_toBottomOf="@id/tv_reserve_category2_title" />
 
                 <com.google.android.material.floatingactionbutton.FloatingActionButton
                     android:id="@+id/fab_reserve_button"
