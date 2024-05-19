@@ -5,7 +5,7 @@ import com.sopt.now.gs.R
 
 //임시 데이터
 class ReserveDiscountViewModel : ViewModel() {
-    val mockFriendList = listOf(
+    val mockMenuList = listOf(
         ReserveDiscountMenu(
             image = R.drawable.img_reserve_meat1,
             title = "예약)한돈구이용삼겹살(400G)",

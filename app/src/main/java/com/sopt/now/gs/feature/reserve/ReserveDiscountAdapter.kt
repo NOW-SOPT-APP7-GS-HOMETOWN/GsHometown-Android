@@ -20,7 +20,7 @@ class ReserveDiscountAdapter() : RecyclerView.Adapter<ReserveDiscountViewHolder>
 
     override fun getItemCount() = discountMenuList.size
 
-    fun setFriendList(friendList: List<ReserveDiscountMenu>) {
+    fun setDiscountMenuList(friendList: List<ReserveDiscountMenu>) {
         this.discountMenuList = friendList.toList()
         notifyDataSetChanged()
     }

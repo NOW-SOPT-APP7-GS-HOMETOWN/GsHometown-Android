@@ -8,63 +8,109 @@ import com.sopt.now.gs.core.base.BindingFragment
 import com.sopt.now.gs.databinding.FragmentReserveBinding
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.delay
+import kotlinx.coroutines.launch
 import kotlin.math.ceil
 
 class ReserveFragment : BindingFragment<FragmentReserveBinding>(R.layout.fragment_reserve) {
-    private val menuListitems = mutableListOf<ReserveMenuListItem>()
-    private val menuCategoryitems = mutableListOf<ReserveMenuCategoryItem>()
-    private val menuCategory2items = mutableListOf<ReserveMenuCategory2Item>()
-    private val viewModel by viewModels<ReserveDiscountViewModel>()
+    lateinit var banner: Job
     private var bannerPosition = 0
-    lateinit var job: Job
+    private val bannerItems = ArrayList<ReserveBannerPage>()
+    private val menuListItems = mutableListOf<ReserveMenuListItem>()
+    private val category1MenuItems = mutableListOf<ReserveMenuCategoryItem>()
+    private val category2MenuItems = mutableListOf<ReserveMenuCategory2Item>()
+    private val discountMenuViewModel by viewModels<ReserveDiscountViewModel>()
 
     override fun initView() {
-        //임시 데이터 생성
-        val list: ArrayList<ReserveBannerPage> = ArrayList<ReserveBannerPage>().let {
+        setBannerItems()
+        initBannerAdapter()
+        setBannerPositionText()
+        updateBannerPosition()
+
+        setMenuListItems()
+        initMenuListAdapter()
+
+        initDiscountMenuAdapter()
+
+        setMenuCategory1Items()
+        initMenuCategory1Adapter()
+
+        setMenuCategory2Items()
+        initMenuCategory2Adapter()
+
+        moveToTop()
+    }
+
+    override fun onResume() {
+        super.onResume()
+        scrollJobCreate()
+    }
+
+    override fun onPause() {
+        super.onPause()
+        banner.cancel()
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        banner.cancel()
+    }
+
+    fun scrollJobCreate() {
+        banner = lifecycleScope.launch {
+            delay(1500)
+            binding.vpReserveBanner.setCurrentItem(++bannerPosition, true)
+        }
+    }
+
+    private fun setBannerItems(){
+        //임시 데이터
+        bannerItems.let {
             it.apply {
                 add(ReserveBannerPage(R.drawable.img_reserve_banner1, "1"))
                 add(ReserveBannerPage(R.drawable.img_reserve_banner2, "2"))
-                add(ReserveBannerPage(R.drawable.img_reserve_banner1, "3"))
-                add(ReserveBannerPage(R.drawable.img_reserve_banner2, "4"))
-                add(ReserveBannerPage(R.drawable.img_reserve_banner1, "5"))
-                add(ReserveBannerPage(R.drawable.img_reserve_banner2, "6"))
             }
         }
+    }
 
-        binding.vpReserveBanner.adapter = ViewPagerAdapter(list)
+    private fun initBannerAdapter(){
+        binding.vpReserveBanner.adapter = ViewPagerAdapter(bannerItems)
         binding.vpReserveBanner.orientation = ViewPager2.ORIENTATION_HORIZONTAL
-        binding.tvReservePages.text = getString(R.string.reserve_top_banner, 1, list.size)
+    }
 
+    private fun setBannerPositionText(){
+        bannerPosition = Int.MAX_VALUE / 2 - ceil(bannerItems.size.toDouble() / 2).toInt()
+        binding.vpReserveBanner.setCurrentItem(bannerPosition, false)
+        binding.tvReservePages.text = getString(R.string.reserve_top_banner, 1, bannerItems.size)
+    }
+
+    private fun updateBannerPosition(){
         binding.vpReserveBanner.registerOnPageChangeCallback(object :
             ViewPager2.OnPageChangeCallback() {
-            //사용자가 스크롤 했을때 position 수정
             override fun onPageSelected(position: Int) {
                 super.onPageSelected(position)
                 bannerPosition = position
                 binding.tvReservePages.text = getString(
                     R.string.reserve_top_banner,
-                    (bannerPosition % list.size) + 1,
-                    list.size
+                    (bannerPosition % bannerItems.size) + 1,
+                    bannerItems.size
                 )
             }
-
             override fun onPageScrollStateChanged(state: Int) {
                 super.onPageScrollStateChanged(state)
                 when (state) {
-                    ViewPager2.SCROLL_STATE_IDLE ->{
-                        if (!job.isActive) scrollJobCreate()
+                    ViewPager2.SCROLL_STATE_IDLE -> {
+                        if (!banner.isActive) scrollJobCreate()
                     }
 
-                    ViewPager2.SCROLL_STATE_DRAGGING -> job.cancel()
+                    ViewPager2.SCROLL_STATE_DRAGGING -> banner.cancel()
 
-                    ViewPager2.SCROLL_STATE_SETTLING -> {}
                 }
             }
         })
-        bannerPosition = Int.MAX_VALUE / 2 - ceil(list.size.toDouble() / 2).toInt()
-        binding.vpReserveBanner.setCurrentItem(bannerPosition, false)
+    }
 
-        menuListitems.apply {
+    private fun setMenuListItems(){
+        menuListItems.apply {
             add(ReserveMenuListItem(R.drawable.img_reserve_pystor, "편스토랑"))
             add(ReserveMenuListItem(R.drawable.img_reserve_meal, "밀박스25"))
             add(ReserveMenuListItem(R.drawable.img_reserve_dosyrak, "도시락"))
@@ -77,26 +123,61 @@ class ReserveFragment : BindingFragment<FragmentReserveBinding>(R.layout.fragmen
             add(ReserveMenuListItem(R.drawable.img_reserve_pasta, "요리반찬/조리면"))
             add(ReserveMenuListItem(R.drawable.img_reserve_hamburger, "샌드위치/햄버거"))
         }
+    }
 
-        val menuListAdapter = GridMenuListAdapter(requireContext(), menuListitems)
+    private fun initMenuListAdapter(){
+        val menuListAdapter = GridMenuListAdapter(requireContext(), menuListItems)
         binding.gvReserveMenuList.adapter = menuListAdapter
+    }
 
+    private fun initDiscountMenuAdapter() {
         val discountMenuAdapter = ReserveDiscountAdapter()
         binding.rcReserveDisountMenu.adapter = discountMenuAdapter
-        discountMenuAdapter.setFriendList(viewModel.mockFriendList)
+        discountMenuAdapter.setDiscountMenuList(discountMenuViewModel.mockMenuList)
+    }
 
+    private fun setMenuCategory1Items() {
         //임시 데이터
-        menuCategoryitems.apply {
-            add(ReserveMenuCategoryItem(R.drawable.img_reserve_category1_chicken, "넷플릭스)BIG반반닭강정", 9000))
-            add(ReserveMenuCategoryItem(R.drawable.img_reserve_category1_chicken_half, "넷플릭스)BIG반반닭강정", 9000))
-            add(ReserveMenuCategoryItem(R.drawable.img_reserve_category1_cutlet, "넷플릭스)BIG반반닭강정", 9000))
-            add(ReserveMenuCategoryItem(R.drawable.img_reserve_category1_pork_skin, "넷플릭스)BIG반반닭강정", 9000))
+        category1MenuItems.apply {
+            add(
+                ReserveMenuCategoryItem(
+                    R.drawable.img_reserve_category1_chicken,
+                    "넷플릭스)BIG반반닭강정",
+                    9000
+                )
+            )
+            add(
+                ReserveMenuCategoryItem(
+                    R.drawable.img_reserve_category1_chicken_half,
+                    "넷플릭스)BIG반반닭강정",
+                    9000
+                )
+            )
+            add(
+                ReserveMenuCategoryItem(
+                    R.drawable.img_reserve_category1_cutlet,
+                    "넷플릭스)BIG반반닭강정",
+                    9000
+                )
+            )
+            add(
+                ReserveMenuCategoryItem(
+                    R.drawable.img_reserve_category1_pork_skin,
+                    "넷플릭스)BIG반반닭강정",
+                    9000
+                )
+            )
         }
-        val menuCategoryAdapter = GridMenuCategoryAdapter(requireContext(), menuCategoryitems)
-        binding.gvReserveCategory1Menu.adapter = menuCategoryAdapter
+    }
 
+    private fun initMenuCategory1Adapter() {
+        val menuCategoryAdapter = GridMenuCategoryAdapter(requireContext(), category1MenuItems)
+        binding.gvReserveCategory1Menu.adapter = menuCategoryAdapter
+    }
+
+    private fun setMenuCategory2Items() {
         //임시 데이터
-        menuCategory2items.apply {
+        category2MenuItems.apply {
             add(
                 ReserveMenuCategory2Item(
                     R.drawable.img_reserve_category2_chicken_soup,
@@ -134,29 +215,16 @@ class ReserveFragment : BindingFragment<FragmentReserveBinding>(R.layout.fragmen
                 )
             )
         }
-        val menuCategory2Adapter = GridMenuCategory2Adapter(requireContext(), menuCategory2items)
+    }
+
+    private fun initMenuCategory2Adapter() {
+        val menuCategory2Adapter = GridMenuCategory2Adapter(requireContext(), category2MenuItems)
         binding.gvReserveCategory2Menu.adapter = menuCategory2Adapter
-
-        //플로팅 버튼
-        binding.fabReserveButton.setOnClickListener{
-            binding.svReserve.smoothScrollTo(0,0)
-        }
     }
 
-    override fun onResume() {
-        super.onResume()
-        scrollJobCreate()
-    }
-
-    override fun onPause() {
-        super.onPause()
-        job.cancel()
-    }
-
-    fun scrollJobCreate() {
-        job = lifecycleScope.launchWhenResumed {
-            delay(1500)
-            binding.vpReserveBanner.setCurrentItem(++bannerPosition, true)
+    private fun moveToTop() {
+        binding.fabReserveButton.setOnClickListener {
+            binding.svReserve.smoothScrollTo(0, 0)
         }
     }
 }
