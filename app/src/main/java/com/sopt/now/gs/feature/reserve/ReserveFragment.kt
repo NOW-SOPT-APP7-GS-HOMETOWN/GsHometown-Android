@@ -137,6 +137,10 @@ class ReserveFragment : BindingFragment<FragmentReserveBinding>(R.layout.fragmen
         val menuCategory2Adapter = GridMenuCategory2Adapter(requireContext(), menuCategory2items)
         binding.gvReserveCategory2Menu.adapter = menuCategory2Adapter
 
+        //플로팅 버튼
+        binding.fabReserveButton.setOnClickListener{
+            binding.svReserve.smoothScrollTo(0,0)
+        }
     }
 
     override fun onResume() {
