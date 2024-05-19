@@ -67,7 +67,7 @@
             </com.google.android.material.appbar.AppBarLayout>
 
             <androidx.core.widget.NestedScrollView
-                android:id="@+id/scrollView"
+                android:id="@+id/sv_purchase_detail"
                 android:layout_width="0dp"
                 android:layout_height="0dp"
                 android:fillViewport="true"
