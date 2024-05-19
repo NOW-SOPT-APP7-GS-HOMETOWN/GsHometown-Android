@@ -9,7 +9,10 @@ import android.widget.ImageView
 import android.widget.TextView
 import com.sopt.now.gs.R
 
-class GridMenuCategoryAdapter (val context: Context, private val items: MutableList<ReserveMenuCategoryItem>) :
+class GridMenuCategoryAdapter(
+    val context: Context,
+    private val items: MutableList<ReserveMenuCategoryItem>
+) :
     BaseAdapter() {
     override fun getView(position: Int, p1: View?, p2: ViewGroup?): View {
         val view: View = LayoutInflater.from(context).inflate(R.layout.item_reserve_category, null)
@@ -21,8 +24,7 @@ class GridMenuCategoryAdapter (val context: Context, private val items: MutableL
         view.findViewById<TextView>(R.id.tv_reserve_category_title).text =
             currentItem.menuCategoryTitle
         view.findViewById<TextView>(R.id.tv_reserve_category_price).text =
-            "${currentItem.menuCategoryPrice}원"
-
+            context.getString(R.string.reserve_menu_price, currentItem.menuCategoryPrice)
         return view
     }
 

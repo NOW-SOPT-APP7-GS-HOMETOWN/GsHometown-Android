@@ -24,11 +24,11 @@ class GridMenuCategory2Adapter(
         view.findViewById<TextView>(R.id.tv_reserve_category2_title).text =
             currentItem.menuCategoryTitle
         view.findViewById<TextView>(R.id.tv_reserve_category2_price).text =
-            "${currentItem.menuCategoryPrice}원"
+            context.getString(R.string.reserve_menu_price, currentItem.menuCategoryPrice)
         view.findViewById<TextView>(R.id.tv_reserve_category2_star_rate).text =
             currentItem.menuCategoryRate.toString()
         view.findViewById<TextView>(R.id.tv_reserve_category2_review).text =
-            "후기${currentItem.menuCategoryReview}"
+            context.getString(R.string.reserve_menu_review, currentItem.menuCategoryReview)
 
         return view
     }
