@@ -9,7 +9,6 @@ import com.sopt.now.gs.databinding.ItemMainBannerBinding
 class HomeBannerAdapter :
     ListAdapter<HomeBanner, HomeBannerViewHolder>(diffUtil) {
 
-
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): HomeBannerViewHolder {
         return HomeBannerViewHolder(
             ItemMainBannerBinding.inflate(

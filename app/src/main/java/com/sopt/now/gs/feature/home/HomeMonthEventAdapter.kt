@@ -8,7 +8,6 @@ import com.sopt.now.gs.databinding.ItemMainMonthEventBinding
 
 class HomeMonthEventAdapter : ListAdapter<HomeBanner, HomeMonthEventViewHolder>(diffUtil) {
 
-
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): HomeMonthEventViewHolder {
         return HomeMonthEventViewHolder(
             ItemMainMonthEventBinding.inflate(
