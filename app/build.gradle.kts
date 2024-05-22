@@ -22,8 +22,8 @@ android {
         versionCode = 1
         versionName = "1.0"
 
-        val reqresBaseUrl = (properties["reqres.base.url"] as? String)?.trim('"') ?: ""
-        buildConfigField("String", "REQRES_BASE_URL", "\"$reqresBaseUrl\"")
+        val gsHomeTownBaseUrl = (properties["gshometown.base.url"] as? String)?.trim('"') ?: ""
+        buildConfigField("String", "GSHOMETOWN_BASE_URL", "\"$gsHomeTownBaseUrl\"")
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
@@ -66,6 +66,9 @@ dependencies {
     // ktx
     implementation(libs.activity.ktx)
     implementation(libs.fragment.ktx)
+
+    // coil
+    implementation(libs.coil.kt)
 
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.appcompat)

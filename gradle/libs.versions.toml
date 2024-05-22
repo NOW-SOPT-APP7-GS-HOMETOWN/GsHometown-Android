@@ -24,6 +24,8 @@ retrofit = "2.9.0"
 retrofit2KotlinxSerializationConverter = "1.0.0"
 squareupOkhttpBom = "4.11.0"
 
+# coil
+coil = "2.6.0"
 
 [libraries]
 # androidx
@@ -48,6 +50,8 @@ squareup-okhttp-bom = { module = "com.squareup.okhttp3:okhttp-bom", version.ref 
 okhttp = { module = "com.squareup.okhttp3:okhttp" }
 okhttp-logging-interceptor = { module = "com.squareup.okhttp3:logging-interceptor" }
 
+# coil
+coil-kt = { group = "io.coil-kt", name = "coil", version.ref = "coil" }
 
 [plugins]
 androidApplication = { id = "com.android.application", version.ref = "agp" }
