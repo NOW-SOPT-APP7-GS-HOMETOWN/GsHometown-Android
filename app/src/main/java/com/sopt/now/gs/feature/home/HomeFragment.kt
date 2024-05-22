@@ -22,7 +22,6 @@ class HomeFragment : BindingFragment<FragmentHomeBinding>(R.layout.fragment_home
     var topBannerJob: Job? = null
     var bottomBannerCurrentPosition = 0
     var bottomBannerJob: Job? = null
-
     var rightMonthEventCurrentPosition = 0
     var rightMonthEventJob: Job? = null
 
@@ -67,7 +66,7 @@ class HomeFragment : BindingFragment<FragmentHomeBinding>(R.layout.fragment_home
     private fun initTopBannerJob() {
         topBannerJob = lifecycleScope.launch {
             while (true) {
-                delay(2000)
+                delay(1000)
                 if (topBannerCurrentPosition == 3) {
                     binding.vpHomeTopBanner.setCurrentItem(0, true)
                 } else {
@@ -99,7 +98,7 @@ class HomeFragment : BindingFragment<FragmentHomeBinding>(R.layout.fragment_home
     private fun initBottomBannerJob() {
         bottomBannerJob = lifecycleScope.launch {
             while (true) {
-                delay(2000)
+                delay(1000)
                 if (bottomBannerCurrentPosition == 3) {
                     binding.vpHomeBottomBanner.setCurrentItem(0, true)
                 } else {
@@ -147,7 +146,6 @@ class HomeFragment : BindingFragment<FragmentHomeBinding>(R.layout.fragment_home
     }
 
     override fun onDestroy() {
-        super.onDestroy()
         topBannerAdapter = null
         bottomBannerAdapter = null
         rightMonthEventAdapter = null
@@ -155,5 +153,6 @@ class HomeFragment : BindingFragment<FragmentHomeBinding>(R.layout.fragment_home
         topBannerJob?.cancel()
         bottomBannerJob?.cancel()
         rightMonthEventJob?.cancel()
+        super.onDestroy()
     }
 }
