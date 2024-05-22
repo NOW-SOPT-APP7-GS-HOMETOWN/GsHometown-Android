@@ -7,7 +7,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.sopt.now.gs.R
 import com.sopt.now.gs.databinding.ItemReserveTopBannerBinding
 
-class ViewPagerAdapter(private val listData: ArrayList<ReserveBannerPage>) : RecyclerView.Adapter<ReservePageViewHolder>() {
+class ViewPagerAdapter(private val listData: ArrayList<ReserveBannerEntity>) : RecyclerView.Adapter<ReservePageViewHolder>() {
     lateinit var binding: ItemReserveTopBannerBinding
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ReservePageViewHolder {

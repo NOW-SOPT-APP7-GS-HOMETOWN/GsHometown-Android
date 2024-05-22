@@ -2,7 +2,7 @@ package com.sopt.now.gs.feature.reserve
 
 import androidx.annotation.DrawableRes
 
-data class ReserveDiscountMenu (
+data class ReserveDiscountEntity (
     @DrawableRes val image : Int,
     val title : String,
     val price : Int,

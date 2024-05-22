@@ -6,7 +6,7 @@
     android:layout_height="wrap_content">
 
     <ImageView
-        android:id="@+id/iv_reserve_category_image"
+        android:id="@+id/iv_reserve_category_top_image"
         android:layout_width="160dp"
         android:layout_height="160dp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -14,39 +14,39 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
-        android:id="@+id/tv_reserve_category_basket"
+        android:id="@+id/tv_reserve_category_top_basket"
         android:layout_width="31dp"
         android:layout_height="31dp"
         android:src="@drawable/ic_reserve_basket"
-        app:layout_constraintEnd_toEndOf="@id/iv_reserve_category_image"
-        app:layout_constraintTop_toBottomOf="@id/iv_reserve_category_image" />
+        app:layout_constraintEnd_toEndOf="@id/iv_reserve_category_top_image"
+        app:layout_constraintTop_toBottomOf="@id/iv_reserve_category_top_image" />
 
     <TextView
-        android:id="@+id/tv_reserve_category_label"
+        android:id="@+id/tv_reserve_category_top_label"
         android:layout_width="47dp"
         android:layout_height="20dp"
         android:layout_marginTop="5.5dp"
         android:background="@drawable/shape_blue01_fill_9_rect"
         android:gravity="center"
-        android:text="매장수령"
+        android:text="@string/reserve_tab_pick_up"
         android:textAppearance="@style/Typography.GsHomeTown.Detail.Medium"
         android:textColor="@color/grey_10"
-        app:layout_constraintBottom_toBottomOf="@+id/tv_reserve_category_basket"
-        app:layout_constraintStart_toStartOf="@id/iv_reserve_category_image"
-        app:layout_constraintTop_toTopOf="@id/tv_reserve_category_basket" />
+        app:layout_constraintBottom_toBottomOf="@+id/tv_reserve_category_top_basket"
+        app:layout_constraintStart_toStartOf="@id/iv_reserve_category_top_image"
+        app:layout_constraintTop_toTopOf="@id/tv_reserve_category_top_basket" />
 
     <TextView
-        android:id="@+id/tv_reserve_category_title"
+        android:id="@+id/tv_reserve_category_top_menu_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="@style/Typography.GsHomeTown.Body3.Medium3"
         android:textColor="@color/grey_09"
-        app:layout_constraintStart_toStartOf="@id/iv_reserve_category_image"
-        app:layout_constraintTop_toBottomOf="@id/tv_reserve_category_basket"
+        app:layout_constraintStart_toStartOf="@id/iv_reserve_category_top_image"
+        app:layout_constraintTop_toBottomOf="@id/tv_reserve_category_top_basket"
         tools:text="NEW이거닭강정(오리지널)" />
 
     <TextView
-        android:id="@+id/tv_reserve_category_price"
+        android:id="@+id/tv_reserve_category_top_price"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="4dp"
@@ -54,8 +54,8 @@
         android:textAppearance="@style/Typography.GsHomeTown.Body2"
         android:textColor="@color/grey_10"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="@id/iv_reserve_category_image"
-        app:layout_constraintTop_toBottomOf="@id/tv_reserve_category_title"
+        app:layout_constraintStart_toStartOf="@id/iv_reserve_category_top_image"
+        app:layout_constraintTop_toBottomOf="@id/tv_reserve_category_top_menu_title"
         tools:text="9,000원" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

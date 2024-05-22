@@ -8,7 +8,7 @@ import com.sopt.now.gs.databinding.ItemReserveDiscountMenuBinding
 class ReserveDiscountViewHolder(private val binding: ItemReserveDiscountMenuBinding) :
     RecyclerView.ViewHolder(binding.root) {
 
-    fun onBind(discountMenuData: ReserveDiscountMenu) {
+    fun onBind(discountMenuData: ReserveDiscountEntity) {
         binding.run {
             ivReserveDiscountMenuImage.setImageResource(discountMenuData.image)
             tvReserveDiscountMenuTitle.text = discountMenuData.title
