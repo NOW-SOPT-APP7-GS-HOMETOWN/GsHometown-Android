@@ -129,7 +129,6 @@ class HomeFragment : BindingFragment<FragmentHomeBinding>(R.layout.fragment_home
         binding.vpHomeRightMonthEvent.adapter = rightMonthEventAdapter
         rightMonthEventAdapter?.submitList(eventList)
 
-
         rightMonthEventJob = lifecycleScope.launch {
             while (true) {
                 delay(1000)
@@ -138,14 +137,17 @@ class HomeFragment : BindingFragment<FragmentHomeBinding>(R.layout.fragment_home
                     rightMonthEventCurrentPosition = 0
                     homeViewModel.updateLeftMonthEventImage(rightMonthEventCurrentPosition)
                 } else {
-                    binding.vpHomeRightMonthEvent.smoothScrollToPosition(rightMonthEventCurrentPosition++)
+                    binding.vpHomeRightMonthEvent.smoothScrollToPosition(
+                        rightMonthEventCurrentPosition++
+                    )
                     homeViewModel.updateLeftMonthEventImage(rightMonthEventCurrentPosition)
                 }
             }
         }
     }
 
-    override fun onDestroy() {
+    override fun onDestroyView() {
+        super.onDestroyView()
         topBannerAdapter = null
         bottomBannerAdapter = null
         rightMonthEventAdapter = null
@@ -153,6 +155,5 @@ class HomeFragment : BindingFragment<FragmentHomeBinding>(R.layout.fragment_home
         topBannerJob?.cancel()
         bottomBannerJob?.cancel()
         rightMonthEventJob?.cancel()
-        super.onDestroy()
     }
 }
