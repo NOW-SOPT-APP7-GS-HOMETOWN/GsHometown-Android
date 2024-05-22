@@ -245,7 +245,7 @@
                     android:layout_marginStart="14dp"
                     android:layout_marginTop="19dp"
                     android:text="[GS Pay 추가 할인] GS25 정육상품 4"
-                    android:textAppearance="@style/Typography.GsHomeTown.Heading7"
+                    android:textAppearance="@style/Typography.GsHomeTown.Heading7.Semibold"
                     android:textColor="@color/grey_10"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/iv_reserve_grey_line" />
@@ -313,7 +313,7 @@
                     android:layout_marginStart="14dp"
                     android:layout_marginTop="20dp"
                     android:text="푸냥이 푸딩젤리 2탄!복숭아맛🍑"
-                    android:textAppearance="@style/Typography.GsHomeTown.Heading7"
+                    android:textAppearance="@style/Typography.GsHomeTown.Heading7.Semibold"
                     android:textColor="@color/grey_10"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/iv_reserve_grey_line2" />
