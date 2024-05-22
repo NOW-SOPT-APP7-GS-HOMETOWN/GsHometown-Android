@@ -34,6 +34,13 @@ class HomeFragment : BindingFragment<FragmentHomeBinding>(R.layout.fragment_home
         initBottomBanner()
         initLeftMonthEvent()
         initRightMonthEvent()
+
+        //TODO
+        getImage()
+    }
+
+    private fun getImage(){
+        homeViewModel.getHomeImage()
     }
 
     private fun initPreReservationBtnClickListener() {
