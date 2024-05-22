@@ -16,8 +16,8 @@ class ReserveFragment : BindingFragment<FragmentReserveBinding>(R.layout.fragmen
     private var bannerPosition = 0
     private val bannerItems = ArrayList<ReserveBannerEntity>()
     private val menuListItems = mutableListOf<ReserveMenuListItem>()
-    private val category1MenuItems = mutableListOf<ReserveCategoryTopEntity>()
-    private val category2MenuItems = mutableListOf<ReserveCategoryBottomEntity>()
+    private val categoryTopItems = mutableListOf<ReserveCategoryTopEntity>()
+    private val categoryBottomItems = mutableListOf<ReserveCategoryBottomEntity>()
     private val discountMenuViewModel by viewModels<ReserveDiscountViewModel>()
 
     override fun initView() {
@@ -130,7 +130,7 @@ class ReserveFragment : BindingFragment<FragmentReserveBinding>(R.layout.fragmen
 
     private fun setMenuCategoryTopItems() {
         //임시 데이터
-        category1MenuItems.apply {
+        categoryTopItems.apply {
             add(
                 ReserveCategoryTopEntity(
                     R.drawable.img_reserve_category1_chicken,
@@ -163,13 +163,13 @@ class ReserveFragment : BindingFragment<FragmentReserveBinding>(R.layout.fragmen
     }
 
     private fun initMenuCategoryTopAdapter() {
-        val menuCategoryAdapter = ReserveCategoryTopAdapter(requireContext(), category1MenuItems)
+        val menuCategoryAdapter = ReserveCategoryTopAdapter(requireContext(), categoryTopItems)
         binding.gvReserveCategoryTopMenu.adapter = menuCategoryAdapter
     }
 
     private fun setMenuCategoryBottomItems() {
         //임시 데이터
-        category2MenuItems.apply {
+        categoryBottomItems.apply {
             add(
                 ReserveCategoryBottomEntity(
                     R.drawable.img_reserve_category2_chicken_soup,
@@ -211,7 +211,7 @@ class ReserveFragment : BindingFragment<FragmentReserveBinding>(R.layout.fragmen
 
     private fun initMenuCategoryBottomAdapter() {
         val menuCategory2Adapter =
-            ReserveCategoryBottomAdapter(requireContext(), category2MenuItems)
+            ReserveCategoryBottomAdapter(requireContext(), categoryBottomItems)
         binding.gvReserveCategoryBottomMenu.adapter = menuCategory2Adapter
     }
 

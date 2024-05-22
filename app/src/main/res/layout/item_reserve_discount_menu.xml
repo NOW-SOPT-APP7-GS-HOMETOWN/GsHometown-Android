@@ -16,11 +16,13 @@
 
     <TextView
         android:id="@+id/tv_reserve_discount_menu_label_blue"
-        android:layout_width="47dp"
-        android:layout_height="17dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_marginTop="4dp"
         android:background="@drawable/shape_blue01_fill_9_rect"
         android:gravity="center"
+        android:paddingHorizontal="8dp"
+        android:paddingVertical="4dp"
         android:text="@string/reserve_tab_pick_up"
         android:textAppearance="@style/Typography.GsHomeTown.Detail.Medium"
         android:textColor="@color/grey_10"
