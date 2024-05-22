@@ -13,7 +13,7 @@
         android:layout_marginTop="5dp">
 
         <com.google.android.material.appbar.AppBarLayout
-            android:id="@+id/top_app_bar"
+            android:id="@+id/home_top_app_bar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
@@ -30,7 +30,7 @@
                     android:layout_height="36dp">
 
                     <TextView
-                        android:id="@+id/tv_main_my_address"
+                        android:id="@+id/tv_home_my_address"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginVertical="8dp"
@@ -41,35 +41,35 @@
                         app:layout_constraintTop_toTopOf="parent" />
 
                     <ImageView
-                        android:id="@+id/iv_main_select_address"
+                        android:id="@+id/iv_home_select_address"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginHorizontal="4dp"
                         android:layout_marginStart="5dp"
                         android:src="@drawable/ic_main_arrow"
-                        app:layout_constraintBottom_toBottomOf="@id/tv_main_my_address"
-                        app:layout_constraintStart_toEndOf="@id/tv_main_my_address"
-                        app:layout_constraintTop_toTopOf="@id/tv_main_my_address" />
+                        app:layout_constraintBottom_toBottomOf="@id/tv_home_my_address"
+                        app:layout_constraintStart_toEndOf="@id/tv_home_my_address"
+                        app:layout_constraintTop_toTopOf="@id/tv_home_my_address" />
 
                     <ImageView
-                        android:id="@+id/iv_main_chat_bot"
+                        android:id="@+id/iv_home_chat_bot"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="241dp"
                         android:src="@drawable/ic_main_chat_bot"
-                        app:layout_constraintEnd_toStartOf="@id/iv_main_alarm"
+                        app:layout_constraintEnd_toStartOf="@id/iv_home_alarm"
                         app:layout_constraintTop_toTopOf="parent" />
 
                     <ImageView
-                        android:id="@+id/iv_main_alarm"
+                        android:id="@+id/iv_home_alarm"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:src="@drawable/ic_main_alarm"
-                        app:layout_constraintEnd_toStartOf="@id/iv_main_shopping_basket"
+                        app:layout_constraintEnd_toStartOf="@id/iv_home_shopping_basket"
                         app:layout_constraintTop_toTopOf="parent" />
 
                     <ImageView
-                        android:id="@+id/iv_main_shopping_basket"
+                        android:id="@+id/iv_home_shopping_basket"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginEnd="9dp"
@@ -95,7 +95,7 @@
                 android:layout_height="wrap_content">
 
                 <androidx.viewpager2.widget.ViewPager2
-                    android:id="@+id/vp_main_top_banner"
+                    android:id="@+id/vp_home_top_banner"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginHorizontal="14dp"
@@ -110,7 +110,7 @@
 
 
                 <androidx.cardview.widget.CardView
-                    android:id="@+id/cv_main_gs25_pre_reservation"
+                    android:id="@+id/cv_home_gs25_pre_reservation"
                     android:layout_width="0dp"
                     android:layout_height="0dp"
                     android:layout_marginStart="14dp"
@@ -119,16 +119,16 @@
                     app:cardBackgroundColor="@color/blue_02"
                     app:cardCornerRadius="30dp"
                     app:layout_constraintDimensionRatio="1"
-                    app:layout_constraintEnd_toStartOf="@id/cv_market_pre_reservation"
+                    app:layout_constraintEnd_toStartOf="@id/cv_home_market_pre_reservation"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/vp_main_top_banner">
+                    app:layout_constraintTop_toBottomOf="@id/vp_home_top_banner">
 
                     <androidx.constraintlayout.widget.ConstraintLayout
                         android:layout_width="match_parent"
                         android:layout_height="match_parent">
 
                         <TextView
-                            android:id="@+id/tv_main_gs25"
+                            android:id="@+id/tv_home_reserve_text_gs25"
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_marginStart="20dp"
@@ -139,13 +139,13 @@
                             app:layout_constraintTop_toTopOf="parent" />
 
                         <TextView
-                            android:id="@+id/tv_main_gs25_additional"
+                            android:id="@+id/tv_home_reserve_text_gs25_additional"
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:text="언제나 가까이"
                             android:theme="@style/Typography.GsHomeTown.Body4.Medium"
-                            app:layout_constraintStart_toStartOf="@id/tv_main_gs25"
-                            app:layout_constraintTop_toBottomOf="@id/tv_main_gs25" />
+                            app:layout_constraintStart_toStartOf="@id/tv_home_reserve_text_gs25"
+                            app:layout_constraintTop_toBottomOf="@id/tv_home_reserve_text_gs25" />
 
                         <ImageView
                             android:layout_width="0dp"
@@ -162,7 +162,7 @@
                             app:layout_constraintTop_toTopOf="parent" />
 
                         <ImageView
-                            android:id="@+id/iv_main_gs25_pickup"
+                            android:id="@+id/iv_home_reserve_gs25_pickup"
                             android:layout_width="0dp"
                             android:layout_height="0dp"
                             android:layout_marginStart="16dp"
@@ -172,38 +172,38 @@
                             android:adjustViewBounds="true"
                             android:src="@drawable/img_home_gs25_pickup"
                             app:layout_constraintBottom_toBottomOf="parent"
-                            app:layout_constraintEnd_toStartOf="@id/iv_main_gs25_delivery"
+                            app:layout_constraintEnd_toStartOf="@id/iv_home_reserve_gs25_delivery"
                             app:layout_constraintStart_toStartOf="parent"
                             app:layout_constraintTop_toTopOf="parent" />
 
                         <ImageView
-                            android:id="@+id/iv_main_gs25_delivery"
+                            android:id="@+id/iv_home_reserve_gs25_delivery"
                             android:layout_width="0dp"
                             android:layout_height="0dp"
                             android:layout_marginStart="4dp"
                             android:layout_marginEnd="16dp"
                             android:adjustViewBounds="true"
                             android:src="@drawable/img_home_gs25_delivery"
-                            app:layout_constraintBottom_toBottomOf="@id/iv_main_gs25_pickup"
+                            app:layout_constraintBottom_toBottomOf="@id/iv_home_reserve_gs25_pickup"
                             app:layout_constraintEnd_toEndOf="parent"
-                            app:layout_constraintStart_toEndOf="@id/iv_main_gs25_pickup"
-                            app:layout_constraintTop_toTopOf="@id/iv_main_gs25_pickup" />
+                            app:layout_constraintStart_toEndOf="@id/iv_home_reserve_gs25_pickup"
+                            app:layout_constraintTop_toTopOf="@id/iv_home_reserve_gs25_pickup" />
 
                         <ImageView
-                            android:id="@+id/iv_main_gs25_pre_reservation"
+                            android:id="@+id/iv_home_reserve_gs25_pre_reservation"
                             android:layout_width="0dp"
                             android:layout_height="0dp"
                             android:adjustViewBounds="true"
                             android:src="@drawable/img_home_gs25_pre_reservation_btn"
                             app:layout_constraintBottom_toBottomOf="parent"
-                            app:layout_constraintEnd_toEndOf="@id/iv_main_gs25_delivery"
-                            app:layout_constraintStart_toStartOf="@id/iv_main_gs25_pickup"
-                            app:layout_constraintTop_toBottomOf="@id/iv_main_gs25_delivery" />
+                            app:layout_constraintEnd_toEndOf="@id/iv_home_reserve_gs25_delivery"
+                            app:layout_constraintStart_toStartOf="@id/iv_home_reserve_gs25_pickup"
+                            app:layout_constraintTop_toBottomOf="@id/iv_home_reserve_gs25_delivery" />
                     </androidx.constraintlayout.widget.ConstraintLayout>
                 </androidx.cardview.widget.CardView>
 
                 <androidx.cardview.widget.CardView
-                    android:id="@+id/cv_market_pre_reservation"
+                    android:id="@+id/cv_home_market_pre_reservation"
                     android:layout_width="0dp"
                     android:layout_height="0dp"
                     android:layout_marginStart="5dp"
@@ -213,15 +213,15 @@
                     app:cardCornerRadius="30dp"
                     app:layout_constraintDimensionRatio="1"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toEndOf="@id/cv_main_gs25_pre_reservation"
-                    app:layout_constraintTop_toBottomOf="@id/vp_main_top_banner">
+                    app:layout_constraintStart_toEndOf="@id/cv_home_gs25_pre_reservation"
+                    app:layout_constraintTop_toBottomOf="@id/vp_home_top_banner">
 
                     <androidx.constraintlayout.widget.ConstraintLayout
                         android:layout_width="match_parent"
                         android:layout_height="match_parent">
 
                         <TextView
-                            android:id="@+id/tv_main_gsfresh"
+                            android:id="@+id/tv_home_text_gsfresh"
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_marginStart="20dp"
@@ -232,13 +232,13 @@
                             app:layout_constraintTop_toTopOf="parent" />
 
                         <TextView
-                            android:id="@+id/tv_main_gsfresh_additional"
+                            android:id="@+id/tv_home_text_gsfresh_additional"
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:text="신선함이 가득"
                             android:theme="@style/Typography.GsHomeTown.Body4.Medium"
-                            app:layout_constraintStart_toStartOf="@id/tv_main_gsfresh"
-                            app:layout_constraintTop_toBottomOf="@id/tv_main_gsfresh" />
+                            app:layout_constraintStart_toStartOf="@id/tv_home_text_gsfresh"
+                            app:layout_constraintTop_toBottomOf="@id/tv_home_text_gsfresh" />
 
                         <ImageView
                             android:layout_width="0dp"
@@ -255,7 +255,7 @@
                             app:layout_constraintTop_toTopOf="parent" />
 
                         <ImageView
-                            android:id="@+id/iv_main_gsfresh_pickup"
+                            android:id="@+id/iv_home_gsfresh_pickup"
                             android:layout_width="0dp"
                             android:layout_height="0dp"
                             android:layout_marginStart="16dp"
@@ -265,56 +265,56 @@
                             android:adjustViewBounds="true"
                             android:src="@drawable/img_home_gsfresh_pickup"
                             app:layout_constraintBottom_toBottomOf="parent"
-                            app:layout_constraintEnd_toStartOf="@id/iv_main_gsfresh_delivery"
+                            app:layout_constraintEnd_toStartOf="@id/iv_home_gsfresh_delivery"
                             app:layout_constraintStart_toStartOf="parent"
                             app:layout_constraintTop_toTopOf="parent" />
 
                         <ImageView
-                            android:id="@+id/iv_main_gsfresh_delivery"
+                            android:id="@+id/iv_home_gsfresh_delivery"
                             android:layout_width="0dp"
                             android:layout_height="0dp"
                             android:layout_marginStart="4dp"
                             android:layout_marginEnd="16dp"
                             android:adjustViewBounds="true"
                             android:src="@drawable/img_home_gsfresh_delivery"
-                            app:layout_constraintBottom_toBottomOf="@id/iv_main_gsfresh_pickup"
+                            app:layout_constraintBottom_toBottomOf="@id/iv_home_gsfresh_pickup"
                             app:layout_constraintEnd_toEndOf="parent"
-                            app:layout_constraintStart_toEndOf="@id/iv_main_gsfresh_pickup"
-                            app:layout_constraintTop_toTopOf="@id/iv_main_gsfresh_pickup" />
+                            app:layout_constraintStart_toEndOf="@id/iv_home_gsfresh_pickup"
+                            app:layout_constraintTop_toTopOf="@id/iv_home_gsfresh_pickup" />
 
                         <ImageView
-                            android:id="@+id/iv_main_gsfresh_pre_reservation"
+                            android:id="@+id/iv_home_gsfresh_pre_reservation"
                             android:layout_width="0dp"
                             android:layout_height="0dp"
                             android:adjustViewBounds="true"
                             android:src="@drawable/img_home_gsfresh_pre_reservation_btn"
                             app:layout_constraintBottom_toBottomOf="parent"
-                            app:layout_constraintEnd_toEndOf="@id/iv_main_gsfresh_delivery"
-                            app:layout_constraintStart_toStartOf="@id/iv_main_gsfresh_pickup"
-                            app:layout_constraintTop_toBottomOf="@id/iv_main_gsfresh_pickup" />
+                            app:layout_constraintEnd_toEndOf="@id/iv_home_gsfresh_delivery"
+                            app:layout_constraintStart_toStartOf="@id/iv_home_gsfresh_pickup"
+                            app:layout_constraintTop_toBottomOf="@id/iv_home_gsfresh_pickup" />
                     </androidx.constraintlayout.widget.ConstraintLayout>
                 </androidx.cardview.widget.CardView>
 
                 <ImageView
-                    android:id="@+id/iv_main_my_refrigerator"
+                    android:id="@+id/iv_home_my_refrigerator"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:adjustViewBounds="true"
                     android:src="@drawable/img_home_refrigerator"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/cv_main_gs25_pre_reservation" />
+                    app:layout_constraintTop_toBottomOf="@id/cv_home_gs25_pre_reservation" />
 
                 <ImageView
-                    android:id="@+id/iv_main_service"
+                    android:id="@+id/iv_home_service"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:adjustViewBounds="true"
                     android:src="@drawable/img_home_service"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/iv_main_my_refrigerator" />
+                    app:layout_constraintTop_toBottomOf="@id/iv_home_my_refrigerator" />
 
                 <androidx.cardview.widget.CardView
-                    android:id="@+id/cv_main_month_event"
+                    android:id="@+id/cv_home_month_event"
                     android:layout_width="0dp"
                     android:layout_height="0dp"
                     android:layout_marginHorizontal="14dp"
@@ -323,14 +323,14 @@
                     app:layout_constraintDimensionRatio="1"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/iv_main_service">
+                    app:layout_constraintTop_toBottomOf="@id/iv_home_service">
 
                     <androidx.constraintlayout.widget.ConstraintLayout
                         android:layout_width="match_parent"
                         android:layout_height="match_parent">
 
                         <TextView
-                            android:id="@+id/tv_main_month_event_title"
+                            android:id="@+id/tv_home_month_event_title"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginStart="16dp"
@@ -341,30 +341,29 @@
                             app:layout_constraintTop_toTopOf="parent" />
 
                         <TextView
-                            android:id="@+id/tv_main_month_event_sub_title"
+                            android:id="@+id/tv_home_month_event_sub_title"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="두근두근 기대되는 이달의 편의점 행사는?"
-                            app:layout_constraintStart_toStartOf="@id/tv_main_month_event_title"
-                            app:layout_constraintTop_toBottomOf="@id/tv_main_month_event_title" />
+                            app:layout_constraintStart_toStartOf="@id/tv_home_month_event_title"
+                            app:layout_constraintTop_toBottomOf="@id/tv_home_month_event_title" />
 
-                        <androidx.viewpager2.widget.ViewPager2
-                            android:id="@+id/vp_main_month_event1"
+                        <ImageView
+                            android:id="@+id/vp_home_left_month_event"
                             android:layout_width="0dp"
                             android:layout_height="0dp"
                             android:layout_marginTop="12dp"
                             android:layout_marginEnd="108dp"
                             android:layout_marginBottom="13dp"
-                            android:orientation="vertical"
                             android:src="@drawable/img_home_month_event1"
                             app:layout_constraintBottom_toBottomOf="parent"
                             app:layout_constraintEnd_toEndOf="parent"
-                            app:layout_constraintStart_toStartOf="@id/tv_main_month_event_sub_title"
-                            app:layout_constraintTop_toBottomOf="@id/tv_main_month_event_sub_title"
+                            app:layout_constraintStart_toStartOf="@id/tv_home_month_event_sub_title"
+                            app:layout_constraintTop_toBottomOf="@id/tv_home_month_event_sub_title"
                             tools:listitem="@layout/item_home_banner" />
 
                         <ImageView
-                            android:id="@+id/iv_main_month_event_window"
+                            android:id="@+id/iv_home_month_event_window"
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_marginStart="6dp"
@@ -372,15 +371,15 @@
                             android:adjustViewBounds="true"
                             android:elevation="10dp"
                             android:src="@drawable/img_home_month_event_window"
-                            app:layout_constraintBottom_toBottomOf="@id/vp_main_month_event1"
+                            app:layout_constraintBottom_toBottomOf="@id/vp_home_left_month_event"
                             app:layout_constraintEnd_toEndOf="parent"
                             app:layout_constraintHorizontal_bias="0.0"
-                            app:layout_constraintStart_toEndOf="@id/vp_main_month_event1"
-                            app:layout_constraintTop_toTopOf="@id/vp_main_month_event1"
+                            app:layout_constraintStart_toEndOf="@id/vp_home_left_month_event"
+                            app:layout_constraintTop_toTopOf="@id/vp_home_left_month_event"
                             app:layout_constraintVertical_bias="0.0" />
 
                         <androidx.recyclerview.widget.RecyclerView
-                            android:id="@+id/vp_main_month_event2"
+                            android:id="@+id/vp_home_right_month_event"
                             android:layout_marginStart="7dp"
                             android:layout_width="0dp"
                             android:layout_height="0dp"
@@ -389,9 +388,9 @@
                             android:orientation="vertical"
                             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
                             app:layout_constraintBottom_toBottomOf="parent"
-                            app:layout_constraintEnd_toEndOf="@id/iv_main_month_event_window"
-                            app:layout_constraintStart_toStartOf="@id/iv_main_month_event_window"
-                            app:layout_constraintTop_toTopOf="@id/iv_main_month_event_window"
+                            app:layout_constraintEnd_toEndOf="@id/iv_home_month_event_window"
+                            app:layout_constraintStart_toStartOf="@id/iv_home_month_event_window"
+                            app:layout_constraintTop_toTopOf="@id/iv_home_month_event_window"
                             tools:listitem="@layout/item_home_month_event" />
                     </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -399,37 +398,37 @@
 
 
                 <ImageView
-                    android:id="@+id/iv_main_week_event"
+                    android:id="@+id/iv_home_week_event"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:adjustViewBounds="true"
                     android:src="@drawable/img_home_week_event"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/cv_main_month_event" />
+                    app:layout_constraintTop_toBottomOf="@id/cv_home_month_event" />
 
 
                 <androidx.viewpager2.widget.ViewPager2
-                    android:id="@+id/vp_main_bottom_banner"
+                    android:id="@+id/vp_home_bottom_banner"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginHorizontal="14dp"
                     android:orientation="horizontal"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/iv_main_week_event"
+                    app:layout_constraintTop_toBottomOf="@id/iv_home_week_event"
                     tools:listitem="@layout/item_home_banner">
 
                 </androidx.viewpager2.widget.ViewPager2>
 
                 <ImageView
-                    android:id="@+id/iv_main_business_info"
+                    android:id="@+id/iv_home_business_info"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="36dp"
                     android:adjustViewBounds="true"
                     android:src="@drawable/img_home_business_info"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/vp_main_bottom_banner" />
+                    app:layout_constraintTop_toBottomOf="@id/vp_home_bottom_banner" />
             </androidx.constraintlayout.widget.ConstraintLayout>
         </androidx.core.widget.NestedScrollView>
     </androidx.coordinatorlayout.widget.CoordinatorLayout>

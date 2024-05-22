@@ -16,32 +16,29 @@ class HomeFragment : BindingFragment<FragmentHomeBinding>(R.layout.fragment_home
     private val homeViewModel by viewModels<HomeViewModel>()
     private var topBannerAdapter: HomeBannerAdapter? = null
     private var bottomBannerAdapter: HomeBannerAdapter? = null
-    private var eventAdapter: HomeBannerAdapter? = null
-    private var adapter: HomeMonthEventAdapter? = null
+    private var rightMonthEventAdapter: HomeMonthEventAdapter? = null
 
     var topBannerCurrentPosition = 0
     var topBannerJob: Job? = null
     var bottomBannerCurrentPosition = 0
     var bottomBannerJob: Job? = null
-    var monthEventCurrentPosition = 0
-    var monthEventJob: Job? = null
-    var monthEventCurrentPosition2 = 0
-    var monthEventJob2: Job? = null
+
+    var rightMonthEventCurrentPosition = 0
+    var rightMonthEventJob: Job? = null
 
     override fun initView() {
         topBannerAdapter = HomeBannerAdapter()
         bottomBannerAdapter = HomeBannerAdapter()
-        eventAdapter = HomeBannerAdapter()
-        adapter = HomeMonthEventAdapter()
+        rightMonthEventAdapter = HomeMonthEventAdapter()
         initPreReservationBtnClickListener()
         initTopBanner()
         initBottomBanner()
-        initMonthEvent()
-        initRecyclerView()
+        initLeftMonthEvent()
+        initRightMonthEvent()
     }
 
     private fun initPreReservationBtnClickListener() {
-        binding.ivMainGs25PreReservation.setOnClickListener {
+        binding.ivHomeReserveGs25PreReservation.setOnClickListener {
             findNavController().navigate(
                 R.id.fragment_reserve
             )
@@ -54,10 +51,10 @@ class HomeFragment : BindingFragment<FragmentHomeBinding>(R.layout.fragment_home
             HomeBanner(R.drawable.img_home_top_banner2),
             HomeBanner(R.drawable.img_home_top_banner3)
         )
-        binding.vpMainTopBanner.adapter = topBannerAdapter
+        binding.vpHomeTopBanner.adapter = topBannerAdapter
         topBannerAdapter?.submitList(itemList)
 
-        binding.vpMainTopBanner.registerOnPageChangeCallback(object :
+        binding.vpHomeTopBanner.registerOnPageChangeCallback(object :
             ViewPager2.OnPageChangeCallback() {
             override fun onPageSelected(position: Int) {
                 super.onPageSelected(position)
@@ -72,9 +69,9 @@ class HomeFragment : BindingFragment<FragmentHomeBinding>(R.layout.fragment_home
             while (true) {
                 delay(2000)
                 if (topBannerCurrentPosition == 3) {
-                    binding.vpMainTopBanner.setCurrentItem(0, true)
+                    binding.vpHomeTopBanner.setCurrentItem(0, true)
                 } else {
-                    binding.vpMainTopBanner.setCurrentItem(topBannerCurrentPosition++, true)
+                    binding.vpHomeTopBanner.setCurrentItem(topBannerCurrentPosition++, true)
                 }
             }
         }
@@ -86,10 +83,10 @@ class HomeFragment : BindingFragment<FragmentHomeBinding>(R.layout.fragment_home
             HomeBanner(R.drawable.img_home_bottom_banner2),
             HomeBanner(R.drawable.img_home_bottom_banner3)
         )
-        binding.vpMainBottomBanner.adapter = bottomBannerAdapter
+        binding.vpHomeBottomBanner.adapter = bottomBannerAdapter
         bottomBannerAdapter?.submitList(bottomItemList)
 
-        binding.vpMainBottomBanner.registerOnPageChangeCallback(object :
+        binding.vpHomeBottomBanner.registerOnPageChangeCallback(object :
             ViewPager2.OnPageChangeCallback() {
             override fun onPageSelected(position: Int) {
                 super.onPageSelected(position)
@@ -104,48 +101,21 @@ class HomeFragment : BindingFragment<FragmentHomeBinding>(R.layout.fragment_home
             while (true) {
                 delay(2000)
                 if (bottomBannerCurrentPosition == 3) {
-                    binding.vpMainBottomBanner.setCurrentItem(0, true)
+                    binding.vpHomeBottomBanner.setCurrentItem(0, true)
                 } else {
-                    binding.vpMainBottomBanner.setCurrentItem(bottomBannerCurrentPosition++, true)
+                    binding.vpHomeBottomBanner.setCurrentItem(bottomBannerCurrentPosition++, true)
                 }
             }
         }
     }
 
-    private fun initMonthEvent() {
-        val EventItemList: List<HomeBanner> = listOf(
-            HomeBanner(R.drawable.img_home_month_event1),
-            HomeBanner(R.drawable.img_home_month_event2),
-            HomeBanner(R.drawable.img_home_month_event3)
-        )
-        binding.vpMainMonthEvent1.adapter = eventAdapter
-        eventAdapter?.submitList(EventItemList)
-
-        binding.vpMainMonthEvent1.registerOnPageChangeCallback(object :
-            ViewPager2.OnPageChangeCallback() {
-            override fun onPageSelected(position: Int) {
-                super.onPageSelected(position)
-                monthEventCurrentPosition = position
-            }
-        })
-        initMonthEventJob()
-    }
-
-    private fun initMonthEventJob() {
-        monthEventJob = lifecycleScope.launch {
-            while (true) {
-                delay(1000)
-                if (monthEventCurrentPosition == 3) {
-                    binding.vpMainMonthEvent1.setCurrentItem(0, true)
-                } else {
-                    binding.vpMainMonthEvent1.setCurrentItem(monthEventCurrentPosition++, true)
-                }
-            }
+    private fun initLeftMonthEvent() {
+        homeViewModel.leftMonthEventResource.observe(viewLifecycleOwner) {
+            binding.vpHomeLeftMonthEvent.setImageResource(homeViewModel.leftEventImage[it].image)
         }
     }
 
-    private fun initRecyclerView() {
-        //TODO
+    private fun initRightMonthEvent() {
         val eventList: List<HomeBanner> = listOf(
             HomeBanner(R.drawable.img_home_month_event_banner1),
             HomeBanner(R.drawable.img_home_month_event_banner2),
@@ -155,20 +125,22 @@ class HomeFragment : BindingFragment<FragmentHomeBinding>(R.layout.fragment_home
             HomeBanner(R.drawable.img_home_month_event_banner3)
         )
         val snapHelper = LinearSnapHelper()
-        snapHelper.attachToRecyclerView(binding.vpMainMonthEvent2)
+        snapHelper.attachToRecyclerView(binding.vpHomeRightMonthEvent)
 
-        binding.vpMainMonthEvent2.adapter = adapter
-        adapter?.submitList(eventList)
+        binding.vpHomeRightMonthEvent.adapter = rightMonthEventAdapter
+        rightMonthEventAdapter?.submitList(eventList)
 
 
-        monthEventJob2 = lifecycleScope.launch {
+        rightMonthEventJob = lifecycleScope.launch {
             while (true) {
                 delay(1000)
-                if (monthEventCurrentPosition2 == 4) {
-                    binding.vpMainMonthEvent2.smoothScrollToPosition(0)
-                    monthEventCurrentPosition2 = 0
+                if (rightMonthEventCurrentPosition == 4) {
+                    binding.vpHomeRightMonthEvent.smoothScrollToPosition(0)
+                    rightMonthEventCurrentPosition = 0
+                    homeViewModel.updateLeftMonthEventImage(rightMonthEventCurrentPosition)
                 } else {
-                    binding.vpMainMonthEvent2.smoothScrollToPosition(monthEventCurrentPosition2++)
+                    binding.vpHomeRightMonthEvent.smoothScrollToPosition(rightMonthEventCurrentPosition++)
+                    homeViewModel.updateLeftMonthEventImage(rightMonthEventCurrentPosition)
                 }
             }
         }
@@ -178,12 +150,10 @@ class HomeFragment : BindingFragment<FragmentHomeBinding>(R.layout.fragment_home
         super.onDestroy()
         topBannerAdapter = null
         bottomBannerAdapter = null
-        eventAdapter = null
-        adapter = null
+        rightMonthEventAdapter = null
 
-        topBannerJob = null
-        bottomBannerJob = null
-        monthEventJob = null
-        monthEventJob2 = null
+        topBannerJob?.cancel()
+        bottomBannerJob?.cancel()
+        rightMonthEventJob?.cancel()
     }
 }
