@@ -7,4 +7,17 @@
     <string name="menu_item_order">주문내역</string>
     <string name="menu_item_my_page">MY</string>
     <!-- home -->
+    <!--reserve-->
+    <string name="reserve_top_banner">%1$d/%2$d</string>
+    <string name="reserve_menu_price">%1$d원</string>
+    <string name="reserve_menu_review">후기%1$d</string>
+    <string name="reserve_appbat_title">우리집</string>
+    <string name="reserve_toolbar_title">우리동네 편의점 사전예약</string>
+    <string name="reserve_tab_pick_up">매장수령</string>
+    <string name="reserve_tab_delivery">택배상품</string>
+    <string name="reserve_pick_up">수령매장</string>
+    <string name="reserve_pick_up_location">GS25 당산진미점·6.5km</string>
+    <string name="reserve_more">더보기</string>
+    <string name="reserve_banner_label">사전\n예약</string>
+    <string name="reserve_card_discount">카드할인가</string>
 </resources>

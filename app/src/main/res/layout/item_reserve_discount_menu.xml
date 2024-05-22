@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_marginEnd="10dp">
+
+    <ImageView
+        android:id="@+id/iv_reserve_discount_menu_image"
+        android:layout_width="116dp"
+        android:layout_height="116dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tv_reserve_discount_menu_label_blue"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:background="@drawable/shape_blue01_fill_9_rect"
+        android:gravity="center"
+        android:paddingHorizontal="8dp"
+        android:paddingVertical="4dp"
+        android:text="@string/reserve_tab_pick_up"
+        android:textAppearance="@style/Typography.GsHomeTown.Detail.Medium"
+        android:textColor="@color/grey_10"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/iv_reserve_discount_menu_image" />
+
+    <ImageView
+        android:id="@+id/iv_reserve_discount_menu_basket"
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+        android:layout_marginStart="44dp"
+        android:layout_marginTop="1dp"
+        android:src="@drawable/ic_reserve_basket"
+        app:layout_constraintStart_toEndOf="@id/tv_reserve_discount_menu_label_blue"
+        app:layout_constraintTop_toBottomOf="@id/iv_reserve_discount_menu_image" />
+
+    <TextView
+        android:id="@+id/tv_reserve_discount_menu_title"
+        android:layout_width="103dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:maxLines="2"
+        android:text=""
+        android:textAppearance="@style/Typography.GsHomeTown.Body3.Medium3"
+        android:textColor="@color/grey_09"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tv_reserve_discount_menu_label_blue"
+        tools:text="예약)한돈구이용삼겹살(400G)" />
+
+    <TextView
+        android:id="@+id/tv_reserve_discount_menu_sub_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="@string/reserve_card_discount"
+        android:textAppearance="@style/Typography.GsHomeTown.Body3.Medium3"
+        android:textColor="@color/red_01"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tv_reserve_discount_menu_title" />
+
+    <TextView
+        android:id="@+id/tv_reserve_discount_menu_card_price"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="@style/Typography.GsHomeTown.Body3.Medium3"
+        android:textColor="@color/red_01"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tv_reserve_discount_menu_sub_title"
+        tools:text="8,900원" />
+
+    <TextView
+        android:id="@+id/tv_reserve_discount_menu_price"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="2dp"
+        android:textAppearance="@style/Typography.GsHomeTown.Body2"
+        android:textColor="@color/grey_10"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tv_reserve_discount_menu_card_price"
+        tools:text="9,900원" />
+
+    <TextView
+        android:id="@+id/tv_reserve_discount_menu_original_price"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="2dp"
+        android:textAppearance="@style/Typography.GsHomeTown.Detail"
+        android:textColor="@color/grey_06"
+        app:layout_constraintBottom_toBottomOf="@id/tv_reserve_discount_menu_price"
+        app:layout_constraintStart_toEndOf="@id/tv_reserve_discount_menu_price"
+        app:layout_constraintTop_toTopOf="@id/tv_reserve_discount_menu_price"
+        tools:text="12,900원" />
+
+    <ImageView
+        android:id="@+id/iv_reserve_discount_menu_chip"
+        android:layout_width="64dp"
+        android:layout_height="17dp"
+        android:layout_marginTop="4dp"
+        android:src="@drawable/ic_reserve_discount_chip"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tv_reserve_discount_menu_price" />
+</androidx.constraintlayout.widget.ConstraintLayout>

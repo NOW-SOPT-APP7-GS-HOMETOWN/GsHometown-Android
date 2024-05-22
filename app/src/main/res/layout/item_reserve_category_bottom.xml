@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content">
+
+    <ImageView
+        android:id="@+id/iv_reserve_category_bottom_image"
+        android:layout_width="160dp"
+        android:layout_height="160dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/tv_reserve_category_bottom_basket"
+        android:layout_width="31dp"
+        android:layout_height="31dp"
+        android:src="@drawable/ic_reserve_basket"
+        app:layout_constraintEnd_toEndOf="@id/iv_reserve_category_bottom_image"
+        app:layout_constraintTop_toBottomOf="@id/iv_reserve_category_bottom_image" />
+
+    <TextView
+        android:id="@+id/tv_reserve_category_bottom_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5.5dp"
+        android:background="@drawable/shape_blue01_fill_9_rect"
+        android:gravity="center"
+        android:paddingHorizontal="8dp"
+        android:paddingVertical="4dp"
+        android:text="@string/reserve_tab_pick_up"
+        android:textAppearance="@style/Typography.GsHomeTown.Detail.Medium"
+        android:textColor="@color/grey_10"
+        app:layout_constraintBottom_toBottomOf="@+id/tv_reserve_category_bottom_basket"
+        app:layout_constraintStart_toStartOf="@id/iv_reserve_category_bottom_image"
+        app:layout_constraintTop_toTopOf="@id/tv_reserve_category_bottom_basket" />
+
+    <TextView
+        android:id="@+id/tv_reserve_category_bottom_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="@style/Typography.GsHomeTown.Body3.Medium3"
+        android:textColor="@color/grey_09"
+        app:layout_constraintStart_toStartOf="@id/iv_reserve_category_bottom_image"
+        app:layout_constraintTop_toBottomOf="@id/tv_reserve_category_bottom_basket"
+        tools:text="NEW이거닭강정(오리지널)" />
+
+    <TextView
+        android:id="@+id/tv_reserve_category_bottom_price"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:textAppearance="@style/Typography.GsHomeTown.Body2"
+        android:textColor="@color/grey_10"
+        app:layout_constraintStart_toStartOf="@id/iv_reserve_category_bottom_image"
+        app:layout_constraintTop_toBottomOf="@id/tv_reserve_category_bottom_title"
+        tools:text="9,000원" />
+
+    <ImageView
+        android:id="@+id/iv_reserve_category_bottom_star"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="2dp"
+        android:src="@drawable/ic_reserve_category_bottom_star"
+        app:layout_constraintStart_toStartOf="@id/iv_reserve_category_bottom_image"
+        app:layout_constraintTop_toBottomOf="@id/tv_reserve_category_bottom_price" />
+
+    <TextView
+        android:id="@+id/tv_reserve_category_bottom_rate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="2dp"
+        android:textAppearance="@style/Typography.GsHomeTown.Detail.Medium"
+        android:textColor="@color/grey_09"
+        app:layout_constraintBottom_toBottomOf="@id/iv_reserve_category_bottom_star"
+        app:layout_constraintStart_toEndOf="@id/iv_reserve_category_bottom_star"
+        app:layout_constraintTop_toTopOf="@id/iv_reserve_category_bottom_star"
+        tools:text="5.0" />
+
+    <TextView
+        android:id="@+id/tv_reserve_category_botom_review"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="2dp"
+        android:layout_marginBottom="88dp"
+        android:textAppearance="@style/Typography.GsHomeTown.Detail.Medium"
+        android:textColor="@color/grey_08"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toEndOf="@id/tv_reserve_category_bottom_rate"
+        app:layout_constraintTop_toTopOf="@id/iv_reserve_category_bottom_star"
+        tools:text="(후기 4)" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
