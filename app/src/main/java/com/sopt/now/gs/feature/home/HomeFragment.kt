@@ -50,9 +50,9 @@ class HomeFragment : BindingFragment<FragmentHomeBinding>(R.layout.fragment_home
 
     private fun initTopBanner() {
         val itemList: List<HomeBanner> = listOf(
-            HomeBanner(R.drawable.img_main_top_banner),
-            HomeBanner(R.drawable.img_main_top_banner2),
-            HomeBanner(R.drawable.img_main_top_banner3)
+            HomeBanner(R.drawable.img_home_top_banner),
+            HomeBanner(R.drawable.img_home_top_banner2),
+            HomeBanner(R.drawable.img_home_top_banner3)
         )
         binding.vpMainTopBanner.adapter = topBannerAdapter
         topBannerAdapter?.submitList(itemList)
@@ -82,9 +82,9 @@ class HomeFragment : BindingFragment<FragmentHomeBinding>(R.layout.fragment_home
 
     private fun initBottomBanner() {
         val bottomItemList: List<HomeBanner> = listOf(
-            HomeBanner(R.drawable.img_main_bottom_banner),
-            HomeBanner(R.drawable.img_main_bottom_banner2),
-            HomeBanner(R.drawable.img_main_bottom_banner3)
+            HomeBanner(R.drawable.img_home_bottom_banner),
+            HomeBanner(R.drawable.img_home_bottom_banner2),
+            HomeBanner(R.drawable.img_home_bottom_banner3)
         )
         binding.vpMainBottomBanner.adapter = bottomBannerAdapter
         bottomBannerAdapter?.submitList(bottomItemList)
@@ -114,9 +114,9 @@ class HomeFragment : BindingFragment<FragmentHomeBinding>(R.layout.fragment_home
 
     private fun initMonthEvent() {
         val EventItemList: List<HomeBanner> = listOf(
-            HomeBanner(R.drawable.img_main_month_event1),
-            HomeBanner(R.drawable.img_main_month_event2),
-            HomeBanner(R.drawable.img_main_month_event3)
+            HomeBanner(R.drawable.img_home_month_event1),
+            HomeBanner(R.drawable.img_home_month_event2),
+            HomeBanner(R.drawable.img_home_month_event3)
         )
         binding.vpMainMonthEvent1.adapter = eventAdapter
         eventAdapter?.submitList(EventItemList)
@@ -147,12 +147,12 @@ class HomeFragment : BindingFragment<FragmentHomeBinding>(R.layout.fragment_home
     private fun initRecyclerView() {
         //TODO
         val eventList: List<HomeBanner> = listOf(
-            HomeBanner(R.drawable.img_main_month_event_banner1),
-            HomeBanner(R.drawable.img_main_month_event_banner2),
-            HomeBanner(R.drawable.img_main_month_event_banner3),
-            HomeBanner(R.drawable.img_main_month_event_banner1),
-            HomeBanner(R.drawable.img_main_month_event_banner2),
-            HomeBanner(R.drawable.img_main_month_event_banner3)
+            HomeBanner(R.drawable.img_home_month_event_banner1),
+            HomeBanner(R.drawable.img_home_month_event_banner2),
+            HomeBanner(R.drawable.img_home_month_event_banner3),
+            HomeBanner(R.drawable.img_home_month_event_banner1),
+            HomeBanner(R.drawable.img_home_month_event_banner2),
+            HomeBanner(R.drawable.img_home_month_event_banner3)
         )
         val snapHelper = LinearSnapHelper()
         snapHelper.attachToRecyclerView(binding.vpMainMonthEvent2)
@@ -176,5 +176,14 @@ class HomeFragment : BindingFragment<FragmentHomeBinding>(R.layout.fragment_home
 
     override fun onDestroy() {
         super.onDestroy()
+        topBannerAdapter = null
+        bottomBannerAdapter = null
+        eventAdapter = null
+        adapter = null
+
+        topBannerJob = null
+        bottomBannerJob = null
+        monthEventJob = null
+        monthEventJob2 = null
     }
 }

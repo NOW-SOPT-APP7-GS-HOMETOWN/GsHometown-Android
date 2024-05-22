@@ -4,13 +4,13 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
-import com.sopt.now.gs.databinding.ItemMainMonthEventBinding
+import com.sopt.now.gs.databinding.ItemHomeMonthEventBinding
 
 class HomeMonthEventAdapter : ListAdapter<HomeBanner, HomeMonthEventViewHolder>(diffUtil) {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): HomeMonthEventViewHolder {
         return HomeMonthEventViewHolder(
-            ItemMainMonthEventBinding.inflate(
+            ItemHomeMonthEventBinding.inflate(
                 LayoutInflater.from(parent.context),
                 parent,
                 false

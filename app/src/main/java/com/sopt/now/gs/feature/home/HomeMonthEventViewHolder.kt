@@ -1,10 +1,10 @@
 package com.sopt.now.gs.feature.home
 
 import androidx.recyclerview.widget.RecyclerView
-import com.sopt.now.gs.databinding.ItemMainMonthEventBinding
+import com.sopt.now.gs.databinding.ItemHomeMonthEventBinding
 
 class HomeMonthEventViewHolder(
-    private val binding: ItemMainMonthEventBinding
+    private val binding: ItemHomeMonthEventBinding
 ) : RecyclerView.ViewHolder(binding.root) {
 
     fun onBind(data: HomeBanner) {

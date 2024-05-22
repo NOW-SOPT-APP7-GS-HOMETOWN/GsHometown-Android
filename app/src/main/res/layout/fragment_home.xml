@@ -104,7 +104,7 @@
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
-                    tools:listitem="@layout/item_main_banner">
+                    tools:listitem="@layout/item_home_banner">
 
                 </androidx.viewpager2.widget.ViewPager2>
 
@@ -155,7 +155,7 @@
                             android:layout_marginEnd="12dp"
                             android:layout_marginBottom="106dp"
                             android:adjustViewBounds="true"
-                            android:src="@drawable/img_main_gs25_pre_reservation"
+                            android:src="@drawable/img_home_gs25_pre_reservation"
                             app:layout_constraintBottom_toBottomOf="parent"
                             app:layout_constraintEnd_toEndOf="parent"
                             app:layout_constraintStart_toStartOf="parent"
@@ -170,7 +170,7 @@
                             android:layout_marginEnd="4dp"
                             android:layout_marginBottom="60dp"
                             android:adjustViewBounds="true"
-                            android:src="@drawable/img_main_gs25_pickup"
+                            android:src="@drawable/img_home_gs25_pickup"
                             app:layout_constraintBottom_toBottomOf="parent"
                             app:layout_constraintEnd_toStartOf="@id/iv_main_gs25_delivery"
                             app:layout_constraintStart_toStartOf="parent"
@@ -183,7 +183,7 @@
                             android:layout_marginStart="4dp"
                             android:layout_marginEnd="16dp"
                             android:adjustViewBounds="true"
-                            android:src="@drawable/img_main_gs25_delivery"
+                            android:src="@drawable/img_home_gs25_delivery"
                             app:layout_constraintBottom_toBottomOf="@id/iv_main_gs25_pickup"
                             app:layout_constraintEnd_toEndOf="parent"
                             app:layout_constraintStart_toEndOf="@id/iv_main_gs25_pickup"
@@ -194,7 +194,7 @@
                             android:layout_width="0dp"
                             android:layout_height="0dp"
                             android:adjustViewBounds="true"
-                            android:src="@drawable/img_main_gs25_pre_reservation_btn"
+                            android:src="@drawable/img_home_gs25_pre_reservation_btn"
                             app:layout_constraintBottom_toBottomOf="parent"
                             app:layout_constraintEnd_toEndOf="@id/iv_main_gs25_delivery"
                             app:layout_constraintStart_toStartOf="@id/iv_main_gs25_pickup"
@@ -248,7 +248,7 @@
                             android:layout_marginEnd="12dp"
                             android:layout_marginBottom="106dp"
                             android:adjustViewBounds="true"
-                            android:src="@drawable/img_main_gsfresh_pre_reservation"
+                            android:src="@drawable/img_home_gsfresh_pre_reservation"
                             app:layout_constraintBottom_toBottomOf="parent"
                             app:layout_constraintEnd_toEndOf="parent"
                             app:layout_constraintStart_toStartOf="parent"
@@ -263,7 +263,7 @@
                             android:layout_marginEnd="4dp"
                             android:layout_marginBottom="60dp"
                             android:adjustViewBounds="true"
-                            android:src="@drawable/img_main_gsfresh_pickup"
+                            android:src="@drawable/img_home_gsfresh_pickup"
                             app:layout_constraintBottom_toBottomOf="parent"
                             app:layout_constraintEnd_toStartOf="@id/iv_main_gsfresh_delivery"
                             app:layout_constraintStart_toStartOf="parent"
@@ -276,7 +276,7 @@
                             android:layout_marginStart="4dp"
                             android:layout_marginEnd="16dp"
                             android:adjustViewBounds="true"
-                            android:src="@drawable/img_main_gsfresh_delivery"
+                            android:src="@drawable/img_home_gsfresh_delivery"
                             app:layout_constraintBottom_toBottomOf="@id/iv_main_gsfresh_pickup"
                             app:layout_constraintEnd_toEndOf="parent"
                             app:layout_constraintStart_toEndOf="@id/iv_main_gsfresh_pickup"
@@ -287,7 +287,7 @@
                             android:layout_width="0dp"
                             android:layout_height="0dp"
                             android:adjustViewBounds="true"
-                            android:src="@drawable/img_main_gsfresh_pre_reservation_btn"
+                            android:src="@drawable/img_home_gsfresh_pre_reservation_btn"
                             app:layout_constraintBottom_toBottomOf="parent"
                             app:layout_constraintEnd_toEndOf="@id/iv_main_gsfresh_delivery"
                             app:layout_constraintStart_toStartOf="@id/iv_main_gsfresh_pickup"
@@ -300,7 +300,7 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:adjustViewBounds="true"
-                    android:src="@drawable/img_main_refrigerator"
+                    android:src="@drawable/img_home_refrigerator"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/cv_main_gs25_pre_reservation" />
 
@@ -309,7 +309,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:adjustViewBounds="true"
-                    android:src="@drawable/img_main_service"
+                    android:src="@drawable/img_home_service"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/iv_main_my_refrigerator" />
 
@@ -356,12 +356,12 @@
                             android:layout_marginEnd="108dp"
                             android:layout_marginBottom="13dp"
                             android:orientation="vertical"
-                            android:src="@drawable/img_main_month_event1"
+                            android:src="@drawable/img_home_month_event1"
                             app:layout_constraintBottom_toBottomOf="parent"
                             app:layout_constraintEnd_toEndOf="parent"
                             app:layout_constraintStart_toStartOf="@id/tv_main_month_event_sub_title"
                             app:layout_constraintTop_toBottomOf="@id/tv_main_month_event_sub_title"
-                            tools:listitem="@layout/item_main_banner" />
+                            tools:listitem="@layout/item_home_banner" />
 
                         <ImageView
                             android:id="@+id/iv_main_month_event_window"
@@ -371,7 +371,7 @@
                             android:layout_marginEnd="15dp"
                             android:adjustViewBounds="true"
                             android:elevation="10dp"
-                            android:src="@drawable/img_main_month_event_window"
+                            android:src="@drawable/img_home_month_event_window"
                             app:layout_constraintBottom_toBottomOf="@id/vp_main_month_event1"
                             app:layout_constraintEnd_toEndOf="parent"
                             app:layout_constraintHorizontal_bias="0.0"
@@ -392,7 +392,7 @@
                             app:layout_constraintEnd_toEndOf="@id/iv_main_month_event_window"
                             app:layout_constraintStart_toStartOf="@id/iv_main_month_event_window"
                             app:layout_constraintTop_toTopOf="@id/iv_main_month_event_window"
-                            tools:listitem="@layout/item_main_month_event" />
+                            tools:listitem="@layout/item_home_month_event" />
                     </androidx.constraintlayout.widget.ConstraintLayout>
 
                 </androidx.cardview.widget.CardView>
@@ -403,7 +403,7 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:adjustViewBounds="true"
-                    android:src="@drawable/img_main_week_event"
+                    android:src="@drawable/img_home_week_event"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/cv_main_month_event" />
 
@@ -417,7 +417,7 @@
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/iv_main_week_event"
-                    tools:listitem="@layout/item_main_banner">
+                    tools:listitem="@layout/item_home_banner">
 
                 </androidx.viewpager2.widget.ViewPager2>
 
@@ -427,7 +427,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="36dp"
                     android:adjustViewBounds="true"
-                    android:src="@drawable/img_main_business_info"
+                    android:src="@drawable/img_home_business_info"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/vp_main_bottom_banner" />
             </androidx.constraintlayout.widget.ConstraintLayout>
