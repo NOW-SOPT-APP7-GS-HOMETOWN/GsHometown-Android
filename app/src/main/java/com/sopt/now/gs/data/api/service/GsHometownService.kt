@@ -27,7 +27,7 @@ interface GsHometownService {
         @Path(PRODUCT_ID) productId: Long,
     ): Response<BaseResponse<ResponsePurchaseDetailDto>>
 
-    @GET("api/products")
+    @GET("$API/$PRODUCTS")
     suspend fun getGspay(
         @Query("type") type: String
     ): Response<BaseResponse<ResponseReserveGspayDto>>

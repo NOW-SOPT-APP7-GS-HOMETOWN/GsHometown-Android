@@ -4,7 +4,6 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 @Serializable
-
 data class ResponseReserveGspayDto(
     @SerialName("topBanners")
     val topBanners: List<String>,
@@ -16,7 +15,6 @@ data class ResponseReserveGspayDto(
     val products: List<Product>
 ) {
     @Serializable
-
     data class Product(
         @SerialName("productId")
         val productId: Int,
