@@ -1,13 +1,16 @@
 package com.sopt.now.gs.feature.reserve
 
+import androidx.core.os.bundleOf
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
+import androidx.navigation.fragment.findNavController
 import androidx.viewpager2.widget.ViewPager2
 import com.sopt.now.gs.R
 import com.sopt.now.gs.core.base.BindingFragment
 import com.sopt.now.gs.core.view.UiState
 import com.sopt.now.gs.data.response.ResponseReserveGspayDto
 import com.sopt.now.gs.databinding.FragmentReserveBinding
+import com.sopt.now.gs.feature.util.KeyStorage.USER_ID
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
@@ -145,7 +148,7 @@ class ReserveFragment : BindingFragment<FragmentReserveBinding>(R.layout.fragmen
     }
 
     private fun setMenuCategoryTopItems() {
-        //임시 데이터
+        // 임시 데이터
         categoryTopItems.apply {
             add(
                 ReserveCategoryTopEntity(
@@ -179,12 +182,23 @@ class ReserveFragment : BindingFragment<FragmentReserveBinding>(R.layout.fragmen
     }
 
     private fun initMenuCategoryTopAdapter() {
-        val menuCategoryAdapter = ReserveCategoryTopAdapter(requireContext(), categoryTopItems)
+        val menuCategoryAdapter = ReserveCategoryTopAdapter(
+            requireContext(),
+            categoryTopItems,
+            onItemClicked = { id -> navigateToImageDetailFragment(id) }
+        )
         binding.gvReserveCategoryTopMenu.adapter = menuCategoryAdapter
     }
 
+    private fun navigateToImageDetailFragment(it: Int) {
+        findNavController().navigate(
+            R.id.fragment_purchase_detail,
+            bundleOf(USER_ID to it),
+        )
+    }
+
     private fun setMenuCategoryBottomItems() {
-        //임시 데이터
+        // 임시 데이터
         categoryBottomItems.apply {
             add(
                 ReserveCategoryBottomEntity(
@@ -227,7 +241,11 @@ class ReserveFragment : BindingFragment<FragmentReserveBinding>(R.layout.fragmen
 
     private fun initMenuCategoryBottomAdapter() {
         val menuCategory2Adapter =
-            ReserveCategoryBottomAdapter(requireContext(), categoryBottomItems)
+            ReserveCategoryBottomAdapter(
+                requireContext(),
+                categoryBottomItems,
+                onItemClicked = { navigateToImageDetailFragment(it) },
+            )
         binding.gvReserveCategoryBottomMenu.adapter = menuCategory2Adapter
     }
 

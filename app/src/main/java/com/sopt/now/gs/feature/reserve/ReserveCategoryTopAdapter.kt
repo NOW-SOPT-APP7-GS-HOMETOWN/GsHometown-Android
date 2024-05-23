@@ -11,11 +11,12 @@ import com.sopt.now.gs.R
 
 class ReserveCategoryTopAdapter(
     val context: Context,
-    private val items: MutableList<ReserveCategoryTopEntity>
-) :
-    BaseAdapter() {
+    private val items: MutableList<ReserveCategoryTopEntity>,
+    private val onItemClicked: (Int) -> Unit,
+) : BaseAdapter() {
     override fun getView(position: Int, p1: View?, p2: ViewGroup?): View {
-        val view: View = LayoutInflater.from(context).inflate(R.layout.item_reserve_category_top, null)
+        val view: View =
+            LayoutInflater.from(context).inflate(R.layout.item_reserve_category_top, null)
 
         val currentItem = items[position]
 
@@ -25,6 +26,11 @@ class ReserveCategoryTopAdapter(
             currentItem.categoryTitle
         view.findViewById<TextView>(R.id.tv_reserve_category_top_price).text =
             context.getString(R.string.reserve_menu_price, currentItem.menuCategoryPrice)
+
+        view.setOnClickListener {
+            onItemClicked(position)
+        }
+
         return view
     }
 
@@ -33,5 +39,4 @@ class ReserveCategoryTopAdapter(
     override fun getItem(position: Int): ReserveCategoryTopEntity = items[position]
 
     override fun getItemId(position: Int): Long = position.toLong()
-
 }
