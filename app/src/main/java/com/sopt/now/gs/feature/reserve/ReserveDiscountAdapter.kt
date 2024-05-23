@@ -3,10 +3,11 @@ package com.sopt.now.gs.feature.reserve
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.sopt.now.gs.data.response.ResponseReserveGspayDto
 import com.sopt.now.gs.databinding.ItemReserveDiscountMenuBinding
 
 class ReserveDiscountAdapter() : RecyclerView.Adapter<ReserveDiscountViewHolder>() {
-    private var discountMenuList: List<ReserveDiscountEntity> = emptyList()
+    private var discountMenuList: List<ResponseReserveGspayDto.Product> = emptyList()
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ReserveDiscountViewHolder {
         val inflater = LayoutInflater.from(parent.context)
@@ -20,8 +21,8 @@ class ReserveDiscountAdapter() : RecyclerView.Adapter<ReserveDiscountViewHolder>
 
     override fun getItemCount() = discountMenuList.size
 
-    fun setDiscountMenuList(friendList: List<ReserveDiscountEntity>) {
-        this.discountMenuList = friendList.toList()
+    fun setDiscountMenuList(discountMenuList: List<ResponseReserveGspayDto.Product>) {
+        this.discountMenuList = discountMenuList.toList()
         notifyDataSetChanged()
     }
 }

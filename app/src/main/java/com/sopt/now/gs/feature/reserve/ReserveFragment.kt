@@ -7,6 +7,8 @@ import androidx.navigation.fragment.findNavController
 import androidx.viewpager2.widget.ViewPager2
 import com.sopt.now.gs.R
 import com.sopt.now.gs.core.base.BindingFragment
+import com.sopt.now.gs.core.view.UiState
+import com.sopt.now.gs.data.response.ResponseReserveGspayDto
 import com.sopt.now.gs.databinding.FragmentReserveBinding
 import com.sopt.now.gs.feature.util.KeyStorage.USER_ID
 import kotlinx.coroutines.Job
@@ -21,18 +23,17 @@ class ReserveFragment : BindingFragment<FragmentReserveBinding>(R.layout.fragmen
     private val menuListItems = mutableListOf<ReserveMenuListItem>()
     private val categoryTopItems = mutableListOf<ReserveCategoryTopEntity>()
     private val categoryBottomItems = mutableListOf<ReserveCategoryBottomEntity>()
-    private val discountMenuViewModel by viewModels<ReserveDiscountViewModel>()
+    private val gspayViewModel by viewModels<GspayViewModel>()
 
     override fun initView() {
-        setBannerItems()
-        initBannerAdapter()
+        initgetGspay()
+        initObserveGspay()
+
         setBannerPositionText()
         updateBannerPosition()
 
         setMenuListItems()
         initMenuListAdapter()
-
-        initDiscountMenuAdapter()
 
         setMenuCategoryTopItems()
         initMenuCategoryTopAdapter()
@@ -58,16 +59,28 @@ class ReserveFragment : BindingFragment<FragmentReserveBinding>(R.layout.fragmen
         bannerJob.cancel()
     }
 
-    private fun setBannerItems() {
-        // 임시 데이터
-        bannerItems.run {
-            add(ReserveBannerEntity(R.drawable.img_reserve_banner1, "1"))
-            add(ReserveBannerEntity(R.drawable.img_reserve_banner2, "2"))
+    private fun initgetGspay() {
+        gspayViewModel.getGspay()
+    }
+
+    private fun initObserveGspay() {
+        gspayViewModel.gspayState.observe(viewLifecycleOwner) { state ->
+            when (state) {
+                is UiState.Success -> {
+                    setDiscountTitle(state.data)
+                    initDiscountMenuAdapter(state.data)
+                    initBannerAdapter(state.data)
+                }
+                else -> Unit
+            }
         }
     }
 
-    private fun initBannerAdapter() {
-        binding.vpReserveBanner.adapter = ViewPagerAdapter(bannerItems)
+    private fun initBannerAdapter(data: ResponseReserveGspayDto) {
+        data.topBanners.forEachIndexed { index, imageurl ->
+            bannerItems.add(ReserveBannerEntity(imageurl, index + 1))
+        }
+        binding.vpReserveBanner.adapter = ReserveBannerAdapter(bannerItems)
         binding.vpReserveBanner.orientation = ViewPager2.ORIENTATION_HORIZONTAL
     }
 
@@ -96,7 +109,6 @@ class ReserveFragment : BindingFragment<FragmentReserveBinding>(R.layout.fragmen
                     ViewPager2.SCROLL_STATE_IDLE -> {
                         if (!bannerJob.isActive) scrollJobCreate()
                     }
-
                     ViewPager2.SCROLL_STATE_DRAGGING -> bannerJob.cancel()
                 }
             }
@@ -124,10 +136,15 @@ class ReserveFragment : BindingFragment<FragmentReserveBinding>(R.layout.fragmen
         binding.gvReserveMenuList.adapter = menuListAdapter
     }
 
-    private fun initDiscountMenuAdapter() {
+    private fun setDiscountTitle(data: ResponseReserveGspayDto) {
+        binding.tvReserveDiscountTitle.text = data.headerTitle
+        binding.tvReserveDiscountDate.text = data.date
+    }
+
+    private fun initDiscountMenuAdapter(data: ResponseReserveGspayDto) {
         val discountMenuAdapter = ReserveDiscountAdapter()
         binding.rcReserveDisountMenu.adapter = discountMenuAdapter
-        discountMenuAdapter.setDiscountMenuList(discountMenuViewModel.mockMenuList)
+        discountMenuAdapter.setDiscountMenuList(data.products)
     }
 
     private fun setMenuCategoryTopItems() {
