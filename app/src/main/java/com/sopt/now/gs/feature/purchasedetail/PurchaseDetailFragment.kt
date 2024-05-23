@@ -55,17 +55,6 @@ class PurchaseDetailFragment :
     }
 
     private fun initHeartBtnClickListener() {
-        /*binding.btnPurchaseDetailHeart.setOnDebounceClick()
-            .debounce(1000) // 1초
-            .flowWithLifecycle(viewLifeCycle)
-            .onEach {
-                if (binding.btnPurchaseDetailHeart.isChecked) {
-                    viewModel.postLiked(productId.toLong())
-                } else {
-                    viewModel.deleteLiked(productId.toLong())
-                }
-            }.launchIn(viewLifeCycleScope)
-*/
         binding.btnPurchaseDetailHeart.setOnDebouncedClickListener(viewLifecycleOwner) {
             if (binding.btnPurchaseDetailHeart.isChecked) {
                 viewModel.postLiked(productId.toLong())

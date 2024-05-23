@@ -28,13 +28,6 @@ inline fun View.setOnSingleClickListener(
     }
 }
 
-fun View.setOnDebounceClick(): Flow<Unit> = callbackFlow {
-    setOnClickListener {
-        trySend(Unit).isSuccess
-    }
-    awaitClose { setOnClickListener(null) }
-}
-
 fun View.clicks(): Flow<Unit> = callbackFlow {
     setOnClickListener {
         trySend(Unit).isSuccess
