@@ -1,6 +1,7 @@
 package com.sopt.now.gs.feature.reserve
 
 import android.content.Context
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -31,7 +32,8 @@ class ReserveCategoryTopAdapter(
             PriceFormatter.formatPrice(currentItem.price)
 
         view.setOnClickListener {
-            onItemClicked(position)
+            onItemClicked(currentItem.productId)
+            Log.e("pro",currentItem.productId.toString())
         }
 
         return view
