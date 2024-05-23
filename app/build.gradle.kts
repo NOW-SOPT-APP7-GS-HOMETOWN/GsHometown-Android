@@ -22,7 +22,7 @@ android {
         versionCode = 1
         versionName = "1.0"
 
-        val gsHomeTownBaseUrl = (properties["gshometown.url"] as? String)?.trim('"') ?: ""
+        val gsHomeTownBaseUrl = (properties["gshometown.base.url"] as? String)?.trim('"') ?: ""
         buildConfigField("String", "GSHOMETOWN_BASE_URL", "\"$gsHomeTownBaseUrl\"")
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
