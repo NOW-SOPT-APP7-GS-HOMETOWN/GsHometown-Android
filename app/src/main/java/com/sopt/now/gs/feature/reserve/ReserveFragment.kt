@@ -1,5 +1,6 @@
 package com.sopt.now.gs.feature.reserve
 
+import android.util.Log
 import androidx.core.os.bundleOf
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
@@ -39,21 +40,6 @@ class ReserveFragment : BindingFragment<FragmentReserveBinding>(R.layout.fragmen
         initMenuListAdapter()
 
         moveToTop()
-    }
-
-    override fun onResume() {
-        super.onResume()
-        scrollJobCreate()
-    }
-
-    override fun onPause() {
-        super.onPause()
-        bannerJob.cancel()
-    }
-
-    override fun onDestroyView() {
-        super.onDestroyView()
-        bannerJob.cancel()
     }
 
     private fun initgetGspay() {
@@ -203,5 +189,20 @@ class ReserveFragment : BindingFragment<FragmentReserveBinding>(R.layout.fragmen
             delay(1500)
             binding.vpReserveBanner.setCurrentItem(++bannerPosition, true)
         }
+    }
+
+    override fun onResume() {
+        super.onResume()
+        scrollJobCreate()
+    }
+
+    override fun onPause() {
+        super.onPause()
+        bannerJob.cancel()
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        bannerJob.cancel()
     }
 }
