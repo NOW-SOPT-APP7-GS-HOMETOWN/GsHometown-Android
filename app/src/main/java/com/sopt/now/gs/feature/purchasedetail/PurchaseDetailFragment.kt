@@ -7,19 +7,27 @@ import com.sopt.now.gs.core.base.BindingFragment
 import com.sopt.now.gs.core.view.UiState
 import com.sopt.now.gs.data.response.ResponsePurchaseDetailDto
 import com.sopt.now.gs.databinding.FragmentPurchaseDetailBinding
+import com.sopt.now.gs.feature.util.KeyStorage.USER_ID
 import com.sopt.now.gs.feature.util.PriceFormatter
 
 class PurchaseDetailFragment :
     BindingFragment<FragmentPurchaseDetailBinding>(R.layout.fragment_purchase_detail) {
     private val viewModel by viewModels<PurchaseDetailViewModel>()
     override fun initView() {
+        initGetProductId()
+        initObservePurchaseDetail()
         initHeartBtnClickListener()
         initFabBtnClickListener()
-        initGetPurchaseDetail()
     }
 
-    private fun initGetPurchaseDetail() {
-        viewModel.getPurchaseDetail(1.toLong())
+    private fun initGetProductId() {
+        val memberId = arguments?.getInt(USER_ID) ?: -1
+        if (memberId != -1) {
+            viewModel.getPurchaseDetail(memberId.toLong())
+        }
+    }
+
+    private fun initObservePurchaseDetail() {
         viewModel.purchaseDetailState.observe(viewLifecycleOwner) { state ->
             when (state) {
                 is UiState.Success -> {
