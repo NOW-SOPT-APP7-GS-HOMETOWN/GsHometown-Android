@@ -56,8 +56,8 @@ class ReserveFragment : BindingFragment<FragmentReserveBinding>(R.layout.fragmen
             when (state) {
                 is UiState.Success -> {
                     setCategoryTitle(state.data)
-                    initMenuCategoryTopAdapter(state.data.flatMap { it.products })
-                    initMenuCategoryBottomAdapter(state.data.flatMap { it.products })
+                    initMenuCategoryTopAdapter(state.data)
+                    initMenuCategoryBottomAdapter(state.data)
                 }
                 else -> Unit
             }
@@ -98,6 +98,7 @@ class ReserveFragment : BindingFragment<FragmentReserveBinding>(R.layout.fragmen
                     ViewPager2.SCROLL_STATE_IDLE -> {
                         if (!bannerJob.isActive) scrollJobCreate()
                     }
+
                     ViewPager2.SCROLL_STATE_DRAGGING -> bannerJob.cancel()
                 }
             }
@@ -141,10 +142,10 @@ class ReserveFragment : BindingFragment<FragmentReserveBinding>(R.layout.fragmen
         binding.tvReserveCategoryBottomTitle.text = data[1].category
     }
 
-    private fun initMenuCategoryTopAdapter(data: List<ResponseReserveCategoryDto.Product>) {
+    private fun initMenuCategoryTopAdapter(data: List<ResponseReserveCategoryDto>) {
         val menuCategoryAdapter = ReserveCategoryTopAdapter(
             requireContext(),
-            data,
+            data[0].products,
             onItemClicked = { id -> navigateToImageDetailFragment(id) }
         )
         binding.gvReserveCategoryTopMenu.adapter = menuCategoryAdapter
@@ -157,11 +158,11 @@ class ReserveFragment : BindingFragment<FragmentReserveBinding>(R.layout.fragmen
         )
     }
 
-    private fun initMenuCategoryBottomAdapter(data: List<ResponseReserveCategoryDto.Product>) {
+    private fun initMenuCategoryBottomAdapter(data: List<ResponseReserveCategoryDto>) {
         val menuCategoryBottomAdapter =
             ReserveCategoryBottomAdapter(
                 requireContext(),
-                data,
+                data[1].products,
                 onItemClicked = { navigateToImageDetailFragment(it) },
             )
         binding.gvReserveCategoryBottomMenu.adapter = menuCategoryBottomAdapter
