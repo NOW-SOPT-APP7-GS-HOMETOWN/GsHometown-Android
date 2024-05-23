@@ -1,43 +1,86 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/main"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".feature.MainActivity">
+    android:layout_height="match_parent">
 
-    <androidx.fragment.app.FragmentContainerView
-        android:id="@+id/fcv_home"
-        android:name="androidx.navigation.fragment.NavHostFragment"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        app:defaultNavHost="true"
-        app:layout_constraintBottom_toTopOf="@id/bnv_home"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:navGraph="@navigation/nav_graph" />
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/main"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".feature.MainActivity">
 
-    <com.google.android.material.bottomnavigation.BottomNavigationView
-        android:id="@+id/bnv_home"
-        android:layout_width="0dp"
+        <androidx.fragment.app.FragmentContainerView
+            android:id="@+id/fcv_home"
+            android:name="androidx.navigation.fragment.NavHostFragment"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:defaultNavHost="true"
+            app:layout_constraintBottom_toTopOf="@id/bnv_home"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:navGraph="@navigation/nav_graph" />
+
+        <com.google.android.material.bottomnavigation.BottomNavigationView
+            android:id="@+id/bnv_home"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:background="@color/grey_00"
+            android:elevation="4dp"
+            app:itemActiveIndicatorStyle="@null"
+            app:itemBackground="@null"
+            app:itemIconSize="24dp"
+            app:itemIconTint="@drawable/menu_selector_color"
+            app:itemPaddingTop="16dp"
+            app:itemRippleColor="@android:color/transparent"
+            app:itemTextAppearanceActive="@style/Typography.GsHomeTown.Detail"
+            app:itemTextAppearanceInactive="@style/Typography.GsHomeTown.Detail"
+            app:itemTextColor="@drawable/menu_selector_color"
+            app:labelVisibilityMode="labeled"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:menu="@menu/menu_home" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/cl_main_fab"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:background="@color/grey_00"
-        android:elevation="4dp"
-        app:itemActiveIndicatorStyle="@null"
-        app:itemBackground="@null"
-        app:itemIconSize="24dp"
-        app:itemIconTint="@drawable/menu_selector_color"
-        app:itemPaddingTop="16dp"
-        app:itemRippleColor="@android:color/transparent"
-        app:itemTextAppearanceActive="@style/Typography.GsHomeTown.Detail"
-        app:itemTextAppearanceInactive="@style/Typography.GsHomeTown.Detail"
-        app:itemTextColor="@drawable/menu_selector_color"
-        app:labelVisibilityMode="labeled"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:menu="@menu/menu_home" />
+        android:layout_gravity="bottom|center"
+        android:layout_marginBottom="38dp"
+        android:background="@drawable/shape_grey00_fill_circle"
+        android:padding="6dp">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/fab_main_button"
+            android:layout_width="66dp"
+            android:layout_height="0dp"
+            android:background="@drawable/shape_grey00_fill_circle"
+            android:backgroundTint="@color/grey_00"
+            android:clickable="false"
+            android:foreground="@drawable/ic_qr"
+            app:elevation="0dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintDimensionRatio="1"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:rippleColor="@color/grey_00" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <TextView
+        android:id="@+id/tv_main_fab_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|center"
+        android:layout_marginBottom="14dp"
+        android:text="@string/menu_item_pay"
+        android:textAppearance="@style/Typography.GsHomeTown.Detail.Medium"
+        android:textColor="@color/grey_07"
+        android:textSize="10sp" />
+</androidx.coordinatorlayout.widget.CoordinatorLayout>
