@@ -12,7 +12,7 @@ import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
 
 object ApiFactory {
-    private const val USER_BASE_URL = BuildConfig.GSHOMETOWN_BASE_URL
+    private const val BASE_URL = BuildConfig.GSHOMETOWN_BASE_URL
 
     private fun getLogOkHttpClient(): Interceptor {
         val loggingInterceptor = HttpLoggingInterceptor { message ->
@@ -39,8 +39,8 @@ object ApiFactory {
     }
 
     object ServicePool {
-        val userService: GsHometownService by lazy {
-            create<GsHometownService>(USER_BASE_URL)
+        val gsHometownService: GsHometownService by lazy {
+            create<GsHometownService>(BASE_URL)
         }
     }
 }

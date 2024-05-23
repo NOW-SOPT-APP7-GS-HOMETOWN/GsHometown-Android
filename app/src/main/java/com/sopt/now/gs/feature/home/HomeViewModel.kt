@@ -17,7 +17,7 @@ class HomeViewModel : ViewModel() {
 
     fun getHomeImage() {
         viewModelScope.launch {
-            runCatching { gsService.userService.getHomeImages() }
+            runCatching { gsService.gsHometownService.getHomeImages() }
                 .onSuccess {
                     Log.d("asd", it.data.toString())
                 }
