@@ -1,5 +1,6 @@
 package com.sopt.now.gs.feature.reserve
 
+import android.util.Log
 import androidx.core.os.bundleOf
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
@@ -8,6 +9,7 @@ import androidx.viewpager2.widget.ViewPager2
 import com.sopt.now.gs.R
 import com.sopt.now.gs.core.base.BindingFragment
 import com.sopt.now.gs.core.view.UiState
+import com.sopt.now.gs.data.response.ResponseReserveCategoryDto
 import com.sopt.now.gs.data.response.ResponseReserveGspayDto
 import com.sopt.now.gs.databinding.FragmentReserveBinding
 import com.sopt.now.gs.feature.util.KeyStorage.USER_ID
@@ -24,19 +26,20 @@ class ReserveFragment : BindingFragment<FragmentReserveBinding>(R.layout.fragmen
     private val categoryTopItems = mutableListOf<ReserveCategoryTopEntity>()
     private val categoryBottomItems = mutableListOf<ReserveCategoryBottomEntity>()
     private val gspayViewModel by viewModels<GspayViewModel>()
+    private val categoryViewModel by viewModels<CategoryViewModel>()
 
     override fun initView() {
         initgetGspay()
+        initcategory()
+
         initObserveGspay()
+        initObserveCategory()
 
         setBannerPositionText()
         updateBannerPosition()
 
         setMenuListItems()
         initMenuListAdapter()
-
-        setMenuCategoryTopItems()
-        initMenuCategoryTopAdapter()
 
         setMenuCategoryBottomItems()
         initMenuCategoryBottomAdapter()
@@ -63,6 +66,10 @@ class ReserveFragment : BindingFragment<FragmentReserveBinding>(R.layout.fragmen
         gspayViewModel.getGspay()
     }
 
+    private fun initcategory() {
+        categoryViewModel.getCategory()
+    }
+
     private fun initObserveGspay() {
         gspayViewModel.gspayState.observe(viewLifecycleOwner) { state ->
             when (state) {
@@ -70,6 +77,18 @@ class ReserveFragment : BindingFragment<FragmentReserveBinding>(R.layout.fragmen
                     setDiscountTitle(state.data)
                     initDiscountMenuAdapter(state.data)
                     initBannerAdapter(state.data)
+                }
+                else -> Unit
+            }
+        }
+    }
+
+    private fun initObserveCategory() {
+        categoryViewModel.categoryState.observe(viewLifecycleOwner) { state ->
+            when (state) {
+                is UiState.Success -> {
+                    setCategoryTitle(state.data)
+                    initMenuCategoryTopAdapter(state.data.flatMap { it.products })
                 }
                 else -> Unit
             }
@@ -147,44 +166,15 @@ class ReserveFragment : BindingFragment<FragmentReserveBinding>(R.layout.fragmen
         discountMenuAdapter.setDiscountMenuList(data.products)
     }
 
-    private fun setMenuCategoryTopItems() {
-        // 임시 데이터
-        categoryTopItems.apply {
-            add(
-                ReserveCategoryTopEntity(
-                    R.drawable.img_reserve_category1_chicken,
-                    "넷플릭스)BIG반반닭강정",
-                    9000
-                )
-            )
-            add(
-                ReserveCategoryTopEntity(
-                    R.drawable.img_reserve_category1_chicken_half,
-                    "넷플릭스)BIG반반닭강정",
-                    9000
-                )
-            )
-            add(
-                ReserveCategoryTopEntity(
-                    R.drawable.img_reserve_category1_cutlet,
-                    "넷플릭스)BIG반반닭강정",
-                    9000
-                )
-            )
-            add(
-                ReserveCategoryTopEntity(
-                    R.drawable.img_reserve_category1_pork_skin,
-                    "넷플릭스)BIG반반닭강정",
-                    9000
-                )
-            )
-        }
+    private fun setCategoryTitle(data: List<ResponseReserveCategoryDto>) {
+        binding.tvReserveCategoryTopTitle.text = data[0].category
+        binding.tvReserveCategoryBottomTitle.text = data[1].category
     }
 
-    private fun initMenuCategoryTopAdapter() {
+    private fun initMenuCategoryTopAdapter(data: List<ResponseReserveCategoryDto.Product>) {
         val menuCategoryAdapter = ReserveCategoryTopAdapter(
             requireContext(),
-            categoryTopItems,
+            data,
             onItemClicked = { id -> navigateToImageDetailFragment(id) }
         )
         binding.gvReserveCategoryTopMenu.adapter = menuCategoryAdapter
