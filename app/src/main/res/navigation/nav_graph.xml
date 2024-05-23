@@ -12,7 +12,8 @@
         tools:layout="@layout/fragment_home">
         <action
             android:id="@+id/action_fragment_home_to_reserveFragment"
-            app:destination="@id/fragment_reserve" />
+            app:destination="@id/fragment_reserve"
+            app:popUpToInclusive="true" />
     </fragment>
     <fragment
         android:id="@+id/fragment_search"
