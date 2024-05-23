@@ -26,8 +26,6 @@ class ReserveFragment : BindingFragment<FragmentReserveBinding>(R.layout.fragmen
         initgetGspay()
         initObserveGspay()
 
-        setBannerItems()
-        initBannerAdapter()
         setBannerPositionText()
         updateBannerPosition()
 
@@ -58,31 +56,28 @@ class ReserveFragment : BindingFragment<FragmentReserveBinding>(R.layout.fragmen
         bannerJob.cancel()
     }
 
-    private fun initgetGspay(){
+    private fun initgetGspay() {
         gspayViewModel.getGspay()
     }
-    private fun initObserveGspay(){
+
+    private fun initObserveGspay() {
         gspayViewModel.gspayState.observe(viewLifecycleOwner) { state ->
             when (state) {
                 is UiState.Success -> {
-                    setDiscountItems(state.data)
+                    setDiscountTitle(state.data)
                     initDiscountMenuAdapter(state.data)
+                    initBannerAdapter(state.data)
                 }
                 else -> Unit
             }
         }
     }
 
-    private fun setBannerItems() {
-        //임시 데이터
-        bannerItems.run {
-            add(ReserveBannerEntity(R.drawable.img_reserve_banner1, 1))
-            add(ReserveBannerEntity(R.drawable.img_reserve_banner2, 2))
+    private fun initBannerAdapter(data: ResponseReserveGspayDto) {
+        data.topBanners.forEachIndexed { index, imageurl ->
+            bannerItems.add(ReserveBannerEntity(imageurl, index + 1))
         }
-    }
-
-    private fun initBannerAdapter() {
-        binding.vpReserveBanner.adapter = ViewPagerAdapter(bannerItems)
+        binding.vpReserveBanner.adapter = ReserveBannerAdapter(bannerItems)
         binding.vpReserveBanner.orientation = ViewPager2.ORIENTATION_HORIZONTAL
     }
 
@@ -111,9 +106,7 @@ class ReserveFragment : BindingFragment<FragmentReserveBinding>(R.layout.fragmen
                     ViewPager2.SCROLL_STATE_IDLE -> {
                         if (!bannerJob.isActive) scrollJobCreate()
                     }
-
                     ViewPager2.SCROLL_STATE_DRAGGING -> bannerJob.cancel()
-
                 }
             }
         })
@@ -140,7 +133,7 @@ class ReserveFragment : BindingFragment<FragmentReserveBinding>(R.layout.fragmen
         binding.gvReserveMenuList.adapter = menuListAdapter
     }
 
-    private fun setDiscountItems(data: ResponseReserveGspayDto) {
+    private fun setDiscountTitle(data: ResponseReserveGspayDto) {
         binding.tvReserveDiscountTitle.text = data.headerTitle
         binding.tvReserveDiscountDate.text = data.date
     }

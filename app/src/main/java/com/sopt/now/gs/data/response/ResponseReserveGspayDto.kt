@@ -18,6 +18,8 @@ data class ResponseReserveGspayDto(
     @Serializable
 
     data class Product(
+        @SerialName("productId")
+        val productId: Int,
         @SerialName("image")
         val image: String,
         @SerialName("title")

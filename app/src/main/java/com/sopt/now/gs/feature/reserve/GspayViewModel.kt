@@ -1,11 +1,9 @@
 package com.sopt.now.gs.feature.reserve
 
-import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.sopt.now.gs.R
 import com.sopt.now.gs.core.view.UiState
 import com.sopt.now.gs.data.api.ApiFactory
 import com.sopt.now.gs.data.response.ResponseReserveGspayDto
@@ -21,13 +19,10 @@ class GspayViewModel : ViewModel() {
                 .onSuccess { response ->
                     val data = response.body()?.data
                     data?.run { _gspayState.value = UiState.Success(this) }
-                    Log.d("gspay", data.toString())
                 }
                 .onFailure {
                     _gspayState.value = UiState.Failure("error")
-                    Log.d("gspay", it.message.toString())
                 }
         }
     }
-
 }
