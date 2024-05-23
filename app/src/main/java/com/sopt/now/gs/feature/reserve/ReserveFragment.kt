@@ -1,6 +1,5 @@
 package com.sopt.now.gs.feature.reserve
 
-import android.util.Log
 import androidx.core.os.bundleOf
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
@@ -27,9 +26,6 @@ class ReserveFragment : BindingFragment<FragmentReserveBinding>(R.layout.fragmen
     private val categoryViewModel by viewModels<CategoryViewModel>()
 
     override fun initView() {
-        initgetGspay()
-        initcategory()
-
         initObserveGspay()
         initObserveCategory()
 
@@ -40,14 +36,6 @@ class ReserveFragment : BindingFragment<FragmentReserveBinding>(R.layout.fragmen
         initMenuListAdapter()
 
         moveToTop()
-    }
-
-    private fun initgetGspay() {
-        gspayViewModel.getGspay()
-    }
-
-    private fun initcategory() {
-        categoryViewModel.getCategory()
     }
 
     private fun initObserveGspay() {
@@ -77,6 +65,7 @@ class ReserveFragment : BindingFragment<FragmentReserveBinding>(R.layout.fragmen
     }
 
     private fun initBannerAdapter(data: ResponseReserveGspayDto) {
+        //if (bannerItems.size > 2) return 또 다른 방법
         data.topBanners.forEachIndexed { index, imageurl ->
             bannerItems.add(ReserveBannerEntity(imageurl, index + 1))
         }
@@ -204,5 +193,6 @@ class ReserveFragment : BindingFragment<FragmentReserveBinding>(R.layout.fragmen
     override fun onDestroyView() {
         super.onDestroyView()
         bannerJob.cancel()
+        bannerItems.clear()
     }
 }

@@ -13,6 +13,10 @@ class GspayViewModel : ViewModel() {
     private val _gspayState = MutableLiveData<UiState<ResponseReserveGspayDto>>()
     val gspayState: LiveData<UiState<ResponseReserveGspayDto>> get() = _gspayState
 
+    init{
+        getGspay()
+    }
+
     fun getGspay() {
         viewModelScope.launch {
             runCatching { ApiFactory.ServicePool.gsHometownService.getGspay("gspay") }

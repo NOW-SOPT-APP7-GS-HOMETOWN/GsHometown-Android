@@ -13,6 +13,10 @@ class CategoryViewModel : ViewModel() {
     private val _categoryState = MutableLiveData<UiState<List<ResponseReserveCategoryDto>>>()
     val categoryState: LiveData<UiState<List<ResponseReserveCategoryDto>>> get() = _categoryState
 
+    init{
+        getCategory()
+    }
+
     fun getCategory() {
         viewModelScope.launch {
             runCatching { ApiFactory.ServicePool.gsHometownService.getCategory("category") }
