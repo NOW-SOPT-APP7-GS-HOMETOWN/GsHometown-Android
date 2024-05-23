@@ -1,0 +1,366 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+    </data>
+
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <com.google.android.material.floatingactionbutton.FloatingActionButton
+                android:id="@+id/btn_purchase_detail_fab_up"
+                style="@style/FloatingActionButtonStyle"
+                android:layout_width="46dp"
+                android:layout_height="0dp"
+                android:layout_marginEnd="16dp"
+                android:layout_marginBottom="20dp"
+                android:foreground="@drawable/ic_fab_to_top"
+                app:borderWidth="0dp"
+                app:layout_constraintBottom_toTopOf="@id/cl_detail_bottom_buttons"
+                app:layout_constraintDimensionRatio="1"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:rippleColor="@android:color/transparent" />
+
+            <com.google.android.material.appbar.AppBarLayout
+                android:id="@+id/appbar_purchase_detail"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:backgroundTint="@color/grey_00"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <androidx.appcompat.widget.Toolbar
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:minHeight="0dp"
+                    android:paddingVertical="12dp"
+                    app:contentInsetStart="0dp"
+                    app:layout_scrollFlags="scroll|enterAlways">
+
+                    <ImageView
+                        android:id="@+id/iv_purchase_detail_back"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="8dp"
+                        android:src="@drawable/ic_topbar_back_left_24" />
+
+                    <ImageView
+                        android:id="@+id/iv_purchase_detail_home"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="end"
+                        android:layout_marginEnd="9dp"
+                        android:src="@drawable/ic_topbar_home_right" />
+
+                </androidx.appcompat.widget.Toolbar>
+            </com.google.android.material.appbar.AppBarLayout>
+
+            <androidx.core.widget.NestedScrollView
+                android:id="@+id/sv_purchase_detail"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:fillViewport="true"
+                app:layout_constraintBottom_toTopOf="@id/cl_detail_bottom_buttons"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/appbar_purchase_detail">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <ImageView
+                        android:id="@+id/iv_purchase_detail_top"
+                        android:layout_width="0dp"
+                        android:layout_height="0dp"
+                        android:background="@color/blue_01"
+                        app:layout_constraintDimensionRatio="1"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHorizontal_bias="1.0"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <androidx.constraintlayout.widget.Guideline
+                        android:id="@+id/gl_purchase_detail_start_16"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        app:layout_constraintGuide_begin="16dp" />
+
+                    <androidx.constraintlayout.widget.Guideline
+                        android:id="@+id/gl_purchase_detail_end_16"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        app:layout_constraintGuide_end="16dp" />
+
+                    <TextView
+                        android:id="@+id/tv_purchase_detail_title"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="15dp"
+                        android:layout_marginEnd="5dp"
+                        android:text="핫매콤야끼우동313G"
+                        android:textAppearance="@style/Typography.GsHomeTown.Heading5"
+                        app:layout_constraintEnd_toStartOf="@id/btn_purchase_detail_heart"
+                        app:layout_constraintStart_toStartOf="@id/gl_purchase_detail_start_16"
+                        app:layout_constraintTop_toBottomOf="@id/iv_purchase_detail_top" />
+
+                    <com.google.android.material.checkbox.MaterialCheckBox
+                        android:id="@+id/btn_purchase_detail_heart"
+                        android:layout_width="0dp"
+                        android:layout_height="44dp"
+                        android:background="@drawable/selector_purchase_detail_heart"
+                        android:button="@null"
+                        app:layout_constraintBottom_toBottomOf="@id/tv_purchase_detail_title"
+                        app:layout_constraintDimensionRatio="1"
+                        app:layout_constraintEnd_toStartOf="@id/btn_purchase_detail_share"
+                        app:layout_constraintHorizontal_bias="1"
+                        app:layout_constraintHorizontal_chainStyle="packed"
+                        app:layout_constraintStart_toEndOf="@id/tv_purchase_detail_title"
+                        app:layout_constraintTop_toTopOf="@id/tv_purchase_detail_title" />
+
+                    <ImageView
+                        android:id="@+id/btn_purchase_detail_share"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="5dp"
+                        android:src="@drawable/ic_share_black_44"
+                        app:layout_constraintBottom_toBottomOf="@id/tv_purchase_detail_title"
+                        app:layout_constraintDimensionRatio="1"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHorizontal_bias="1"
+                        app:layout_constraintStart_toEndOf="@id/btn_purchase_detail_heart"
+                        app:layout_constraintTop_toTopOf="@id/tv_purchase_detail_title" />
+
+                    <TextView
+                        android:id="@+id/tv_purchase_detail_price"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="11dp"
+                        android:textAppearance="@style/Typography.GsHomeTown.Heading5"
+                        app:layout_constraintStart_toStartOf="@id/gl_purchase_detail_start_16"
+                        app:layout_constraintTop_toBottomOf="@id/tv_purchase_detail_title"
+                        android:text="3,900원" />
+
+                    <TextView
+                        android:id="@+id/tv_purchase_detail_info"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="11dp"
+                        android:text="@string/purchase_detail_receive_info"
+                        android:textAppearance="@style/Typography.GsHomeTown.Body4.Medium"
+                        android:textColor="@color/grey_08"
+                        app:layout_constraintStart_toStartOf="@id/gl_purchase_detail_start_16"
+                        app:layout_constraintTop_toBottomOf="@id/tv_purchase_detail_price" />
+
+                    <TextView
+                        android:id="@+id/tv_purchase_detail_pickup_available"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="26dp"
+                        android:text="@string/purchase_detail_receive_avail"
+                        android:textAppearance="@style/Typography.GsHomeTown.Body4.Medium"
+                        app:layout_constraintBaseline_toBaselineOf="@id/tv_purchase_detail_info"
+                        app:layout_constraintEnd_toStartOf="@id/iv_purchase_detail_line_vertical_04"
+                        app:layout_constraintStart_toEndOf="@id/tv_purchase_detail_info" />
+
+                    <ImageView
+                        android:id="@+id/iv_purchase_detail_line_vertical_04"
+                        android:layout_width="wrap_content"
+                        android:layout_height="0dp"
+                        android:layout_marginStart="9dp"
+                        android:src="@drawable/ic_line_vertical_grey_04"
+                        app:layout_constraintBottom_toBottomOf="@id/tv_purchase_detail_pickup_available"
+                        app:layout_constraintEnd_toStartOf="@id/tv_purchase_detail_pickup_location"
+                        app:layout_constraintStart_toEndOf="@id/tv_purchase_detail_pickup_available"
+                        app:layout_constraintTop_toTopOf="@id/tv_purchase_detail_pickup_available" />
+
+                    <TextView
+                        android:id="@+id/tv_purchase_detail_pickup_location"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="9dp"
+                        android:background="@drawable/shape_radius_09"
+                        android:backgroundTint="@color/blue_01"
+                        android:paddingHorizontal="8dp"
+                        android:paddingVertical="4dp"
+                        android:text="@string/purchase_detail_receive_market"
+                        android:textAppearance="@style/Typography.GsHomeTown.Body4.Medium"
+                        app:layout_constraintBaseline_toBaselineOf="@id/tv_purchase_detail_info"
+                        app:layout_constraintStart_toEndOf="@id/iv_purchase_detail_line_vertical_04" />
+
+                    <ImageView
+                        android:id="@+id/rating_bar_purchase_detail"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="11dp"
+                        android:src="@drawable/ic_star_total_05"
+                        app:layout_constraintStart_toStartOf="@id/gl_purchase_detail_start_16"
+                        app:layout_constraintTop_toBottomOf="@id/tv_purchase_detail_info" />
+
+                    <TextView
+                        android:id="@+id/tv_purchase_detail_rating_number"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="8dp"
+                        android:text="5.0"
+                        android:textAppearance="@style/Typography.GsHomeTown.Body4"
+                        app:layout_constraintBottom_toBottomOf="@id/rating_bar_purchase_detail"
+                        app:layout_constraintStart_toEndOf="@id/rating_bar_purchase_detail"
+                        app:layout_constraintTop_toTopOf="@id/rating_bar_purchase_detail" />
+
+                    <TextView
+                        android:id="@+id/tv_purchase_detail_review_count"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="6dp"
+                        android:text="(2)"
+                        android:textAppearance="@style/Typography.GsHomeTown.Body4.Medium"
+                        app:layout_constraintBaseline_toBaselineOf="@id/tv_purchase_detail_rating_number"
+                        app:layout_constraintStart_toEndOf="@id/tv_purchase_detail_rating_number" />
+
+                    <TextView
+                        android:id="@+id/tv_purchase_detail_review_text"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="9dp"
+                        android:text="@string/purchase_detail_review"
+                        android:textAppearance="@style/Typography.GsHomeTown.Body4.Medium"
+                        app:layout_constraintBaseline_toBaselineOf="@id/tv_purchase_detail_rating_number"
+                        app:layout_constraintStart_toEndOf="@id/tv_purchase_detail_review_count" />
+
+                    <ImageView
+                        android:id="@+id/iv_purchase_detail_review_right"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="8dp"
+                        android:src="@drawable/ic_arrow_right_01"
+                        app:layout_constraintBottom_toBottomOf="@id/tv_purchase_detail_rating_number"
+                        app:layout_constraintStart_toEndOf="@id/tv_purchase_detail_review_text"
+                        app:layout_constraintTop_toTopOf="@id/tv_purchase_detail_rating_number" />
+
+                    <com.google.android.material.divider.MaterialDivider
+                        android:id="@+id/divider_purchase_detail_top_07"
+                        android:layout_width="match_parent"
+                        android:layout_height="7dp"
+                        android:layout_marginVertical="20dp"
+                        app:dividerColor="@color/grey_03"
+                        app:layout_constraintTop_toBottomOf="@id/rating_bar_purchase_detail" />
+
+                    <com.google.android.material.tabs.TabLayout
+                        android:id="@+id/tab_purchase_detail"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="20dp"
+                        android:background="@drawable/shape_radius_24"
+                        android:backgroundTint="@color/grey_05"
+                        app:layout_constraintEnd_toEndOf="@id/gl_purchase_detail_end_16"
+                        app:layout_constraintStart_toStartOf="@id/gl_purchase_detail_start_16"
+                        app:layout_constraintTop_toBottomOf="@id/divider_purchase_detail_top_07"
+                        app:tabBackground="@drawable/selector_tab_item_white"
+                        app:tabIndicator="@android:color/transparent"
+                        app:tabMode="fixed"
+                        app:tabRippleColor="@android:color/transparent"
+                        app:tabTextAppearance="@style/Typography.GsHomeTown.Body2">
+
+                        <com.google.android.material.tabs.TabItem
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:text="@string/purchase_detail_tab_product_info" />
+
+                        <com.google.android.material.tabs.TabItem
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:text="@string/purchase_detail_tab_how_to_use" />
+
+                        <com.google.android.material.tabs.TabItem
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:text="@string/purchase_detail_tab_caution"
+                            tools:layout_editor_absoluteX="298dp"
+                            tools:layout_editor_absoluteY="583dp" />
+
+                    </com.google.android.material.tabs.TabLayout>
+
+                    <ImageView
+                        android:id="@+id/iv_purchase_detail_main"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="27dp"
+                        app:layout_constraintEnd_toEndOf="@id/gl_purchase_detail_end_16"
+                        app:layout_constraintStart_toStartOf="@id/gl_purchase_detail_start_16"
+                        app:layout_constraintTop_toBottomOf="@id/tab_purchase_detail" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+            </androidx.core.widget.NestedScrollView>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/cl_detail_bottom_buttons"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent">
+
+                <ImageView
+                    android:id="@+id/iv_detail_bookmark"
+                    android:layout_width="wrap_content"
+                    android:layout_height="0dp"
+                    android:layout_marginVertical="6dp"
+                    android:layout_marginStart="5dp"
+                    android:src="@drawable/ic_gift_black_44"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintDimensionRatio="1"
+                    app:layout_constraintEnd_toStartOf="@id/btn_detail_purchase_collect"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btn_detail_purchase_collect"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="4dp"
+                    android:backgroundTint="@color/grey_05"
+                    android:text="@string/purchase_detail_baseket"
+                    android:textAppearance="@style/Typography.GsHomeTown.Body2"
+                    android:textColor="@color/grey_10"
+                    app:cornerRadius="99dp"
+                    app:layout_constraintBottom_toBottomOf="@id/iv_detail_bookmark"
+                    app:layout_constraintEnd_toStartOf="@id/btn_detail_purchase_order"
+                    app:layout_constraintHorizontal_chainStyle="packed"
+                    app:layout_constraintStart_toEndOf="@id/iv_detail_bookmark"
+                    app:layout_constraintTop_toTopOf="@id/iv_detail_bookmark" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btn_detail_purchase_order"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="15dp"
+                    android:backgroundTint="@color/grey_10"
+                    android:text="@string/purchase_detail_reserve"
+                    android:textAppearance="@style/Typography.GsHomeTown.Body2"
+                    android:textColor="@color/grey_00"
+                    app:cornerRadius="99dp"
+                    app:layout_constraintBottom_toBottomOf="@id/iv_detail_bookmark"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@id/btn_detail_purchase_collect"
+                    app:layout_constraintTop_toTopOf="@id/iv_detail_bookmark" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+
+</layout>

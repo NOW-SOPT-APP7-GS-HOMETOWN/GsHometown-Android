@@ -10,7 +10,21 @@
         <item name="android:windowLightStatusBar">true</item>
         <!-- 기본 배경색 -->
         <item name="android:windowBackground">@color/grey_00</item>
+        <!-- 기본 텍스트 색 -->
+        <item name="android:textColor">@color/grey_10</item>
+
     </style>
 
     <style name="Theme.GSHometownAndroid" parent="Base.Theme.GSHometownAndroid" />
+
+    <style name="FloatingActionButtonStyle" parent="Widget.Design.FloatingActionButton">
+        <item name="shapeAppearanceOverlay">@style/FabShapeStyle</item>
+        <item name="android:stateListAnimator">@null</item>
+    </style>
+
+    <style name="FabShapeStyle" parent="ShapeAppearance.MaterialComponents.SmallComponent">
+        <item name="cornerFamily">rounded</item>
+        <item name="android:elevation">0dp</item>
+        <item name="cornerSize">50%</item>
+    </style>
 </resources>

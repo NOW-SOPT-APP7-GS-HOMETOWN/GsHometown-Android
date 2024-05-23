@@ -40,4 +40,8 @@
         android:name="com.sopt.now.gs.feature.reserve.ReserveFragment"
         android:label="ReserveFragment"
         tools:layout="@layout/fragment_reserve" />
+    <fragment
+        android:id="@+id/fragment_purchase_detail"
+        android:name="com.sopt.now.gs.feature.purchasedetail.PurchaseDetailFragment"
+        android:label="PurchaseDetailFragment" />
 </navigation>
