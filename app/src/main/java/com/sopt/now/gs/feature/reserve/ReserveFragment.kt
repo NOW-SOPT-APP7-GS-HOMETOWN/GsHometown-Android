@@ -142,6 +142,7 @@ class ReserveFragment : BindingFragment<FragmentReserveBinding>(R.layout.fragmen
 
     private fun setDiscountItems(data: ResponseReserveGspayDto) {
         binding.tvReserveDiscountTitle.text = data.headerTitle
+        binding.tvReserveDiscountDate.text = data.date
     }
 
     private fun initDiscountMenuAdapter(data: ResponseReserveGspayDto) {
