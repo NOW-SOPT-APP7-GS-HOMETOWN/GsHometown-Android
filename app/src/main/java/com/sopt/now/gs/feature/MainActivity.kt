@@ -36,15 +36,15 @@ class MainActivity : AppCompatActivity() {
                 else -> View.VISIBLE
             }
             when (destination.id) {
-                R.id.fragment_reserve -> {
+                R.id.fragment_home, R.id.fragment_search, R.id.fragment_order, R.id.fragment_my_page, R.id.fragment_pay -> {
                     binding.bnvHome.menu.findItem(R.id.fragment_pay)?.apply {
-                        setFabBtnInVisible()
+                        setFabBtnVisible()
                     }
                 }
 
                 else -> {
                     binding.bnvHome.menu.findItem(R.id.fragment_pay)?.apply {
-                        setFabBtnVisible()
+                        setFabBtnInVisible()
                     }
                 }
             }
