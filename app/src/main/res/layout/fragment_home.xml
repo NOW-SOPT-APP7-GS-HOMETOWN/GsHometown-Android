@@ -10,9 +10,9 @@
     <androidx.coordinatorlayout.widget.CoordinatorLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@color/grey_02"
+        android:layout_marginTop="5dp"
 
-        android:layout_marginTop="5dp">
+        android:background="@color/grey_02">
 
         <com.google.android.material.appbar.AppBarLayout
             android:id="@+id/home_top_app_bar"
@@ -99,10 +99,11 @@
                 <androidx.viewpager2.widget.ViewPager2
                     android:id="@+id/vp_home_top_banner"
                     android:layout_width="0dp"
-                    android:layout_height="wrap_content"
+                    android:layout_height="0dp"
                     android:layout_marginHorizontal="14dp"
                     android:layout_marginTop="53dp"
                     android:orientation="horizontal"
+                    app:layout_constraintDimensionRatio="330:86"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
@@ -357,7 +358,6 @@
                             android:layout_marginTop="12dp"
                             android:layout_marginEnd="108dp"
                             android:layout_marginBottom="13dp"
-                            android:src="@drawable/img_home_month_event1"
                             app:layout_constraintBottom_toBottomOf="parent"
                             app:layout_constraintEnd_toEndOf="parent"
                             app:layout_constraintStart_toStartOf="@id/tv_home_month_event_sub_title"
@@ -382,9 +382,9 @@
 
                         <androidx.recyclerview.widget.RecyclerView
                             android:id="@+id/vp_home_right_month_event"
-                            android:layout_marginStart="7dp"
                             android:layout_width="0dp"
                             android:layout_height="0dp"
+                            android:layout_marginStart="7dp"
                             android:layout_marginBottom="9dp"
                             android:elevation="0dp"
                             android:orientation="vertical"
@@ -412,9 +412,10 @@
                 <androidx.viewpager2.widget.ViewPager2
                     android:id="@+id/vp_home_bottom_banner"
                     android:layout_width="0dp"
-                    android:layout_height="wrap_content"
+                    android:layout_height="0dp"
                     android:layout_marginHorizontal="14dp"
                     android:orientation="horizontal"
+                    app:layout_constraintDimensionRatio="332:150"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/iv_home_week_event"
