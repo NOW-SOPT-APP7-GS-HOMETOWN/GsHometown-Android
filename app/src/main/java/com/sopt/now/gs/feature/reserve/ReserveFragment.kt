@@ -1,6 +1,5 @@
 package com.sopt.now.gs.feature.reserve
 
-import android.util.Log
 import androidx.core.os.bundleOf
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
@@ -23,8 +22,6 @@ class ReserveFragment : BindingFragment<FragmentReserveBinding>(R.layout.fragmen
     private var bannerPosition = 0
     private val bannerItems = ArrayList<ReserveBannerEntity>()
     private val menuListItems = mutableListOf<ReserveMenuListItem>()
-    private val categoryTopItems = mutableListOf<ReserveCategoryTopEntity>()
-    private val categoryBottomItems = mutableListOf<ReserveCategoryBottomEntity>()
     private val gspayViewModel by viewModels<GspayViewModel>()
     private val categoryViewModel by viewModels<CategoryViewModel>()
 
@@ -40,9 +37,6 @@ class ReserveFragment : BindingFragment<FragmentReserveBinding>(R.layout.fragmen
 
         setMenuListItems()
         initMenuListAdapter()
-
-        setMenuCategoryBottomItems()
-        initMenuCategoryBottomAdapter()
 
         moveToTop()
     }
@@ -89,6 +83,7 @@ class ReserveFragment : BindingFragment<FragmentReserveBinding>(R.layout.fragmen
                 is UiState.Success -> {
                     setCategoryTitle(state.data)
                     initMenuCategoryTopAdapter(state.data.flatMap { it.products })
+                    initMenuCategoryBottomAdapter(state.data.flatMap { it.products })
                 }
                 else -> Unit
             }
@@ -187,56 +182,14 @@ class ReserveFragment : BindingFragment<FragmentReserveBinding>(R.layout.fragmen
         )
     }
 
-    private fun setMenuCategoryBottomItems() {
-        // 임시 데이터
-        categoryBottomItems.apply {
-            add(
-                ReserveCategoryBottomEntity(
-                    R.drawable.img_reserve_category2_chicken_soup,
-                    "핫매콤야끼우동",
-                    9000,
-                    5.0,
-                    4
-                )
-            )
-            add(
-                ReserveCategoryBottomEntity(
-                    R.drawable.img_reserve_category2_meat_soup,
-                    "핫매콤야끼우동",
-                    9000,
-                    5.0,
-                    4
-                )
-            )
-            add(
-                ReserveCategoryBottomEntity(
-                    R.drawable.img_reserve_category2_noodle,
-                    "핫매콤야끼우동",
-                    9000,
-                    5.0,
-                    4
-                )
-            )
-            add(
-                ReserveCategoryBottomEntity(
-                    R.drawable.img_reserve_category2_potato_soup,
-                    "핫매콤야끼우동",
-                    9000,
-                    5.0,
-                    4
-                )
-            )
-        }
-    }
-
-    private fun initMenuCategoryBottomAdapter() {
-        val menuCategory2Adapter =
+    private fun initMenuCategoryBottomAdapter(data: List<ResponseReserveCategoryDto.Product>) {
+        val menuCategoryBottomAdapter =
             ReserveCategoryBottomAdapter(
                 requireContext(),
-                categoryBottomItems,
+                data,
                 onItemClicked = { navigateToImageDetailFragment(it) },
             )
-        binding.gvReserveCategoryBottomMenu.adapter = menuCategory2Adapter
+        binding.gvReserveCategoryBottomMenu.adapter = menuCategoryBottomAdapter
     }
 
     private fun moveToTop() {
