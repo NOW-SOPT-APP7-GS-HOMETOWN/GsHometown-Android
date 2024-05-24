@@ -1,4 +1,3 @@
-
 ## 📌 𝙋𝙧𝙤𝙟𝙚𝙘𝙩 𝙄𝙣𝙩𝙧𝙤𝙙𝙪𝙘𝙩𝙞𝙤𝙣
 <img src="https://github.com/NOW-SOPT-APP7-GS-HOMETOWN/GsHometown-Android/assets/106955456/74553fee-2596-4cc3-aafd-80a89965ccdc" width =10% ><br>
 > SOPT 34th 합동세미나  
@@ -29,6 +28,7 @@
 + `Recyclerview snap helper & auto scroll`
 + `Coordinator Layout & Motion`
 + `Bottom navi fab button`
+<br>
 
 ## 📹 𝙎𝙘𝙧𝙚𝙚𝙣𝙨𝙝𝙤𝙩 & 𝙑𝙞𝙙𝙚𝙤
 
@@ -36,17 +36,22 @@
 
 | 𝙃𝙤𝙢𝙚 | Reserve | Detail |  𝙈𝙮 𝙋𝙖𝙜𝙚 |
 |--------|--------|--------|--------|
-|![KakaoTalk_Photo_2024-01-19-23-41-03 004]()|![KakaoTalk_Photo_2024-01-19-23-41-03 003]()|![KakaoTalk_Photo_2024-01-19-23-41-03 002]()|![KakaoTalk_Photo_2024-01-19-23-41-03 001]()| 
+|![image](https://github.com/NOW-SOPT-APP7-GS-HOMETOWN/GsHometown-Android/assets/106955456/38f4983d-296c-4e1f-8c3f-c0a75603eff3)|![image](https://github.com/NOW-SOPT-APP7-GS-HOMETOWN/GsHometown-Android/assets/106955456/fbf5a76f-23c9-4212-b483-5503cfd7b004)|![image](https://github.com/NOW-SOPT-APP7-GS-HOMETOWN/GsHometown-Android/assets/106955456/e9891f08-a2aa-4cd7-87e4-11a1d069b1e8)|![image](https://github.com/NOW-SOPT-APP7-GS-HOMETOWN/GsHometown-Android/assets/106955456/0148cb23-a9de-427c-aee0-fac4026a34fb)| 
 
 ### [𝙑𝙞𝙙𝙚𝙤]
 
 #### 𝙃𝙤𝙢𝙚
+https://github.com/NOW-SOPT-APP7-GS-HOMETOWN/GsHometown-Android/assets/106955456/17504a00-ca55-4f29-8dbb-850b0a877d3f
 
 #### Reserve
+https://github.com/NOW-SOPT-APP7-GS-HOMETOWN/GsHometown-Android/assets/106955456/9352c264-e556-4e61-b325-60661db22cc8
 
 #### Detail
+https://github.com/NOW-SOPT-APP7-GS-HOMETOWN/GsHometown-Android/assets/106955456/d3585191-c319-4586-aefc-3b1a4ec4c943
 
 #### 𝙈𝙮 𝙋𝙖𝙜𝙚
+https://github.com/NOW-SOPT-APP7-GS-HOMETOWN/GsHometown-Android/assets/106955456/43fa3131-0e74-4b43-a7d3-25698c92e5b1
+
 
 
 ## 💚 𝘾𝙤𝙣𝙩𝙧𝙞𝙗𝙪𝙩𝙤𝙧𝙨
