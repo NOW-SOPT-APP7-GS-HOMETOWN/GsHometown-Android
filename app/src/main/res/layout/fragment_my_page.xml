@@ -88,7 +88,19 @@
                         android:layout_marginTop="30dp"
                         android:text="WELCOME"
                         android:textAppearance="@style/Typography.GsHomeTown.Heading3"
+                        android:textColor="@color/blue_03"
                         app:layout_constraintStart_toStartOf="@id/gl_my_start_16"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <TextView
+                        android:id="@+id/tv_my_welcome_name"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="8dp"
+                        android:layout_marginTop="30dp"
+                        android:text="이솝트님"
+                        android:textAppearance="@style/Typography.GsHomeTown.Heading3"
+                        app:layout_constraintStart_toEndOf="@id/tv_my_welcome"
                         app:layout_constraintTop_toTopOf="parent" />
 
                     <ImageView
@@ -97,9 +109,9 @@
                         android:layout_height="wrap_content"
                         android:layout_marginStart="7dp"
                         android:src="@drawable/ic_arrow_right_01"
-                        app:layout_constraintBottom_toBottomOf="@id/tv_my_welcome"
-                        app:layout_constraintStart_toEndOf="@id/tv_my_welcome"
-                        app:layout_constraintTop_toTopOf="@id/tv_my_welcome" />
+                        app:layout_constraintBottom_toBottomOf="@id/tv_my_welcome_name"
+                        app:layout_constraintStart_toEndOf="@id/tv_my_welcome_name"
+                        app:layout_constraintTop_toTopOf="@id/tv_my_welcome_name" />
 
                     <TextView
                         android:id="@+id/tv_my_get_location"
@@ -369,6 +381,445 @@
                         app:dividerColor="@color/grey_03"
                         app:layout_constraintTop_toBottomOf="@id/tv_my_gift" />
 
+                    <TextView
+                        android:id="@+id/tv_order_title"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="14dp"
+                        android:layout_marginTop="4dp"
+                        android:paddingVertical="12dp"
+                        android:text="주문 정보"
+                        android:textAppearance="@style/Typography.GsHomeTown.Heading6"
+                        android:textColor="@color/grey_10"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/divider_purchase_detail_top_07" />
+
+                    <ImageView
+                        android:id="@+id/iv_my_arrow_top_01"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="19dp"
+                        android:layout_marginEnd="2dp"
+                        android:src="@drawable/ic_my_page_arrow_top"
+                        app:layout_constraintEnd_toStartOf="@id/gl_my_end_16"
+                        app:layout_constraintTop_toBottomOf="@id/divider_purchase_detail_top_07" />
+
+                    <TextView
+                        android:id="@+id/tv_order_basket"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="14dp"
+                        android:paddingVertical="12dp"
+                        android:text="장바구니"
+                        android:textAppearance="@style/Typography.GsHomeTown.Body1"
+                        android:textColor="@color/grey_10"
+                        app:layout_constraintEnd_toStartOf="@id/tv_order_breakdown"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/tv_order_title" />
+
+                    <TextView
+                        android:id="@+id/tv_order_breakdown"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:paddingVertical="12dp"
+                        android:text="주문 내역"
+                        android:textAppearance="@style/Typography.GsHomeTown.Body1"
+                        android:textColor="@color/grey_10"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toEndOf="@id/tv_order_basket"
+                        app:layout_constraintTop_toBottomOf="@id/tv_order_title" />
+
+                    <TextView
+                        android:id="@+id/tv_order_storage"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="14dp"
+                        android:paddingVertical="12dp"
+                        android:text="나만의 냉장고 보관함"
+                        android:textAppearance="@style/Typography.GsHomeTown.Body1"
+                        android:textColor="@color/grey_10"
+                        app:layout_constraintEnd_toStartOf="@id/tv_order_breakdown"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/tv_order_basket" />
+
+                    <TextView
+                        android:id="@+id/tv_order_receipt"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:paddingVertical="12dp"
+                        android:text="모바일 영수증"
+                        android:textAppearance="@style/Typography.GsHomeTown.Body1"
+                        android:textColor="@color/grey_10"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toEndOf="@id/tv_order_basket"
+                        app:layout_constraintTop_toBottomOf="@id/tv_order_basket" />
+
+                    <com.google.android.material.divider.MaterialDivider
+                        android:id="@+id/divider_purchase_detail_top_08"
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:layout_marginHorizontal="15dp"
+                        android:layout_marginTop="6dp"
+                        app:dividerColor="@color/grey_05"
+                        app:layout_constraintTop_toBottomOf="@id/tv_order_receipt" />
+
+                    <TextView
+                        android:id="@+id/tv_checkout_title"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="14dp"
+                        android:layout_marginTop="17dp"
+                        android:layout_marginBottom="12dp"
+                        android:paddingVertical="12dp"
+                        android:text="결제 정보"
+                        android:textAppearance="@style/Typography.GsHomeTown.Heading6"
+                        android:textColor="@color/grey_10"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/tv_order_storage" />
+
+                    <ImageView
+                        android:id="@+id/iv_my_arrow_top_02"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="19dp"
+                        android:layout_marginEnd="2dp"
+                        android:src="@drawable/ic_my_page_arrow_top"
+                        app:layout_constraintEnd_toStartOf="@id/gl_my_end_16"
+                        app:layout_constraintTop_toBottomOf="@id/divider_purchase_detail_top_08" />
+
+                    <TextView
+                        android:id="@+id/tv_checkout_setting"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="14dp"
+                        android:paddingVertical="12dp"
+                        android:text="결제·적립·할인 설정"
+                        android:textAppearance="@style/Typography.GsHomeTown.Body1"
+                        android:textColor="@color/grey_10"
+                        app:layout_constraintEnd_toStartOf="@id/tv_order_breakdown"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/tv_checkout_title" />
+
+                    <TextView
+                        android:id="@+id/tv_checkout_receipt"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:paddingVertical="12dp"
+                        android:text="현금영수증 번호 관리"
+                        android:textAppearance="@style/Typography.GsHomeTown.Body1"
+                        android:textColor="@color/grey_10"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toEndOf="@id/tv_order_basket"
+                        app:layout_constraintTop_toBottomOf="@id/tv_checkout_title" />
+
+                    <TextView
+                        android:id="@+id/tv_checkout_gspay"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="14dp"
+                        android:paddingVertical="12dp"
+                        android:text="GS Pay 관리"
+                        android:textAppearance="@style/Typography.GsHomeTown.Body1"
+                        android:textColor="@color/grey_10"
+                        app:layout_constraintEnd_toStartOf="@id/tv_order_breakdown"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/tv_checkout_setting" />
+
+                    <TextView
+                        android:id="@+id/tv_checkout_gsprime"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:paddingVertical="12dp"
+                        android:text="GS Prime 카드 신청"
+                        android:textAppearance="@style/Typography.GsHomeTown.Body1"
+                        android:textColor="@color/grey_10"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toEndOf="@id/tv_order_basket"
+                        app:layout_constraintTop_toBottomOf="@id/tv_checkout_setting" />
+
+                    <TextView
+                        android:id="@+id/tv_checkout_mobilepop"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="14dp"
+                        android:paddingVertical="12dp"
+                        android:text="모바일팝 가입하기"
+                        android:textAppearance="@style/Typography.GsHomeTown.Body1"
+                        android:textColor="@color/grey_10"
+                        app:layout_constraintEnd_toStartOf="@id/tv_order_breakdown"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/tv_checkout_gspay" />
+
+                    <com.google.android.material.divider.MaterialDivider
+                        android:id="@+id/divider_purchase_detail_top_09"
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:layout_marginHorizontal="15dp"
+                        android:layout_marginTop="3dp"
+                        app:dividerColor="@color/grey_05"
+                        app:layout_constraintTop_toBottomOf="@id/tv_checkout_mobilepop" />
+
+                    <TextView
+                        android:id="@+id/tv_sale_title"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="14dp"
+                        android:layout_marginTop="17dp"
+                        android:layout_marginBottom="12dp"
+                        android:paddingVertical="12dp"
+                        android:text="할인 정보"
+                        android:textAppearance="@style/Typography.GsHomeTown.Heading6"
+                        android:textColor="@color/grey_10"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/divider_purchase_detail_top_09" />
+
+                    <ImageView
+                        android:id="@+id/iv_my_arrow_top_03"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="19dp"
+                        android:layout_marginEnd="2dp"
+                        android:src="@drawable/ic_my_page_arrow_top"
+                        app:layout_constraintEnd_toStartOf="@id/gl_my_end_16"
+                        app:layout_constraintTop_toBottomOf="@id/divider_purchase_detail_top_09" />
+
+                    <TextView
+                        android:id="@+id/tv_sale_carrier"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="14dp"
+                        android:paddingVertical="12dp"
+                        android:text="통신사 할인"
+                        android:textAppearance="@style/Typography.GsHomeTown.Body1"
+                        android:textColor="@color/grey_10"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/tv_sale_title" />
+
+                    <com.google.android.material.divider.MaterialDivider
+                        android:id="@+id/divider_purchase_detail_top_10"
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:layout_marginHorizontal="15dp"
+                        android:layout_marginTop="6dp"
+                        app:dividerColor="@color/grey_05"
+                        app:layout_constraintTop_toBottomOf="@id/tv_sale_carrier" />
+
+                    <TextView
+                        android:id="@+id/tv_my_title"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="14dp"
+                        android:layout_marginTop="22dp"
+                        android:layout_marginBottom="12dp"
+                        android:paddingVertical="12dp"
+                        android:text="나의 정보"
+                        android:textAppearance="@style/Typography.GsHomeTown.Heading6"
+                        android:textColor="@color/grey_10"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/divider_purchase_detail_top_10" />
+
+                    <ImageView
+                        android:id="@+id/iv_my_arrow_top_04"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="19dp"
+                        android:layout_marginEnd="2dp"
+                        android:src="@drawable/ic_my_page_arrow_top"
+                        app:layout_constraintEnd_toStartOf="@id/gl_my_end_16"
+                        app:layout_constraintTop_toBottomOf="@id/divider_purchase_detail_top_10" />
+
+                    <TextView
+                        android:id="@+id/tv_my_information"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="14dp"
+                        android:paddingVertical="12dp"
+                        android:text="개인 정보 관리"
+                        android:textAppearance="@style/Typography.GsHomeTown.Body1"
+                        android:textColor="@color/grey_10"
+                        app:layout_constraintEnd_toStartOf="@id/tv_order_breakdown"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/tv_my_title" />
+
+                    <TextView
+                        android:id="@+id/tv_my_winery"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:paddingVertical="12dp"
+                        android:text="나의 와이너리"
+                        android:textAppearance="@style/Typography.GsHomeTown.Body1"
+                        android:textColor="@color/grey_10"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toEndOf="@id/tv_order_basket"
+                        app:layout_constraintTop_toBottomOf="@id/tv_my_title" />
+
+                    <TextView
+                        android:id="@+id/tv_my_event"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="14dp"
+                        android:paddingVertical="12dp"
+                        android:text="이벤트 참여 내역"
+                        android:textAppearance="@style/Typography.GsHomeTown.Body1"
+                        android:textColor="@color/grey_10"
+                        app:layout_constraintEnd_toStartOf="@id/tv_order_breakdown"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/tv_my_information" />
+
+                    <TextView
+                        android:id="@+id/tv_my_town"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:paddingVertical="12dp"
+                        android:text="우리동네GS 클럽 정보"
+                        android:textAppearance="@style/Typography.GsHomeTown.Body1"
+                        android:textColor="@color/grey_10"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toEndOf="@id/tv_order_basket"
+                        app:layout_constraintTop_toBottomOf="@id/tv_my_information" />
+
+                    <TextView
+                        android:id="@+id/tv_my_address"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="14dp"
+                        android:paddingVertical="12dp"
+                        android:text="주소 관리"
+                        android:textAppearance="@style/Typography.GsHomeTown.Body1"
+                        android:textColor="@color/grey_10"
+                        app:layout_constraintEnd_toStartOf="@id/tv_order_breakdown"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/tv_my_event" />
+
+                    <TextView
+                        android:id="@+id/tv_my_rewards"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:paddingVertical="12dp"
+                        android:text="리워즈 전환"
+                        android:textAppearance="@style/Typography.GsHomeTown.Body1"
+                        android:textColor="@color/grey_10"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toEndOf="@id/tv_order_basket"
+                        app:layout_constraintTop_toBottomOf="@id/tv_my_event" />
+
+                    <TextView
+                        android:id="@+id/tv_my_child_card"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="14dp"
+                        android:paddingVertical="12dp"
+                        android:text="아동급식카드관리"
+                        android:textAppearance="@style/Typography.GsHomeTown.Body1"
+                        android:textColor="@color/grey_10"
+                        app:layout_constraintEnd_toStartOf="@id/tv_order_breakdown"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/tv_my_address" />
+
+
+                    <com.google.android.material.divider.MaterialDivider
+                        android:id="@+id/divider_purchase_detail_top_11"
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:layout_marginHorizontal="15dp"
+                        android:layout_marginTop="6dp"
+                        app:dividerColor="@color/grey_05"
+                        app:layout_constraintTop_toBottomOf="@id/tv_my_child_card" />
+
+                    <TextView
+                        android:id="@+id/tv_notice_title"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="14dp"
+                        android:layout_marginTop="14dp"
+                        android:layout_marginBottom="12dp"
+                        android:text="문의 및 공지"
+                        android:textAppearance="@style/Typography.GsHomeTown.Heading6"
+                        android:textColor="@color/grey_10"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/divider_purchase_detail_top_11" />
+
+                    <ImageView
+                        android:id="@+id/iv_my_arrow_top_05"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="19dp"
+                        android:layout_marginEnd="2dp"
+                        android:src="@drawable/ic_my_page_arrow_top"
+                        app:layout_constraintEnd_toStartOf="@id/gl_my_end_16"
+                        app:layout_constraintTop_toBottomOf="@id/divider_purchase_detail_top_11" />
+
+                    <TextView
+                        android:id="@+id/tv_notice_chatbot"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="14dp"
+                        android:paddingVertical="12dp"
+                        android:text="챗봇상담 문의"
+                        android:textAppearance="@style/Typography.GsHomeTown.Body1"
+                        android:textColor="@color/grey_10"
+                        app:layout_constraintEnd_toStartOf="@id/tv_order_breakdown"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/tv_notice_title" />
+
+                    <TextView
+                        android:id="@+id/tv_notice_question"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:paddingVertical="12dp"
+                        android:text="자주 묻는 질문"
+                        android:textAppearance="@style/Typography.GsHomeTown.Body1"
+                        android:textColor="@color/grey_10"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toEndOf="@id/tv_order_basket"
+                        app:layout_constraintTop_toBottomOf="@id/tv_notice_title" />
+
+                    <TextView
+                        android:id="@+id/tv_notice_notice"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="14dp"
+                        android:paddingVertical="12dp"
+                        android:text="공지사항"
+                        android:textAppearance="@style/Typography.GsHomeTown.Body1"
+                        android:textColor="@color/grey_10"
+                        app:layout_constraintEnd_toStartOf="@id/tv_order_breakdown"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/tv_notice_chatbot" />
+
+                    <TextView
+                        android:id="@+id/tv_notice_customer_center"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:paddingVertical="12dp"
+                        android:text="고객센터"
+                        android:textAppearance="@style/Typography.GsHomeTown.Body1"
+                        android:textColor="@color/grey_10"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toEndOf="@id/tv_order_basket"
+                        app:layout_constraintTop_toBottomOf="@id/tv_notice_chatbot" />
+
+                    <com.google.android.material.divider.MaterialDivider
+                        android:id="@+id/divider_purchase_detail_top_12"
+                        android:layout_width="match_parent"
+                        android:layout_height="11dp"
+                        android:layout_marginTop="6dp"
+                        app:dividerColor="@color/grey_05"
+                        app:layout_constraintTop_toBottomOf="@id/tv_notice_notice" />
+
+                    <TextView
+                        android:id="@+id/tv_logout"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="15.5dp"
+                        android:layout_marginTop="14dp"
+                        android:layout_marginBottom="131dp"
+                        android:text="로그아웃"
+                        android:textAppearance="@style/Typography.GsHomeTown.Body1"
+                        android:textColor="@color/grey_10"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/divider_purchase_detail_top_12" />
 
                 </androidx.constraintlayout.widget.ConstraintLayout>
             </androidx.core.widget.NestedScrollView>
