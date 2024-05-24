@@ -367,6 +367,7 @@
                             android:id="@+id/iv_home_month_event_window"
                             android:layout_width="87dp"
                             android:layout_height="0dp"
+                            android:visibility="invisible"
                             app:layout_constraintDimensionRatio="1"
                             android:layout_marginEnd="15dp"
                             android:elevation="10dp"
@@ -376,7 +377,6 @@
                             app:layout_constraintTop_toTopOf="@id/vp_home_left_month_event" />
 
                         <androidx.recyclerview.widget.RecyclerView
-                            android:layout_marginStart="6dp"
                             android:layout_marginVertical="3dp"
                             android:id="@+id/rv_home_right_month_event"
                             android:layout_width="0dp"
