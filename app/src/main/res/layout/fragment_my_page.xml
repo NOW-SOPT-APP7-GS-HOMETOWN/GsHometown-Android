@@ -1,26 +1,380 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
 
     <data>
 
     </data>
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <TextView
-            android:id="@+id/text_home"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="마이페이지"
-            android:textSize="24sp"
-            android:textStyle="bold"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <com.google.android.material.appbar.AppBarLayout
+                android:id="@+id/appbar_purchase_detail"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:backgroundTint="@color/grey_00"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <androidx.appcompat.widget.Toolbar
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:minHeight="0dp"
+                    android:paddingVertical="12dp"
+                    app:contentInsetStart="0dp"
+                    app:layout_scrollFlags="scroll|enterAlways">
+
+                    <TextView
+                        android:id="@+id/tv_purchase_detail_back"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:src="@drawable/ic_topbar_back_left_24"
+                        android:text="@string/menu_item_my_page"
+                        android:textAppearance="@style/Typography.GsHomeTown.Heading5" />
+
+                    <ImageView
+                        android:id="@+id/iv_purchase_detail_home"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="end"
+                        android:layout_marginEnd="9dp"
+                        android:src="@drawable/ic_topbar_home_right" />
+
+                </androidx.appcompat.widget.Toolbar>
+            </com.google.android.material.appbar.AppBarLayout>
+
+            <androidx.core.widget.NestedScrollView
+                android:id="@+id/sv_purchase_detail"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:fillViewport="true"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/appbar_purchase_detail">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <androidx.constraintlayout.widget.Guideline
+                        android:id="@+id/gl_my_start_16"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        app:layout_constraintGuide_begin="16dp" />
+
+                    <androidx.constraintlayout.widget.Guideline
+                        android:id="@+id/gl_my_end_16"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        app:layout_constraintGuide_end="16dp" />
+
+                    <TextView
+                        android:id="@+id/tv_my_welcome"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="30dp"
+                        android:text="WELCOME"
+                        android:textAppearance="@style/Typography.GsHomeTown.Heading3"
+                        app:layout_constraintStart_toStartOf="@id/gl_my_start_16"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <ImageView
+                        android:id="@+id/iv_my_arrow_right_01"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="7dp"
+                        android:src="@drawable/ic_arrow_right_01"
+                        app:layout_constraintBottom_toBottomOf="@id/tv_my_welcome"
+                        app:layout_constraintStart_toEndOf="@id/tv_my_welcome"
+                        app:layout_constraintTop_toTopOf="@id/tv_my_welcome" />
+
+                    <TextView
+                        android:id="@+id/tv_my_get_location"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/shape_radius_09"
+                        android:backgroundTint="@color/grey_02"
+                        android:paddingHorizontal="12dp"
+                        android:paddingVertical="5dp"
+                        android:text="등급 안내"
+                        android:textAppearance="@style/Typography.GsHomeTown.Body4.Medium"
+                        android:textColor="@color/grey_09"
+                        app:layout_constraintBottom_toBottomOf="@id/tv_my_welcome"
+                        app:layout_constraintEnd_toEndOf="@id/gl_my_end_16"
+                        app:layout_constraintTop_toTopOf="@id/tv_my_welcome" />
+
+                    <TextView
+                        android:id="@+id/tv_my_stroke_top"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="18dp"
+                        android:background="@drawable/shape_grey05_line_11"
+                        android:drawableEnd="@drawable/ic_arrow_right_01"
+                        android:paddingHorizontal="16dp"
+                        android:paddingVertical="19dp"
+                        android:text="통합 회원으로 전환하고 추가 혜택받기"
+                        android:textAppearance="@style/Typography.GsHomeTown.Body1"
+                        app:layout_constraintEnd_toEndOf="@id/gl_my_end_16"
+                        app:layout_constraintStart_toStartOf="@id/gl_my_start_16"
+                        app:layout_constraintTop_toBottomOf="@id/tv_my_welcome" />
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:id="@+id/cl_my_reward_menu"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="22dp"
+                        android:background="@drawable/shape_radius_16"
+                        android:backgroundTint="@color/grey_02"
+                        android:paddingHorizontal="29dp"
+                        android:paddingTop="13dp"
+                        android:paddingBottom="20dp"
+                        app:layout_constraintEnd_toEndOf="@id/gl_my_end_16"
+                        app:layout_constraintStart_toStartOf="@id/gl_my_start_16"
+                        app:layout_constraintTop_toBottomOf="@id/tv_my_stroke_top">
+
+                        <TextView
+                            android:id="@+id/tv_my_reward_title_left"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="더팝 리워즈"
+                            android:textAppearance="@style/Typography.GsHomeTown.Body3"
+                            android:textColor="@color/grey_08"
+                            app:layout_constraintBottom_toTopOf="@id/tv_my_reward_score"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                        <TextView
+                            android:id="@+id/tv_my_reward_score"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="3dp"
+                            android:text="0점"
+                            android:textAppearance="@style/Typography.GsHomeTown.Body2"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintStart_toStartOf="@id/tv_my_reward_title_left"
+                            app:layout_constraintTop_toBottomOf="@id/tv_my_reward_title_left" />
+
+                        <com.google.android.material.divider.MaterialDivider
+                            android:id="@+id/iv_my_line_vertical_start"
+                            android:layout_width="1dp"
+                            android:layout_height="0dp"
+                            android:layout_marginVertical="5dp"
+                            app:dividerColor="@color/grey_05"
+                            app:layout_constraintBottom_toBottomOf="@id/tv_my_reward_score"
+                            app:layout_constraintEnd_toStartOf="@id/iv_my_line_vertical_end"
+                            app:layout_constraintHorizontal_chainStyle="spread"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="@id/tv_my_reward_title_left" />
+
+                        <TextView
+                            android:id="@+id/tv_my_reward_title_center"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="GS&amp;POINT"
+                            android:textAppearance="@style/Typography.GsHomeTown.Body3"
+                            android:textColor="@color/grey_08"
+                            app:layout_constraintBottom_toTopOf="@id/tv_my_reward_score_center"
+                            app:layout_constraintEnd_toStartOf="@+id/iv_my_line_vertical_end"
+                            app:layout_constraintStart_toEndOf="@id/iv_my_line_vertical_start"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                        <TextView
+                            android:id="@+id/tv_my_reward_score_center"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="3dp"
+                            android:text="0P"
+                            android:textAppearance="@style/Typography.GsHomeTown.Body2"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintStart_toStartOf="@+id/tv_my_reward_title_center"
+                            app:layout_constraintTop_toBottomOf="@id/tv_my_reward_title_center" />
+
+                        <com.google.android.material.divider.MaterialDivider
+                            android:id="@+id/iv_my_line_vertical_end"
+                            android:layout_width="1dp"
+                            android:layout_height="0dp"
+                            android:layout_marginVertical="5dp"
+                            app:dividerColor="@color/grey_05"
+                            app:layout_constraintBottom_toBottomOf="@id/tv_my_reward_score"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toEndOf="@id/iv_my_line_vertical_start"
+                            app:layout_constraintTop_toTopOf="@id/tv_my_reward_title_left" />
+
+                        <TextView
+                            android:id="@+id/tv_my_reward_title_end"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="쿠폰함"
+                            android:textAppearance="@style/Typography.GsHomeTown.Body3"
+                            android:textColor="@color/grey_08"
+                            app:layout_constraintBottom_toTopOf="@id/tv_my_reward_score_end"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toEndOf="@id/iv_my_line_vertical_end"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                        <TextView
+                            android:id="@+id/tv_my_reward_score_end"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="3dp"
+                            android:text="3장"
+                            android:textAppearance="@style/Typography.GsHomeTown.Body2"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintStart_toStartOf="@+id/tv_my_reward_title_end"
+                            app:layout_constraintTop_toBottomOf="@id/tv_my_reward_title_end" />
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                    <ImageView
+                        android:id="@+id/iv_my_recent"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="20dp"
+                        android:src="@drawable/ic_recent_24"
+                        app:layout_constraintEnd_toEndOf="@id/tv_my_recent"
+                        app:layout_constraintStart_toStartOf="@id/tv_my_recent"
+                        app:layout_constraintTop_toBottomOf="@id/cl_my_reward_menu" />
+
+                    <TextView
+                        android:id="@+id/tv_my_recent"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:text="최근본상품"
+                        android:textAppearance="@style/Typography.GsHomeTown.Body3"
+                        android:textColor="@color/grey_08"
+                        app:layout_constraintEnd_toStartOf="@id/iv_my_line_vertical_recent"
+                        app:layout_constraintHorizontal_chainStyle="spread_inside"
+                        app:layout_constraintStart_toStartOf="@id/gl_my_start_16"
+                        app:layout_constraintTop_toBottomOf="@id/iv_my_recent" />
+
+                    <com.google.android.material.divider.MaterialDivider
+                        android:id="@+id/iv_my_line_vertical_recent"
+                        android:layout_width="1dp"
+                        android:layout_height="0dp"
+                        android:layout_marginVertical="12dp"
+                        app:dividerColor="@color/grey_05"
+                        app:layout_constraintBottom_toBottomOf="@id/tv_my_recent"
+                        app:layout_constraintEnd_toStartOf="@id/iv_my_line_vertical_heart"
+                        app:layout_constraintHorizontal_chainStyle="spread"
+                        app:layout_constraintStart_toStartOf="@id/gl_my_start_16"
+                        app:layout_constraintTop_toTopOf="@id/iv_my_recent" />
+
+                    <ImageView
+                        android:id="@+id/iv_my_heart"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="20dp"
+                        android:src="@drawable/ic_love_24"
+                        app:layout_constraintEnd_toEndOf="@id/tv_my_heart"
+                        app:layout_constraintStart_toStartOf="@id/tv_my_heart"
+                        app:layout_constraintTop_toBottomOf="@id/cl_my_reward_menu" />
+
+                    <TextView
+                        android:id="@+id/tv_my_heart"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:text="찜"
+                        android:textAppearance="@style/Typography.GsHomeTown.Body3"
+                        android:textColor="@color/grey_08"
+                        app:layout_constraintEnd_toStartOf="@id/iv_my_line_vertical_heart"
+                        app:layout_constraintStart_toEndOf="@id/iv_my_line_vertical_recent"
+                        app:layout_constraintTop_toBottomOf="@id/iv_my_recent" />
+
+                    <com.google.android.material.divider.MaterialDivider
+                        android:id="@+id/iv_my_line_vertical_heart"
+                        android:layout_width="1dp"
+                        android:layout_height="0dp"
+                        android:layout_marginVertical="12dp"
+                        app:dividerColor="@color/grey_05"
+                        app:layout_constraintBottom_toBottomOf="@id/tv_my_heart"
+                        app:layout_constraintEnd_toStartOf="@id/iv_my_line_vertical_review"
+                        app:layout_constraintStart_toEndOf="@id/iv_my_line_vertical_recent"
+                        app:layout_constraintTop_toTopOf="@id/iv_my_recent" />
+
+                    <ImageView
+                        android:id="@+id/iv_my_review"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="20dp"
+                        android:src="@drawable/ic_writing_24"
+                        app:layout_constraintEnd_toEndOf="@id/tv_my_review"
+                        app:layout_constraintStart_toStartOf="@id/tv_my_review"
+                        app:layout_constraintTop_toBottomOf="@id/cl_my_reward_menu" />
+
+                    <TextView
+                        android:id="@+id/tv_my_review"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:text="나의후기"
+                        android:textAppearance="@style/Typography.GsHomeTown.Body3"
+                        android:textColor="@color/grey_08"
+                        app:layout_constraintEnd_toStartOf="@id/iv_my_line_vertical_review"
+                        app:layout_constraintStart_toEndOf="@id/iv_my_line_vertical_heart"
+                        app:layout_constraintTop_toBottomOf="@id/iv_my_recent" />
+
+                    <com.google.android.material.divider.MaterialDivider
+                        android:id="@+id/iv_my_line_vertical_review"
+                        android:layout_width="1dp"
+                        android:layout_height="0dp"
+                        android:layout_marginVertical="12dp"
+                        app:dividerColor="@color/grey_05"
+                        app:layout_constraintBottom_toBottomOf="@id/tv_my_review"
+                        app:layout_constraintEnd_toEndOf="@id/gl_my_end_16"
+                        app:layout_constraintStart_toEndOf="@id/iv_my_line_vertical_heart"
+                        app:layout_constraintTop_toTopOf="@id/iv_my_recent" />
+
+                    <ImageView
+                        android:id="@+id/iv_my_gift"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="20dp"
+                        android:src="@drawable/ic_gift_24"
+                        app:layout_constraintEnd_toEndOf="@id/tv_my_gift"
+                        app:layout_constraintStart_toStartOf="@id/tv_my_gift"
+                        app:layout_constraintTop_toBottomOf="@id/cl_my_reward_menu" />
+
+                    <TextView
+                        android:id="@+id/tv_my_gift"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:text="선물함"
+                        android:textAppearance="@style/Typography.GsHomeTown.Body3"
+                        android:textColor="@color/grey_08"
+                        app:layout_constraintEnd_toEndOf="@id/gl_my_end_16"
+                        app:layout_constraintStart_toEndOf="@id/iv_my_line_vertical_review"
+                        app:layout_constraintTop_toBottomOf="@id/iv_my_recent" />
+
+                    <com.google.android.material.divider.MaterialDivider
+                        android:id="@+id/divider_purchase_detail_top_07"
+                        android:layout_width="match_parent"
+                        android:layout_height="7dp"
+                        android:layout_marginTop="20dp"
+                        app:dividerColor="@color/grey_03"
+                        app:layout_constraintTop_toBottomOf="@id/tv_my_gift" />
+
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+            </androidx.core.widget.NestedScrollView>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+
 </layout>
