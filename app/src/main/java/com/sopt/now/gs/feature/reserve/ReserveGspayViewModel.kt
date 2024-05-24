@@ -9,7 +9,7 @@ import com.sopt.now.gs.data.api.ApiFactory
 import com.sopt.now.gs.data.response.ResponseReserveGspayDto
 import kotlinx.coroutines.launch
 
-class GspayViewModel : ViewModel() {
+class ReserveGspayViewModel : ViewModel() {
     private val _gspayState = MutableLiveData<UiState<ResponseReserveGspayDto>>()
     val gspayState: LiveData<UiState<ResponseReserveGspayDto>> get() = _gspayState
 

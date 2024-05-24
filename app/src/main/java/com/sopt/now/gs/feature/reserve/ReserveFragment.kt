@@ -22,8 +22,8 @@ class ReserveFragment : BindingFragment<FragmentReserveBinding>(R.layout.fragmen
     private var bannerPosition = 0
     private val bannerItems = ArrayList<ReserveBannerEntity>()
     private val menuListItems = mutableListOf<ReserveMenuListItem>()
-    private val gspayViewModel by viewModels<GspayViewModel>()
-    private val categoryViewModel by viewModels<CategoryViewModel>()
+    private val reserveGspayViewModel by viewModels<ReserveGspayViewModel>()
+    private val reserveCategoryViewModel by viewModels<ReserveCategoryViewModel>()
 
     override fun initView() {
         initObserveGspay()
@@ -39,7 +39,7 @@ class ReserveFragment : BindingFragment<FragmentReserveBinding>(R.layout.fragmen
     }
 
     private fun initObserveGspay() {
-        gspayViewModel.gspayState.observe(viewLifecycleOwner) { state ->
+        reserveGspayViewModel.gspayState.observe(viewLifecycleOwner) { state ->
             when (state) {
                 is UiState.Success -> {
                     setDiscountTitle(state.data)
@@ -52,7 +52,7 @@ class ReserveFragment : BindingFragment<FragmentReserveBinding>(R.layout.fragmen
     }
 
     private fun initObserveCategory() {
-        categoryViewModel.categoryState.observe(viewLifecycleOwner) { state ->
+        reserveCategoryViewModel.categoryState.observe(viewLifecycleOwner) { state ->
             when (state) {
                 is UiState.Success -> {
                     setCategoryTitle(state.data)

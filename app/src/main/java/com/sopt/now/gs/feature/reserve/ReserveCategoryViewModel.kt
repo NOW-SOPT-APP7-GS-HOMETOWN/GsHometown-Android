@@ -9,7 +9,7 @@ import com.sopt.now.gs.data.api.ApiFactory
 import com.sopt.now.gs.data.response.ResponseReserveCategoryDto
 import kotlinx.coroutines.launch
 
-class CategoryViewModel : ViewModel() {
+class ReserveCategoryViewModel : ViewModel() {
     private val _categoryState = MutableLiveData<UiState<List<ResponseReserveCategoryDto>>>()
     val categoryState: LiveData<UiState<List<ResponseReserveCategoryDto>>> get() = _categoryState
 
