@@ -1,10 +1,14 @@
 package com.sopt.now.gs.feature.home
 
+import android.util.Log
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
+import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.LinearSnapHelper
+import androidx.recyclerview.widget.RecyclerView
 import androidx.viewpager2.widget.ViewPager2
+import coil.load
 import com.sopt.now.gs.R
 import com.sopt.now.gs.core.base.BindingFragment
 import com.sopt.now.gs.databinding.FragmentHomeBinding
@@ -22,25 +26,21 @@ class HomeFragment : BindingFragment<FragmentHomeBinding>(R.layout.fragment_home
     var topBannerJob: Job? = null
     var bottomBannerCurrentPosition = 0
     var bottomBannerJob: Job? = null
-    var rightMonthEventCurrentPosition = 0
-    var rightMonthEventJob: Job? = null
+    var monthCurrentPosition = 3
+    var monthEventJob: Job? = null
 
     override fun initView() {
         topBannerAdapter = HomeBannerAdapter()
         bottomBannerAdapter = HomeBannerAdapter()
         rightMonthEventAdapter = HomeMonthEventAdapter()
-        initPreReservationBtnClickListener()
-        initTopBanner()
-        initBottomBanner()
-        initLeftMonthEvent()
-        initRightMonthEvent()
-
-        //TODO
         getImage()
+        initPreReservationBtnClickListener()
+        initHomeStateObserver()
+        observeSelectedImage()
     }
 
-    private fun getImage(){
-        homeViewModel.getHomeImage()
+    private fun getImage() {
+        homeViewModel.getHomeImages()
     }
 
     private fun initPreReservationBtnClickListener() {
@@ -51,14 +51,18 @@ class HomeFragment : BindingFragment<FragmentHomeBinding>(R.layout.fragment_home
         }
     }
 
+    private fun initHomeStateObserver() {
+        homeViewModel.homeState.observe(viewLifecycleOwner) {
+            initTopBanner()
+            initBottomBanner()
+            initRightMonthEvent()
+            initMonthEventJob()
+        }
+    }
+
     private fun initTopBanner() {
-        val itemList: List<HomeBanner> = listOf(
-            HomeBanner(R.drawable.img_home_top_banner),
-            HomeBanner(R.drawable.img_home_top_banner2),
-            HomeBanner(R.drawable.img_home_top_banner3)
-        )
         binding.vpHomeTopBanner.adapter = topBannerAdapter
-        topBannerAdapter?.submitList(itemList)
+        topBannerAdapter?.submitList(homeViewModel.homeState.value?.topBanners)
 
         binding.vpHomeTopBanner.registerOnPageChangeCallback(object :
             ViewPager2.OnPageChangeCallback() {
@@ -84,13 +88,8 @@ class HomeFragment : BindingFragment<FragmentHomeBinding>(R.layout.fragment_home
     }
 
     private fun initBottomBanner() {
-        val bottomItemList: List<HomeBanner> = listOf(
-            HomeBanner(R.drawable.img_home_bottom_banner),
-            HomeBanner(R.drawable.img_home_bottom_banner2),
-            HomeBanner(R.drawable.img_home_bottom_banner3)
-        )
         binding.vpHomeBottomBanner.adapter = bottomBannerAdapter
-        bottomBannerAdapter?.submitList(bottomItemList)
+        bottomBannerAdapter?.submitList(homeViewModel.homeState.value?.bottomBanners)
 
         binding.vpHomeBottomBanner.registerOnPageChangeCallback(object :
             ViewPager2.OnPageChangeCallback() {
@@ -115,41 +114,65 @@ class HomeFragment : BindingFragment<FragmentHomeBinding>(R.layout.fragment_home
         }
     }
 
-    private fun initLeftMonthEvent() {
-        homeViewModel.leftMonthEventResource.observe(viewLifecycleOwner) {
-            binding.vpHomeLeftMonthEvent.setImageResource(homeViewModel.leftEventImage[it].image)
+    private fun initRightMonthEvent() {
+        val tempList = homeViewModel.homeState.value?.monthlyEvents?.subBanners
+        val t = (tempList?.plus(tempList))?.toList()
+        Log.d("qweqwe", homeViewModel.homeState.value?.monthlyEvents?.mainBanners.toString())
+        Log.d("qweqwe", homeViewModel.homeState.value?.monthlyEvents?.subBanners.toString())
+
+
+        binding.rvHomeRightMonthEvent.adapter = rightMonthEventAdapter
+        rightMonthEventAdapter?.submitList(t)
+
+        val homeSnapHelper = LinearSnapHelper().apply {
+            attachToRecyclerView(binding.rvHomeRightMonthEvent)
         }
+
+        rightMonthEventAdapter?.let { onScrollStateChanged(homeSnapHelper, it) }
     }
 
-    private fun initRightMonthEvent() {
-        val eventList: List<HomeBanner> = listOf(
-            HomeBanner(R.drawable.img_home_month_event_banner1),
-            HomeBanner(R.drawable.img_home_month_event_banner2),
-            HomeBanner(R.drawable.img_home_month_event_banner3),
-            HomeBanner(R.drawable.img_home_month_event_banner1),
-            HomeBanner(R.drawable.img_home_month_event_banner2),
-            HomeBanner(R.drawable.img_home_month_event_banner3)
-        )
-        val snapHelper = LinearSnapHelper()
-        snapHelper.attachToRecyclerView(binding.vpHomeRightMonthEvent)
-
-        binding.vpHomeRightMonthEvent.adapter = rightMonthEventAdapter
-        rightMonthEventAdapter?.submitList(eventList)
-
-        rightMonthEventJob = lifecycleScope.launch {
-            while (true) {
-                delay(1000)
-                if (rightMonthEventCurrentPosition == 4) {
-                    binding.vpHomeRightMonthEvent.smoothScrollToPosition(0)
-                    rightMonthEventCurrentPosition = 0
-                    homeViewModel.updateLeftMonthEventImage(rightMonthEventCurrentPosition)
-                } else {
-                    binding.vpHomeRightMonthEvent.smoothScrollToPosition(
-                        rightMonthEventCurrentPosition++
-                    )
-                    homeViewModel.updateLeftMonthEventImage(rightMonthEventCurrentPosition)
+    private fun onScrollStateChanged(
+        homeSnapHelper: LinearSnapHelper,
+        homeMonthEventAdapter: HomeMonthEventAdapter,
+    ) {
+        binding.rvHomeRightMonthEvent.addOnScrollListener(object : RecyclerView.OnScrollListener() {
+            override fun onScrollStateChanged(recyclerView: RecyclerView, newState: Int) {
+                super.onScrollStateChanged(recyclerView, newState)
+                if (newState == RecyclerView.SCROLL_STATE_IDLE) {
+                    val layoutManager = recyclerView.layoutManager as LinearLayoutManager
+                    val centerView = homeSnapHelper.findSnapView(layoutManager)
+                    centerView?.run {
+                        val pos = layoutManager.getPosition(this)
+                        Log.e("pos", pos.toString())
+                        binding.rvHomeRightMonthEvent.scrollToPosition((pos-1)%3)
+                        val item = homeMonthEventAdapter.currentList.getOrNull(pos)
+                        Log.d("RecyclerView", "현재 포지션: $pos, 아이템: $item")
+                        homeViewModel.updateLeftMonthEventImage(pos%3)
+                    }
                 }
             }
+        })
+    }
+    private fun initMonthEventJob() {
+        monthEventJob = lifecycleScope.launch {
+            while (true) {
+                delay(1000)
+                if (monthCurrentPosition >= 5) {
+                    binding.rvHomeRightMonthEvent.smoothScrollToPosition(monthCurrentPosition)
+                    monthCurrentPosition = 3
+                } else {
+                    binding.rvHomeRightMonthEvent.smoothScrollToPosition(monthCurrentPosition++)
+                }
+            }
+        }
+    }
+    private fun observeSelectedImage() {
+        homeViewModel.leftMonthEventResource.observe(viewLifecycleOwner) {
+            binding.vpHomeLeftMonthEvent.load(homeViewModel.leftMonthEventResource.value?.let { it ->
+                homeViewModel.homeState.value?.monthlyEvents?.mainBanners?.get(
+                    it
+                )
+            })
         }
     }
 
@@ -161,6 +184,5 @@ class HomeFragment : BindingFragment<FragmentHomeBinding>(R.layout.fragment_home
 
         topBannerJob?.cancel()
         bottomBannerJob?.cancel()
-        rightMonthEventJob?.cancel()
     }
 }
