@@ -1,9 +1,8 @@
-package com.sopt.now.gs.feature.reserve
+package com.sopt.now.gs.feature.reserve.adapter
 
 import android.graphics.Paint
 import androidx.recyclerview.widget.RecyclerView
 import coil.load
-import com.sopt.now.gs.R
 import com.sopt.now.gs.data.response.ResponseReserveGspayDto
 import com.sopt.now.gs.databinding.ItemReserveDiscountMenuBinding
 import com.sopt.now.gs.feature.util.PriceFormatter
