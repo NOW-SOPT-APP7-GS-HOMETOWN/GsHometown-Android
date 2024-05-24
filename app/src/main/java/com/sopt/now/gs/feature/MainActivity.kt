@@ -1,6 +1,7 @@
 package com.sopt.now.gs.feature
 
 import android.os.Bundle
+import android.view.MenuItem
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.NavController
@@ -34,6 +35,35 @@ class MainActivity : AppCompatActivity() {
                 R.id.fragment_purchase_detail -> View.GONE
                 else -> View.VISIBLE
             }
+            when (destination.id) {
+                R.id.fragment_home, R.id.fragment_search, R.id.fragment_order, R.id.fragment_my_page, R.id.fragment_pay -> {
+                    binding.bnvHome.menu.findItem(R.id.fragment_pay)?.apply {
+                        setFabBtnVisible()
+                    }
+                }
+
+                else -> {
+                    binding.bnvHome.menu.findItem(R.id.fragment_pay)?.apply {
+                        setFabBtnInVisible()
+                    }
+                }
+            }
         }
+    }
+
+    private fun MenuItem.setFabBtnVisible() {
+        title = ""
+        icon = null
+        isEnabled = false
+        binding.clMainFab.visibility = View.VISIBLE
+        binding.tvMainFabButton.visibility = View.VISIBLE
+    }
+
+    private fun MenuItem.setFabBtnInVisible() {
+        setTitle(R.string.menu_item_pay)
+        setIcon(R.drawable.ic_nav_pay_grey_24)
+        isEnabled = true
+        binding.clMainFab.visibility = View.GONE
+        binding.tvMainFabButton.visibility = View.GONE
     }
 }

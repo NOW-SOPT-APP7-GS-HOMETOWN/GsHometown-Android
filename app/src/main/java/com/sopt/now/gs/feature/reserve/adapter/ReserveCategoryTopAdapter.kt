@@ -1,17 +1,21 @@
-package com.sopt.now.gs.feature.reserve
+package com.sopt.now.gs.feature.reserve.adapter
 
 import android.content.Context
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.BaseAdapter
 import android.widget.ImageView
 import android.widget.TextView
+import coil.load
 import com.sopt.now.gs.R
+import com.sopt.now.gs.data.response.ResponseReserveCategoryDto
+import com.sopt.now.gs.feature.util.PriceFormatter
 
 class ReserveCategoryTopAdapter(
     val context: Context,
-    private val items: MutableList<ReserveCategoryTopEntity>,
+    private val items: List<ResponseReserveCategoryDto.Product>,
     private val onItemClicked: (Int) -> Unit,
 ) : BaseAdapter() {
     override fun getView(position: Int, p1: View?, p2: ViewGroup?): View {
@@ -21,14 +25,15 @@ class ReserveCategoryTopAdapter(
         val currentItem = items[position]
 
         view.findViewById<ImageView>(R.id.iv_reserve_category_top_image)
-            .setImageResource(currentItem.categoryImage)
+            .load(currentItem.image)
         view.findViewById<TextView>(R.id.tv_reserve_category_top_menu_title).text =
-            currentItem.categoryTitle
+            currentItem.title
         view.findViewById<TextView>(R.id.tv_reserve_category_top_price).text =
-            context.getString(R.string.reserve_menu_price, currentItem.menuCategoryPrice)
+            PriceFormatter.formatPrice(currentItem.price)
 
         view.setOnClickListener {
-            onItemClicked(position)
+            onItemClicked(currentItem.productId)
+            Log.e("pro",currentItem.productId.toString())
         }
 
         return view
@@ -36,7 +41,7 @@ class ReserveCategoryTopAdapter(
 
     override fun getCount(): Int = items.size
 
-    override fun getItem(position: Int): ReserveCategoryTopEntity = items[position]
+    override fun getItem(position: Int): ResponseReserveCategoryDto.Product = items[position]
 
     override fun getItemId(position: Int): Long = position.toLong()
 }
