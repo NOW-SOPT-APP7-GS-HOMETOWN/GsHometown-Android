@@ -29,12 +29,12 @@ interface GsHometownService {
     ): Response<BaseResponse<ResponsePurchaseDetailDto>>
 
     @GET("$API/$PRODUCTS")
-    suspend fun getGspay(
+    suspend fun getReserveGspay(
         @Query("type") type: String
     ): Response<BaseResponse<ResponseReserveGspayDto>>
 
     @GET("$API/$PRODUCTS")
-    suspend fun getCategory(
+    suspend fun getReserveCategory(
         @Query("type") type: String
     ): Response<BaseResponse<List<ResponseReserveCategoryDto>>>
 }

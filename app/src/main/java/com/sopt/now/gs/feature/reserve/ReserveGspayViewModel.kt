@@ -19,7 +19,7 @@ class ReserveGspayViewModel : ViewModel() {
 
     fun getGspay() {
         viewModelScope.launch {
-            runCatching { ApiFactory.ServicePool.gsHometownService.getGspay("gspay") }
+            runCatching { ApiFactory.ServicePool.gsHometownService.getReserveGspay("gspay") }
                 .onSuccess { response ->
                     val data = response.body()?.data
                     data?.run { _gspayState.value = UiState.Success(this) }

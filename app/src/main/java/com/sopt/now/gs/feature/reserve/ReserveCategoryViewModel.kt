@@ -19,7 +19,7 @@ class ReserveCategoryViewModel : ViewModel() {
 
     fun getCategory() {
         viewModelScope.launch {
-            runCatching { ApiFactory.ServicePool.gsHometownService.getCategory("category") }
+            runCatching { ApiFactory.ServicePool.gsHometownService.getReserveCategory("category") }
                 .onSuccess { response ->
                     val data = response.body()?.data
                     data?.run { _categoryState.value = UiState.Success(this) }
