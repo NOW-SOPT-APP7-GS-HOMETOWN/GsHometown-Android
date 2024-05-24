@@ -9,8 +9,7 @@
     <!-- home -->
     <!--reserve-->
     <string name="reserve_top_banner">%1$d/%2$d</string>
-    <string name="reserve_menu_price">%1$d원</string>
-    <string name="reserve_menu_review">후기%1$d</string>
+    <string name="reserve_menu_review">(후기%1$d)</string>
     <string name="reserve_appbat_title">우리집</string>
     <string name="reserve_toolbar_title">우리동네 편의점 사전예약</string>
     <string name="reserve_tab_pick_up">매장수령</string>
