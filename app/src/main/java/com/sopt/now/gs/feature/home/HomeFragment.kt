@@ -1,6 +1,5 @@
 package com.sopt.now.gs.feature.home
 
-import android.util.Log
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
@@ -120,23 +119,19 @@ class HomeFragment : BindingFragment<FragmentHomeBinding>(R.layout.fragment_home
         binding.rvHomeRightMonthEvent.adapter = rightMonthEventAdapter
         rightMonthEventAdapter?.submitList(t)
 
-        /*  if (binding.rvHomeRightMonthEvent.itemDecorationCount == 0) {
-              binding.rvHomeRightMonthEvent.addItemDecoration(
-                  SnapBannerItemDecorator(requireContext()),
-              )
-          }*/
-
         binding.vpHomeLeftMonthEvent.load(
             homeViewModel.homeState.value?.monthlyEvents?.mainBanners?.get(
                 1
             )
         )
 
-        val homeSnapHelper = LinearSnapHelper().apply {
-            attachToRecyclerView(binding.rvHomeRightMonthEvent)
-        }
+        if (binding.rvHomeRightMonthEvent.onFlingListener == null) {
+            val homeSnapHelper = LinearSnapHelper().apply {
+                attachToRecyclerView(binding.rvHomeRightMonthEvent)
+            }
 
-        rightMonthEventAdapter?.let { onScrollStateChanged(homeSnapHelper, it) }
+            rightMonthEventAdapter?.let { onScrollStateChanged(homeSnapHelper, it) }
+        }
     }
 
     private fun onScrollStateChanged(
@@ -151,8 +146,6 @@ class HomeFragment : BindingFragment<FragmentHomeBinding>(R.layout.fragment_home
                     val centerView = homeSnapHelper.findSnapView(layoutManager)
                     centerView?.run {
                         val pos = layoutManager.getPosition(this)
-//                        binding.rvHomeRightMonthEvent.scrollToPosition((pos - 1) % 3)
-                        val item = homeMonthEventAdapter.currentList.getOrNull(pos)
                         homeViewModel.updateLeftMonthEventImage(pos % 3)
                     }
                 }
