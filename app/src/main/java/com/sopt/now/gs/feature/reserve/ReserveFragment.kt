@@ -11,6 +11,9 @@ import com.sopt.now.gs.core.view.UiState
 import com.sopt.now.gs.data.response.ResponseReserveCategoryDto
 import com.sopt.now.gs.data.response.ResponseReserveGspayDto
 import com.sopt.now.gs.databinding.FragmentReserveBinding
+import com.sopt.now.gs.feature.reserve.adapter.ReserveBannerAdapter
+import com.sopt.now.gs.feature.reserve.adapter.ReserveCategoryBottomAdapter
+import com.sopt.now.gs.feature.reserve.adapter.ReserveCategoryTopAdapter
 import com.sopt.now.gs.feature.util.KeyStorage.USER_ID
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.delay
