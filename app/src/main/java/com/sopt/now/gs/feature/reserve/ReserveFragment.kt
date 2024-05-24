@@ -178,7 +178,7 @@ class ReserveFragment : BindingFragment<FragmentReserveBinding>(R.layout.fragmen
     }
 
     private fun initObserveReserveEvent() {
-        gspayViewModel.reserveEventState.observe(viewLifecycleOwner) { state ->
+        reserveGspayViewModel.reserveEventState.observe(viewLifecycleOwner) { state ->
             when (state) {
                 is UiState.Success -> {
                     handleReserveEventUi(state.data)
