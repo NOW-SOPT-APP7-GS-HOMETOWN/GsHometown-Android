@@ -29,4 +29,47 @@
     <string name="purchase_detail_reserve">예약 주문</string>
     <string name="purchase_detail_receive_info">수령 정보</string>
     <string name="purchase_detail_review">후기보기</string>
+    <string name="my_page_welcome">WELCOME</string>
+    <string name="my_page_welcome_name">이솝트님</string>
+    <string name="my_page_location">등급 안내</string>
+    <string name="my_page_top">통합 회원으로 전환하고 추가 혜택받기</string>
+    <string name="my_page_the_pop_rewards">더팝 리워즈</string>
+    <string name="my_page_top_my_rewards">0점</string>
+    <string name="my_page_top_point"><![CDATA[GS&POINT]]></string>
+    <string name="my_page_top_my_point">0P</string>
+    <string name="my_page_top_coupon">쿠폰함</string>
+    <string name="my_page_top_my_coupon">3장</string>
+    <string name="my_page_recent_product">최근본상품</string>
+    <string name="my_page_heart">찜</string>
+    <string name="my_page_my_review">나의후기</string>
+    <string name="my_page_gift_box">선물함</string>
+    <string name="my_page_order_title">주문 정보</string>
+    <string name="my_page_order_basket">장바구니</string>
+    <string name="my_page_order_breakdown">주문 내역</string>
+    <string name="my_page_order_storage">나만의 냉장고 보관함</string>
+    <string name="my_page_order_receipt">모바일 영수증</string>
+    <string name="my_page_checkout_title">결제 정보</string>
+    <string name="my_page_checkout_setting">결제·적립·할인 설정</string>
+    <string name="my_page_checkout_receipt">현금영수증 번호 관리</string>
+    <string name="my_page_checkout_gspay">GS Pay 관리</string>
+    <string name="my_page_checkout_gsprime">GS Prime 카드 신청</string>
+    <string name="my_page_checkout_mobilepop">모바일팝 가입하기</string>
+    <string name="my_page_sale_title">할인 정보</string>
+    <string name="my_page_sale_carrier">통신사 할인</string>
+    <string name="my_page_my_title">나의 정보</string>
+    <string name="my_page_my_information">개인 정보 관리</string>
+    <string name="my_page_my_winery">나의 와이너리</string>
+    <string name="my_page_my_event">이벤트 참여 내역</string>
+    <string name="my_page_my_town">우리동네GS 클럽 정보</string>
+    <string name="my_page_my_address">주소 관리</string>
+    <string name="my_page_my_rewards">리워즈 전환</string>
+    <string name="my_page_my_child_card">아동급식카드관리</string>
+    <string name="my_page_notice_title">문의 및 공지</string>
+    <string name="my_page_notice_chatbot">챗봇상담 문의</string>
+    <string name="my_page_notice_question">자주 묻는 질문</string>
+    <string name="my_page_notice">공지사항</string>
+    <string name="my_page_notice_customer_center">고객센터</string>
+    <string name="my_page_logout">로그아웃</string>
+    <!--my page-->
+
 </resources>
