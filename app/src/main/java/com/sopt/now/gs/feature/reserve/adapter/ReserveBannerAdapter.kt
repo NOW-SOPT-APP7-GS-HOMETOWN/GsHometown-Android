@@ -1,4 +1,4 @@
-package com.sopt.now.gs.feature.reserve
+package com.sopt.now.gs.feature.reserve.adapter
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
@@ -6,6 +6,7 @@ import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.sopt.now.gs.R
 import com.sopt.now.gs.databinding.ItemReserveTopBannerBinding
+import com.sopt.now.gs.feature.reserve.ReserveBannerEntity
 
 class ReserveBannerAdapter(private val listData: ArrayList<ReserveBannerEntity>) : RecyclerView.Adapter<ReservePageViewHolder>() {
     lateinit var binding: ItemReserveTopBannerBinding
