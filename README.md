@@ -56,9 +56,12 @@ https://github.com/NOW-SOPT-APP7-GS-HOMETOWN/GsHometown-Android/assets/106955456
 
 ## 💚 𝘾𝙤𝙣𝙩𝙧𝙞𝙗𝙪𝙩𝙤𝙧𝙨
 
-| SOPT 34th 안드로이드 | [배찬우](chanubc)  | [송혜음](hyeumm) | [이석찬](leeseokchan00) |
+| SOPT 34th 안드로이드 | 
 
-
+|<img src="https://avatars.githubusercontent.com/u/106955456?v=4" width="128" />|<img src="https://avatars.githubusercontent.com/u/118244028?v=4" width="128" />|<img src="https://avatars.githubusercontent.com/u/112953135?v=4" width="128" />|
+|:---------:|:---------:|:---------:|
+|[배찬우](https://github.com/chanubc)|[송혜음](https://github.com/hyeumm)|[이석찬](https://github.com/leeseokchan00)|
+| 상세, 마이페이지 | 사전예약 | 홈 |
 <br>
 
 ## 💟 Notion
