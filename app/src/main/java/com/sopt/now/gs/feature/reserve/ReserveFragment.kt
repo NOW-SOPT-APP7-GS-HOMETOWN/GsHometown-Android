@@ -11,9 +11,13 @@ import com.sopt.now.gs.R
 import com.sopt.now.gs.core.base.BindingFragment
 import com.sopt.now.gs.core.util.fragment.snackBar
 import com.sopt.now.gs.core.view.UiState
+import com.sopt.now.gs.data.response.ResponseReserveCategoryDto
 import com.sopt.now.gs.data.response.ResponseReserveEventDto
 import com.sopt.now.gs.data.response.ResponseReserveGspayDto
 import com.sopt.now.gs.databinding.FragmentReserveBinding
+import com.sopt.now.gs.feature.reserve.adapter.ReserveBannerAdapter
+import com.sopt.now.gs.feature.reserve.adapter.ReserveCategoryBottomAdapter
+import com.sopt.now.gs.feature.reserve.adapter.ReserveCategoryTopAdapter
 import com.sopt.now.gs.feature.util.KeyStorage.USER_ID
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.delay
@@ -25,13 +29,12 @@ class ReserveFragment : BindingFragment<FragmentReserveBinding>(R.layout.fragmen
     private var bannerPosition = 0
     private val bannerItems = ArrayList<ReserveBannerEntity>()
     private val menuListItems = mutableListOf<ReserveMenuListItem>()
-    private val categoryTopItems = mutableListOf<ReserveCategoryTopEntity>()
-    private val categoryBottomItems = mutableListOf<ReserveCategoryBottomEntity>()
-    private val gspayViewModel by viewModels<GspayViewModel>()
+    private val reserveGspayViewModel by viewModels<ReserveGspayViewModel>()
+    private val reserveCategoryViewModel by viewModels<ReserveCategoryViewModel>()
 
     override fun initView() {
-        initgetGspay()
         initObserveGspay()
+        initObserveCategory()
 
         setBannerPositionText()
         updateBannerPosition()
@@ -39,43 +42,31 @@ class ReserveFragment : BindingFragment<FragmentReserveBinding>(R.layout.fragmen
         setMenuListItems()
         initMenuListAdapter()
 
-        setMenuCategoryTopItems()
-        initMenuCategoryTopAdapter()
-
-        setMenuCategoryBottomItems()
-        initMenuCategoryBottomAdapter()
-
-        initObserveReserveEvent()
-
         moveToTop()
-    }
-
-    override fun onResume() {
-        super.onResume()
-        scrollJobCreate()
-    }
-
-    override fun onPause() {
-        super.onPause()
-        bannerJob.cancel()
-    }
-
-    override fun onDestroyView() {
-        super.onDestroyView()
-        bannerJob.cancel()
-    }
-
-    private fun initgetGspay() {
-        gspayViewModel.getGspay()
+        initObserveReserveEvent()
     }
 
     private fun initObserveGspay() {
-        gspayViewModel.gspayState.observe(viewLifecycleOwner) { state ->
+        reserveGspayViewModel.gspayState.observe(viewLifecycleOwner) { state ->
             when (state) {
                 is UiState.Success -> {
                     setDiscountTitle(state.data)
                     initDiscountMenuAdapter(state.data)
                     initBannerAdapter(state.data)
+                }
+
+                else -> Unit
+            }
+        }
+    }
+
+    private fun initObserveCategory() {
+        reserveCategoryViewModel.categoryState.observe(viewLifecycleOwner) { state ->
+            when (state) {
+                is UiState.Success -> {
+                    setCategoryTitle(state.data)
+                    initMenuCategoryTopAdapter(state.data)
+                    initMenuCategoryBottomAdapter(state.data)
                 }
 
                 else -> Unit
@@ -155,44 +146,15 @@ class ReserveFragment : BindingFragment<FragmentReserveBinding>(R.layout.fragmen
         discountMenuAdapter.setDiscountMenuList(data.products)
     }
 
-    private fun setMenuCategoryTopItems() {
-        // 임시 데이터
-        categoryTopItems.apply {
-            add(
-                ReserveCategoryTopEntity(
-                    R.drawable.img_reserve_category1_chicken,
-                    "넷플릭스)BIG반반닭강정",
-                    9000
-                )
-            )
-            add(
-                ReserveCategoryTopEntity(
-                    R.drawable.img_reserve_category1_chicken_half,
-                    "넷플릭스)BIG반반닭강정",
-                    9000
-                )
-            )
-            add(
-                ReserveCategoryTopEntity(
-                    R.drawable.img_reserve_category1_cutlet,
-                    "넷플릭스)BIG반반닭강정",
-                    9000
-                )
-            )
-            add(
-                ReserveCategoryTopEntity(
-                    R.drawable.img_reserve_category1_pork_skin,
-                    "넷플릭스)BIG반반닭강정",
-                    9000
-                )
-            )
-        }
+    private fun setCategoryTitle(data: List<ResponseReserveCategoryDto>) {
+        binding.tvReserveCategoryTopTitle.text = data[0].category
+        binding.tvReserveCategoryBottomTitle.text = data[1].category
     }
 
-    private fun initMenuCategoryTopAdapter() {
+    private fun initMenuCategoryTopAdapter(data: List<ResponseReserveCategoryDto>) {
         val menuCategoryAdapter = ReserveCategoryTopAdapter(
             requireContext(),
-            categoryTopItems,
+            data[0].products,
             onItemClicked = { id -> navigateToImageDetailFragment(id) }
         )
         binding.gvReserveCategoryTopMenu.adapter = menuCategoryAdapter
@@ -205,56 +167,14 @@ class ReserveFragment : BindingFragment<FragmentReserveBinding>(R.layout.fragmen
         )
     }
 
-    private fun setMenuCategoryBottomItems() {
-        // 임시 데이터
-        categoryBottomItems.apply {
-            add(
-                ReserveCategoryBottomEntity(
-                    R.drawable.img_reserve_category2_chicken_soup,
-                    "핫매콤야끼우동",
-                    9000,
-                    5.0,
-                    4
-                )
-            )
-            add(
-                ReserveCategoryBottomEntity(
-                    R.drawable.img_reserve_category2_meat_soup,
-                    "핫매콤야끼우동",
-                    9000,
-                    5.0,
-                    4
-                )
-            )
-            add(
-                ReserveCategoryBottomEntity(
-                    R.drawable.img_reserve_category2_noodle,
-                    "핫매콤야끼우동",
-                    9000,
-                    5.0,
-                    4
-                )
-            )
-            add(
-                ReserveCategoryBottomEntity(
-                    R.drawable.img_reserve_category2_potato_soup,
-                    "핫매콤야끼우동",
-                    9000,
-                    5.0,
-                    4
-                )
-            )
-        }
-    }
-
-    private fun initMenuCategoryBottomAdapter() {
-        val menuCategory2Adapter =
+    private fun initMenuCategoryBottomAdapter(data: List<ResponseReserveCategoryDto>) {
+        val menuCategoryBottomAdapter =
             ReserveCategoryBottomAdapter(
                 requireContext(),
-                categoryBottomItems,
+                data[1].products,
                 onItemClicked = { navigateToImageDetailFragment(it) },
             )
-        binding.gvReserveCategoryBottomMenu.adapter = menuCategory2Adapter
+        binding.gvReserveCategoryBottomMenu.adapter = menuCategoryBottomAdapter
     }
 
     private fun initObserveReserveEvent() {
@@ -301,5 +221,21 @@ class ReserveFragment : BindingFragment<FragmentReserveBinding>(R.layout.fragmen
             delay(1500)
             binding.vpReserveBanner.setCurrentItem(++bannerPosition, true)
         }
+    }
+
+    override fun onResume() {
+        super.onResume()
+        scrollJobCreate()
+    }
+
+    override fun onPause() {
+        super.onPause()
+        bannerJob.cancel()
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        bannerJob.cancel()
+        bannerItems.clear()
     }
 }

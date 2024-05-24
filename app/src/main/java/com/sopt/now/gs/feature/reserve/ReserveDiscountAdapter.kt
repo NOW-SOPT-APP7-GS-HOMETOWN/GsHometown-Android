@@ -5,6 +5,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.sopt.now.gs.data.response.ResponseReserveGspayDto
 import com.sopt.now.gs.databinding.ItemReserveDiscountMenuBinding
+import com.sopt.now.gs.feature.reserve.adapter.ReserveDiscountViewHolder
 
 class ReserveDiscountAdapter() : RecyclerView.Adapter<ReserveDiscountViewHolder>() {
     private var discountMenuList: List<ResponseReserveGspayDto.Product> = emptyList()

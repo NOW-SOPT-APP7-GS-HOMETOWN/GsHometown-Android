@@ -10,7 +10,7 @@ import com.sopt.now.gs.data.response.ResponseReserveEventDto
 import com.sopt.now.gs.data.response.ResponseReserveGspayDto
 import kotlinx.coroutines.launch
 
-class GspayViewModel : ViewModel() {
+class ReserveGspayViewModel : ViewModel() {
     private val _gspayState = MutableLiveData<UiState<ResponseReserveGspayDto>>()
     val gspayState: LiveData<UiState<ResponseReserveGspayDto>> get() = _gspayState
 
@@ -18,12 +18,13 @@ class GspayViewModel : ViewModel() {
     val reserveEventState: LiveData<UiState<ResponseReserveEventDto>> get() = _reserveEventState
 
     init {
+        getGspay()
         getReserveEvent()
     }
 
     fun getGspay() {
         viewModelScope.launch {
-            runCatching { ApiFactory.ServicePool.gsHometownService.getGspay("gspay") }
+            runCatching { ApiFactory.ServicePool.gsHometownService.getReserveGspay("gspay") }
                 .onSuccess { response ->
                     val data = response.body()?.data
                     data?.run { _gspayState.value = UiState.Success(this) }

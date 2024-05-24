@@ -9,6 +9,7 @@ import com.sopt.now.gs.data.response.BaseResponse
 import com.sopt.now.gs.data.response.ResponseHomeDto
 import com.sopt.now.gs.data.response.ResponseLikedDto
 import com.sopt.now.gs.data.response.ResponsePurchaseDetailDto
+import com.sopt.now.gs.data.response.ResponseReserveCategoryDto
 import com.sopt.now.gs.data.response.ResponseReserveEventDto
 import com.sopt.now.gs.data.response.ResponseReserveGspayDto
 import retrofit2.Response
@@ -29,9 +30,14 @@ interface GsHometownService {
     ): Response<BaseResponse<ResponsePurchaseDetailDto>>
 
     @GET("$API/$PRODUCTS")
-    suspend fun getGspay(
+    suspend fun getReserveGspay(
         @Query("type") type: String,
     ): Response<BaseResponse<ResponseReserveGspayDto>>
+
+    @GET("$API/$PRODUCTS")
+    suspend fun getReserveCategory(
+        @Query("type") type: String,
+    ): Response<BaseResponse<List<ResponseReserveCategoryDto>>>
 
     @POST("$API/$LIKES")
     suspend fun postLiked(
