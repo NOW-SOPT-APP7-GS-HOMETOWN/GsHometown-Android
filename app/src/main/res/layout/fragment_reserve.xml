@@ -348,7 +348,7 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/tv_reserve_event_title" />
 
-                <ImageView
+                <com.google.android.material.imageview.ShapeableImageView
                     android:id="@+id/iv_reserve_event_menu_image"
                     android:layout_width="110dp"
                     android:layout_height="111dp"
@@ -356,7 +356,8 @@
                     android:layout_marginTop="17dp"
                     android:src="@drawable/img_reserve_event"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/tv_reserve_event_date" />
+                    app:layout_constraintTop_toBottomOf="@id/tv_reserve_event_date"
+                    app:shapeAppearance="@style/ShapeAppearanceOverlay.App.CornerRadius9" />
 
                 <TextView
                     android:id="@+id/tv_reserve_event_menu_label_blue"
@@ -375,12 +376,12 @@
 
                 <ImageView
                     android:id="@+id/iv_reserve_event_menu_basket"
-                    android:layout_width="24dp"
-                    android:layout_height="24dp"
-                    android:layout_marginStart="44dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
                     android:src="@drawable/ic_reserve_basket"
-                    app:layout_constraintStart_toEndOf="@id/tv_reserve_event_menu_label_blue"
-                    app:layout_constraintTop_toBottomOf="@id/iv_reserve_event_menu_image" />
+                    app:layout_constraintBottom_toBottomOf="@id/tv_reserve_event_menu_label_blue"
+                    app:layout_constraintEnd_toEndOf="@id/iv_reserve_event_menu_image"
+                    app:layout_constraintTop_toTopOf="@id/tv_reserve_event_menu_label_blue" />
 
                 <TextView
                     android:id="@+id/tv_reserve_event_menu_title"
