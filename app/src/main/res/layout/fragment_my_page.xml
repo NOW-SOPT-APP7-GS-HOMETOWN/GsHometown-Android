@@ -1,26 +1,851 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
 
     <data>
 
     </data>
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <TextView
-            android:id="@+id/text_home"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="마이페이지"
-            android:textSize="24sp"
-            android:textStyle="bold"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <com.google.android.material.appbar.AppBarLayout
+                android:id="@+id/appbar_purchase_detail"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:backgroundTint="@color/grey_00"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <androidx.appcompat.widget.Toolbar
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:minHeight="0dp"
+                    android:paddingVertical="12dp"
+                    app:contentInsetStart="0dp"
+                    app:layout_scrollFlags="scroll|enterAlways">
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <TextView
+                            android:id="@+id/tv_my_detail_back"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:text="@string/menu_item_my_page"
+                            android:textAppearance="@style/Typography.GsHomeTown.Heading5"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                        <ImageView
+                            android:id="@+id/iv_my_chatbot"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginEnd="10dp"
+                            android:src="@drawable/ic_chatbot"
+                            app:layout_constraintEnd_toStartOf="@id/iv_my_setting"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                        <ImageView
+                            android:id="@+id/iv_my_setting"
+                            android:layout_width="24dp"
+                            android:layout_height="24dp"
+                            android:layout_marginEnd="19dp"
+                            android:src="@drawable/ic_setting"
+                            app:layout_constraintBottom_toBottomOf="@id/iv_my_chatbot"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintTop_toTopOf="@id/iv_my_chatbot" />
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                </androidx.appcompat.widget.Toolbar>
+            </com.google.android.material.appbar.AppBarLayout>
+
+            <androidx.core.widget.NestedScrollView
+                android:id="@+id/sv_my_detail"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:fillViewport="true"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/appbar_purchase_detail">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <androidx.constraintlayout.widget.Guideline
+                        android:id="@+id/gl_my_start_16"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        app:layout_constraintGuide_begin="16dp" />
+
+                    <androidx.constraintlayout.widget.Guideline
+                        android:id="@+id/gl_my_end_16"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        app:layout_constraintGuide_end="16dp" />
+
+                    <TextView
+                        android:id="@+id/tv_my_welcome"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="30dp"
+                        android:text="@string/my_page_welcome"
+                        android:textAppearance="@style/Typography.GsHomeTown.Heading3"
+                        android:textColor="@color/blue_03"
+                        app:layout_constraintStart_toStartOf="@id/gl_my_start_16"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <TextView
+                        android:id="@+id/tv_my_welcome_name"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="8dp"
+                        android:layout_marginTop="30dp"
+                        android:text="@string/my_page_welcome_name"
+                        android:textAppearance="@style/Typography.GsHomeTown.Heading3"
+                        app:layout_constraintStart_toEndOf="@id/tv_my_welcome"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <ImageView
+                        android:id="@+id/iv_my_arrow_right_01"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="7dp"
+                        android:src="@drawable/ic_arrow_right_01"
+                        app:layout_constraintBottom_toBottomOf="@id/tv_my_welcome_name"
+                        app:layout_constraintStart_toEndOf="@id/tv_my_welcome_name"
+                        app:layout_constraintTop_toTopOf="@id/tv_my_welcome" />
+
+                    <TextView
+                        android:id="@+id/tv_my_get_location"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/shape_radius_09"
+                        android:backgroundTint="@color/grey_02"
+                        android:paddingHorizontal="12dp"
+                        android:paddingVertical="5dp"
+                        android:text="@string/my_page_location"
+                        android:textAppearance="@style/Typography.GsHomeTown.Body4.Medium"
+                        android:textColor="@color/grey_09"
+                        app:layout_constraintBottom_toBottomOf="@id/tv_my_welcome"
+                        app:layout_constraintEnd_toEndOf="@id/gl_my_end_16"
+                        app:layout_constraintTop_toTopOf="@id/tv_my_welcome" />
+
+                    <TextView
+                        android:id="@+id/tv_my_stroke_top"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="18dp"
+                        android:background="@drawable/shape_grey05_line_11"
+                        android:drawableEnd="@drawable/ic_arrow_right_01"
+                        android:paddingHorizontal="16dp"
+                        android:paddingVertical="19dp"
+                        android:text="@string/my_page_top"
+                        android:textAppearance="@style/Typography.GsHomeTown.Body1"
+                        app:layout_constraintEnd_toEndOf="@id/gl_my_end_16"
+                        app:layout_constraintStart_toStartOf="@id/gl_my_start_16"
+                        app:layout_constraintTop_toBottomOf="@id/tv_my_welcome" />
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:id="@+id/cl_my_reward_menu"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="22dp"
+                        android:background="@drawable/shape_radius_16"
+                        android:backgroundTint="@color/grey_02"
+                        android:paddingHorizontal="29dp"
+                        android:paddingTop="13dp"
+                        android:paddingBottom="20dp"
+                        app:layout_constraintEnd_toEndOf="@id/gl_my_end_16"
+                        app:layout_constraintStart_toStartOf="@id/gl_my_start_16"
+                        app:layout_constraintTop_toBottomOf="@id/tv_my_stroke_top">
+
+                        <TextView
+                            android:id="@+id/tv_my_reward_title_left"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/my_page_the_pop_rewards"
+                            android:textAppearance="@style/Typography.GsHomeTown.Body3"
+                            android:textColor="@color/grey_08"
+                            app:layout_constraintBottom_toTopOf="@id/tv_my_reward_score"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                        <TextView
+                            android:id="@+id/tv_my_reward_score"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="3dp"
+                            android:text="@string/my_page_my_rewards"
+                            android:textAppearance="@style/Typography.GsHomeTown.Body2"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintStart_toStartOf="@id/tv_my_reward_title_left"
+                            app:layout_constraintTop_toBottomOf="@id/tv_my_reward_title_left" />
+
+                        <com.google.android.material.divider.MaterialDivider
+                            android:id="@+id/iv_my_line_vertical_start"
+                            android:layout_width="1dp"
+                            android:layout_height="0dp"
+                            android:layout_marginVertical="5dp"
+                            app:dividerColor="@color/grey_05"
+                            app:layout_constraintBottom_toBottomOf="@id/tv_my_reward_score"
+                            app:layout_constraintEnd_toStartOf="@id/iv_my_line_vertical_end"
+                            app:layout_constraintHorizontal_chainStyle="spread"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="@id/tv_my_reward_title_left" />
+
+                        <TextView
+                            android:id="@+id/tv_my_reward_title_center"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/my_page_top_point"
+                            android:textAppearance="@style/Typography.GsHomeTown.Body3"
+                            android:textColor="@color/grey_08"
+                            app:layout_constraintBottom_toTopOf="@id/tv_my_reward_score_center"
+                            app:layout_constraintEnd_toStartOf="@+id/iv_my_line_vertical_end"
+                            app:layout_constraintStart_toEndOf="@id/iv_my_line_vertical_start"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                        <TextView
+                            android:id="@+id/tv_my_reward_score_center"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="3dp"
+                            android:text="@string/my_page_top_my_point"
+                            android:textAppearance="@style/Typography.GsHomeTown.Body2"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintStart_toStartOf="@+id/tv_my_reward_title_center"
+                            app:layout_constraintTop_toBottomOf="@id/tv_my_reward_title_center" />
+
+                        <com.google.android.material.divider.MaterialDivider
+                            android:id="@+id/iv_my_line_vertical_end"
+                            android:layout_width="1dp"
+                            android:layout_height="0dp"
+                            android:layout_marginVertical="5dp"
+                            app:dividerColor="@color/grey_05"
+                            app:layout_constraintBottom_toBottomOf="@id/tv_my_reward_score"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toEndOf="@id/iv_my_line_vertical_start"
+                            app:layout_constraintTop_toTopOf="@id/tv_my_reward_title_left" />
+
+                        <TextView
+                            android:id="@+id/tv_my_reward_title_end"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/my_page_top_coupon"
+                            android:textAppearance="@style/Typography.GsHomeTown.Body3"
+                            android:textColor="@color/grey_08"
+                            app:layout_constraintBottom_toTopOf="@id/tv_my_reward_score_end"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toEndOf="@id/iv_my_line_vertical_end"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                        <TextView
+                            android:id="@+id/tv_my_reward_score_end"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="3dp"
+                            android:text="@string/my_page_top_my_coupon"
+                            android:textAppearance="@style/Typography.GsHomeTown.Body2"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintStart_toStartOf="@+id/tv_my_reward_title_end"
+                            app:layout_constraintTop_toBottomOf="@id/tv_my_reward_title_end" />
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                    <ImageView
+                        android:id="@+id/iv_my_recent"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="20dp"
+                        android:src="@drawable/ic_recent_24"
+                        app:layout_constraintEnd_toEndOf="@id/tv_my_recent"
+                        app:layout_constraintStart_toStartOf="@id/tv_my_recent"
+                        app:layout_constraintTop_toBottomOf="@id/cl_my_reward_menu" />
+
+                    <TextView
+                        android:id="@+id/tv_my_recent"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:text="@string/my_page_recent_product"
+                        android:textAppearance="@style/Typography.GsHomeTown.Body3"
+                        android:textColor="@color/grey_08"
+                        app:layout_constraintEnd_toStartOf="@id/iv_my_line_vertical_recent"
+                        app:layout_constraintHorizontal_chainStyle="spread_inside"
+                        app:layout_constraintStart_toStartOf="@id/gl_my_start_16"
+                        app:layout_constraintTop_toBottomOf="@id/iv_my_recent" />
+
+                    <com.google.android.material.divider.MaterialDivider
+                        android:id="@+id/iv_my_line_vertical_recent"
+                        android:layout_width="1dp"
+                        android:layout_height="0dp"
+                        android:layout_marginVertical="12dp"
+                        app:dividerColor="@color/grey_05"
+                        app:layout_constraintBottom_toBottomOf="@id/tv_my_recent"
+                        app:layout_constraintEnd_toStartOf="@id/iv_my_line_vertical_heart"
+                        app:layout_constraintHorizontal_chainStyle="spread"
+                        app:layout_constraintStart_toStartOf="@id/gl_my_start_16"
+                        app:layout_constraintTop_toTopOf="@id/iv_my_recent" />
+
+                    <ImageView
+                        android:id="@+id/iv_my_heart"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="20dp"
+                        android:src="@drawable/ic_love_24"
+                        app:layout_constraintEnd_toEndOf="@id/tv_my_heart"
+                        app:layout_constraintStart_toStartOf="@id/tv_my_heart"
+                        app:layout_constraintTop_toBottomOf="@id/cl_my_reward_menu" />
+
+                    <TextView
+                        android:id="@+id/tv_my_heart"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:text="@string/my_page_heart"
+                        android:textAppearance="@style/Typography.GsHomeTown.Body3"
+                        android:textColor="@color/grey_08"
+                        app:layout_constraintEnd_toStartOf="@id/iv_my_line_vertical_heart"
+                        app:layout_constraintStart_toEndOf="@id/iv_my_line_vertical_recent"
+                        app:layout_constraintTop_toBottomOf="@id/iv_my_recent" />
+
+                    <com.google.android.material.divider.MaterialDivider
+                        android:id="@+id/iv_my_line_vertical_heart"
+                        android:layout_width="1dp"
+                        android:layout_height="0dp"
+                        android:layout_marginVertical="12dp"
+                        app:dividerColor="@color/grey_05"
+                        app:layout_constraintBottom_toBottomOf="@id/tv_my_heart"
+                        app:layout_constraintEnd_toStartOf="@id/iv_my_line_vertical_review"
+                        app:layout_constraintStart_toEndOf="@id/iv_my_line_vertical_recent"
+                        app:layout_constraintTop_toTopOf="@id/iv_my_recent" />
+
+                    <ImageView
+                        android:id="@+id/iv_my_review"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="20dp"
+                        android:src="@drawable/ic_writing_24"
+                        app:layout_constraintEnd_toEndOf="@id/tv_my_review"
+                        app:layout_constraintStart_toStartOf="@id/tv_my_review"
+                        app:layout_constraintTop_toBottomOf="@id/cl_my_reward_menu" />
+
+                    <TextView
+                        android:id="@+id/tv_my_review"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:text="@string/my_page_my_review"
+                        android:textAppearance="@style/Typography.GsHomeTown.Body3"
+                        android:textColor="@color/grey_08"
+                        app:layout_constraintEnd_toStartOf="@id/iv_my_line_vertical_review"
+                        app:layout_constraintStart_toEndOf="@id/iv_my_line_vertical_heart"
+                        app:layout_constraintTop_toBottomOf="@id/iv_my_recent" />
+
+                    <com.google.android.material.divider.MaterialDivider
+                        android:id="@+id/iv_my_line_vertical_review"
+                        android:layout_width="1dp"
+                        android:layout_height="0dp"
+                        android:layout_marginVertical="12dp"
+                        app:dividerColor="@color/grey_05"
+                        app:layout_constraintBottom_toBottomOf="@id/tv_my_review"
+                        app:layout_constraintEnd_toEndOf="@id/gl_my_end_16"
+                        app:layout_constraintStart_toEndOf="@id/iv_my_line_vertical_heart"
+                        app:layout_constraintTop_toTopOf="@id/iv_my_recent" />
+
+                    <ImageView
+                        android:id="@+id/iv_my_gift"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="20dp"
+                        android:src="@drawable/ic_gift_24"
+                        app:layout_constraintEnd_toEndOf="@id/tv_my_gift"
+                        app:layout_constraintStart_toStartOf="@id/tv_my_gift"
+                        app:layout_constraintTop_toBottomOf="@id/cl_my_reward_menu" />
+
+                    <TextView
+                        android:id="@+id/tv_my_gift"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:text="@string/my_page_gift_box"
+                        android:textAppearance="@style/Typography.GsHomeTown.Body3"
+                        android:textColor="@color/grey_08"
+                        app:layout_constraintEnd_toEndOf="@id/gl_my_end_16"
+                        app:layout_constraintStart_toEndOf="@id/iv_my_line_vertical_review"
+                        app:layout_constraintTop_toBottomOf="@id/iv_my_recent" />
+
+                    <com.google.android.material.divider.MaterialDivider
+                        android:id="@+id/divider_purchase_detail_top_07"
+                        android:layout_width="match_parent"
+                        android:layout_height="7dp"
+                        android:layout_marginTop="20dp"
+                        app:dividerColor="@color/grey_03"
+                        app:layout_constraintTop_toBottomOf="@id/tv_my_gift" />
+
+                    <TextView
+                        android:id="@+id/tv_order_title"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="14dp"
+                        android:layout_marginTop="4dp"
+                        android:paddingVertical="12dp"
+                        android:text="@string/my_page_order_title"
+                        android:textAppearance="@style/Typography.GsHomeTown.Heading6"
+                        android:textColor="@color/grey_10"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/divider_purchase_detail_top_07" />
+
+                    <ImageView
+                        android:id="@+id/iv_my_arrow_top_01"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="19dp"
+                        android:layout_marginEnd="2dp"
+                        android:src="@drawable/ic_my_page_arrow_top"
+                        app:layout_constraintEnd_toStartOf="@id/gl_my_end_16"
+                        app:layout_constraintTop_toBottomOf="@id/divider_purchase_detail_top_07" />
+
+                    <TextView
+                        android:id="@+id/tv_order_basket"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="14dp"
+                        android:paddingVertical="12dp"
+                        android:text="@string/my_page_order_basket"
+                        android:textAppearance="@style/Typography.GsHomeTown.Body1"
+                        android:textColor="@color/grey_10"
+                        app:layout_constraintEnd_toStartOf="@id/tv_order_breakdown"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/tv_order_title" />
+
+                    <TextView
+                        android:id="@+id/tv_order_breakdown"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:paddingVertical="12dp"
+                        android:text="@string/my_page_order_breakdown"
+                        android:textAppearance="@style/Typography.GsHomeTown.Body1"
+                        android:textColor="@color/grey_10"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toEndOf="@id/tv_order_basket"
+                        app:layout_constraintTop_toBottomOf="@id/tv_order_title" />
+
+                    <TextView
+                        android:id="@+id/tv_order_storage"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="14dp"
+                        android:paddingVertical="12dp"
+                        android:text="@string/my_page_order_storage"
+                        android:textAppearance="@style/Typography.GsHomeTown.Body1"
+                        android:textColor="@color/grey_10"
+                        app:layout_constraintEnd_toStartOf="@id/tv_order_breakdown"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/tv_order_basket" />
+
+                    <TextView
+                        android:id="@+id/tv_order_receipt"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:paddingVertical="12dp"
+                        android:text="@string/my_page_order_receipt"
+                        android:textAppearance="@style/Typography.GsHomeTown.Body1"
+                        android:textColor="@color/grey_10"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toEndOf="@id/tv_order_basket"
+                        app:layout_constraintTop_toBottomOf="@id/tv_order_basket" />
+
+                    <com.google.android.material.divider.MaterialDivider
+                        android:id="@+id/divider_purchase_detail_top_08"
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:layout_marginHorizontal="15dp"
+                        android:layout_marginTop="6dp"
+                        app:dividerColor="@color/grey_05"
+                        app:layout_constraintTop_toBottomOf="@id/tv_order_receipt" />
+
+                    <TextView
+                        android:id="@+id/tv_checkout_title"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="14dp"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginBottom="12dp"
+                        android:paddingVertical="12dp"
+                        android:text="@string/my_page_checkout_title"
+                        android:textAppearance="@style/Typography.GsHomeTown.Heading6"
+                        android:textColor="@color/grey_10"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/tv_order_storage" />
+
+                    <ImageView
+                        android:id="@+id/iv_my_arrow_top_02"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="19dp"
+                        android:layout_marginEnd="2dp"
+                        android:src="@drawable/ic_my_page_arrow_top"
+                        app:layout_constraintEnd_toStartOf="@id/gl_my_end_16"
+                        app:layout_constraintTop_toBottomOf="@id/divider_purchase_detail_top_08" />
+
+                    <TextView
+                        android:id="@+id/tv_checkout_setting"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="14dp"
+                        android:paddingVertical="12dp"
+                        android:text="@string/my_page_checkout_setting"
+                        android:textAppearance="@style/Typography.GsHomeTown.Body1"
+                        android:textColor="@color/grey_10"
+                        app:layout_constraintEnd_toStartOf="@id/tv_order_breakdown"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/tv_checkout_title" />
+
+                    <TextView
+                        android:id="@+id/tv_checkout_receipt"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:paddingVertical="12dp"
+                        android:text="@string/my_page_checkout_receipt"
+                        android:textAppearance="@style/Typography.GsHomeTown.Body1"
+                        android:textColor="@color/grey_10"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toEndOf="@id/tv_order_basket"
+                        app:layout_constraintTop_toBottomOf="@id/tv_checkout_title" />
+
+                    <TextView
+                        android:id="@+id/tv_checkout_gspay"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="14dp"
+                        android:paddingVertical="12dp"
+                        android:text="@string/my_page_checkout_gspay"
+                        android:textAppearance="@style/Typography.GsHomeTown.Body1"
+                        android:textColor="@color/grey_10"
+                        app:layout_constraintEnd_toStartOf="@id/tv_order_breakdown"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/tv_checkout_setting" />
+
+                    <TextView
+                        android:id="@+id/tv_checkout_gsprime"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:paddingVertical="12dp"
+                        android:text="@string/my_page_checkout_gsprime"
+                        android:textAppearance="@style/Typography.GsHomeTown.Body1"
+                        android:textColor="@color/grey_10"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toEndOf="@id/tv_order_basket"
+                        app:layout_constraintTop_toBottomOf="@id/tv_checkout_setting" />
+
+                    <TextView
+                        android:id="@+id/tv_checkout_mobilepop"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="14dp"
+                        android:paddingVertical="12dp"
+                        android:text="@string/my_page_checkout_mobilepop"
+                        android:textAppearance="@style/Typography.GsHomeTown.Body1"
+                        android:textColor="@color/grey_10"
+                        app:layout_constraintEnd_toStartOf="@id/tv_order_breakdown"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/tv_checkout_gspay" />
+
+                    <com.google.android.material.divider.MaterialDivider
+                        android:id="@+id/divider_purchase_detail_top_09"
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:layout_marginHorizontal="15dp"
+                        android:layout_marginTop="3dp"
+                        app:dividerColor="@color/grey_05"
+                        app:layout_constraintTop_toBottomOf="@id/tv_checkout_mobilepop" />
+
+                    <TextView
+                        android:id="@+id/tv_sale_title"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="14dp"
+                        android:layout_marginTop="3dp"
+                        android:layout_marginBottom="12dp"
+                        android:paddingVertical="12dp"
+                        android:text="@string/my_page_sale_title"
+                        android:textAppearance="@style/Typography.GsHomeTown.Heading6"
+                        android:textColor="@color/grey_10"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/divider_purchase_detail_top_09" />
+
+                    <ImageView
+                        android:id="@+id/iv_my_arrow_top_03"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="19dp"
+                        android:layout_marginEnd="2dp"
+                        android:src="@drawable/ic_my_page_arrow_top"
+                        app:layout_constraintEnd_toStartOf="@id/gl_my_end_16"
+                        app:layout_constraintTop_toBottomOf="@id/divider_purchase_detail_top_09" />
+
+                    <TextView
+                        android:id="@+id/tv_sale_carrier"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="14dp"
+                        android:paddingVertical="12dp"
+                        android:text="@string/my_page_sale_carrier"
+                        android:textAppearance="@style/Typography.GsHomeTown.Body1"
+                        android:textColor="@color/grey_10"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/tv_sale_title" />
+
+                    <com.google.android.material.divider.MaterialDivider
+                        android:id="@+id/divider_purchase_detail_top_10"
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:layout_marginHorizontal="15dp"
+                        android:layout_marginTop="6dp"
+                        app:dividerColor="@color/grey_05"
+                        app:layout_constraintTop_toBottomOf="@id/tv_sale_carrier" />
+
+                    <TextView
+                        android:id="@+id/tv_my_title"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="14dp"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginBottom="12dp"
+                        android:paddingVertical="12dp"
+                        android:text="@string/my_page_my_title"
+                        android:textAppearance="@style/Typography.GsHomeTown.Heading6"
+                        android:textColor="@color/grey_10"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/divider_purchase_detail_top_10" />
+
+                    <ImageView
+                        android:id="@+id/iv_my_arrow_top_04"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="19dp"
+                        android:layout_marginEnd="2dp"
+                        android:src="@drawable/ic_my_page_arrow_top"
+                        app:layout_constraintEnd_toStartOf="@id/gl_my_end_16"
+                        app:layout_constraintTop_toBottomOf="@id/divider_purchase_detail_top_10" />
+
+                    <TextView
+                        android:id="@+id/tv_my_information"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="14dp"
+                        android:paddingVertical="12dp"
+                        android:text="@string/my_page_my_information"
+                        android:textAppearance="@style/Typography.GsHomeTown.Body1"
+                        android:textColor="@color/grey_10"
+                        app:layout_constraintEnd_toStartOf="@id/tv_order_breakdown"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/tv_my_title" />
+
+                    <TextView
+                        android:id="@+id/tv_my_winery"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:paddingVertical="12dp"
+                        android:text="@string/my_page_my_winery"
+                        android:textAppearance="@style/Typography.GsHomeTown.Body1"
+                        android:textColor="@color/grey_10"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toEndOf="@id/tv_order_basket"
+                        app:layout_constraintTop_toBottomOf="@id/tv_my_title" />
+
+                    <TextView
+                        android:id="@+id/tv_my_event"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="14dp"
+                        android:paddingVertical="12dp"
+                        android:text="@string/my_page_my_event"
+                        android:textAppearance="@style/Typography.GsHomeTown.Body1"
+                        android:textColor="@color/grey_10"
+                        app:layout_constraintEnd_toStartOf="@id/tv_order_breakdown"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/tv_my_information" />
+
+                    <TextView
+                        android:id="@+id/tv_my_town"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:paddingVertical="12dp"
+                        android:text="@string/my_page_my_town"
+                        android:textAppearance="@style/Typography.GsHomeTown.Body1"
+                        android:textColor="@color/grey_10"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toEndOf="@id/tv_order_basket"
+                        app:layout_constraintTop_toBottomOf="@id/tv_my_information" />
+
+                    <TextView
+                        android:id="@+id/tv_my_address"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="14dp"
+                        android:paddingVertical="12dp"
+                        android:text="@string/my_page_my_address"
+                        android:textAppearance="@style/Typography.GsHomeTown.Body1"
+                        android:textColor="@color/grey_10"
+                        app:layout_constraintEnd_toStartOf="@id/tv_order_breakdown"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/tv_my_event" />
+
+                    <TextView
+                        android:id="@+id/tv_my_rewards"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:paddingVertical="12dp"
+                        android:text="@string/my_page_my_rewards"
+                        android:textAppearance="@style/Typography.GsHomeTown.Body1"
+                        android:textColor="@color/grey_10"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toEndOf="@id/tv_order_basket"
+                        app:layout_constraintTop_toBottomOf="@id/tv_my_event" />
+
+                    <TextView
+                        android:id="@+id/tv_my_child_card"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="14dp"
+                        android:paddingVertical="12dp"
+                        android:text="@string/my_page_my_child_card"
+                        android:textAppearance="@style/Typography.GsHomeTown.Body1"
+                        android:textColor="@color/grey_10"
+                        app:layout_constraintEnd_toStartOf="@id/tv_order_breakdown"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/tv_my_address" />
+
+
+                    <com.google.android.material.divider.MaterialDivider
+                        android:id="@+id/divider_purchase_detail_top_11"
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:layout_marginHorizontal="15dp"
+                        android:layout_marginTop="6dp"
+                        app:dividerColor="@color/grey_05"
+                        app:layout_constraintTop_toBottomOf="@id/tv_my_child_card" />
+
+                    <TextView
+                        android:id="@+id/tv_notice_title"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="14dp"
+                        android:layout_marginTop="1dp"
+                        android:layout_marginBottom="12dp"
+                        android:paddingVertical="12dp"
+                        android:text="@string/my_page_notice_title"
+                        android:textAppearance="@style/Typography.GsHomeTown.Heading6"
+                        android:textColor="@color/grey_10"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/divider_purchase_detail_top_11" />
+
+                    <ImageView
+                        android:id="@+id/iv_my_arrow_top_05"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="19dp"
+                        android:layout_marginEnd="2dp"
+                        android:src="@drawable/ic_my_page_arrow_top"
+                        app:layout_constraintEnd_toStartOf="@id/gl_my_end_16"
+                        app:layout_constraintTop_toBottomOf="@id/divider_purchase_detail_top_11" />
+
+                    <TextView
+                        android:id="@+id/tv_notice_chatbot"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="14dp"
+                        android:paddingVertical="12dp"
+                        android:text="@string/my_page_notice_chatbot"
+                        android:textAppearance="@style/Typography.GsHomeTown.Body1"
+                        android:textColor="@color/grey_10"
+                        app:layout_constraintEnd_toStartOf="@id/tv_order_breakdown"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/tv_notice_title" />
+
+                    <TextView
+                        android:id="@+id/tv_notice_question"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:paddingVertical="12dp"
+                        android:text="@string/my_page_notice_question"
+                        android:textAppearance="@style/Typography.GsHomeTown.Body1"
+                        android:textColor="@color/grey_10"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toEndOf="@id/tv_order_basket"
+                        app:layout_constraintTop_toBottomOf="@id/tv_notice_title" />
+
+                    <TextView
+                        android:id="@+id/tv_notice_notice"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="14dp"
+                        android:paddingVertical="12dp"
+                        android:text="@string/my_page_notice"
+                        android:textAppearance="@style/Typography.GsHomeTown.Body1"
+                        android:textColor="@color/grey_10"
+                        app:layout_constraintEnd_toStartOf="@id/tv_order_breakdown"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/tv_notice_chatbot" />
+
+                    <TextView
+                        android:id="@+id/tv_notice_customer_center"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:paddingVertical="12dp"
+                        android:text="@string/my_page_notice_customer_center"
+                        android:textAppearance="@style/Typography.GsHomeTown.Body1"
+                        android:textColor="@color/grey_10"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toEndOf="@id/tv_order_basket"
+                        app:layout_constraintTop_toBottomOf="@id/tv_notice_chatbot" />
+
+                    <com.google.android.material.divider.MaterialDivider
+                        android:id="@+id/divider_purchase_detail_top_12"
+                        android:layout_width="match_parent"
+                        android:layout_height="11dp"
+                        android:layout_marginTop="6dp"
+                        app:dividerColor="@color/grey_05"
+                        app:layout_constraintTop_toBottomOf="@id/tv_notice_notice" />
+
+                    <TextView
+                        android:id="@+id/tv_logout"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="15.5dp"
+                        android:layout_marginTop="14dp"
+                        android:layout_marginBottom="131dp"
+                        android:text="@string/my_page_logout"
+                        android:textAppearance="@style/Typography.GsHomeTown.Body1"
+                        android:textColor="@color/grey_10"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/divider_purchase_detail_top_12" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+            </androidx.core.widget.NestedScrollView>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+
 </layout>

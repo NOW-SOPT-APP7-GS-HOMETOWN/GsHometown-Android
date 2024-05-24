@@ -11,7 +11,6 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent">
@@ -24,6 +23,7 @@
                 android:layout_marginEnd="16dp"
                 android:layout_marginBottom="20dp"
                 android:foreground="@drawable/ic_fab_to_top"
+                android:stateListAnimator="@null"
                 app:borderWidth="0dp"
                 app:layout_constraintBottom_toTopOf="@id/cl_detail_bottom_buttons"
                 app:layout_constraintDimensionRatio="1"
@@ -83,12 +83,12 @@
                         android:id="@+id/iv_purchase_detail_top"
                         android:layout_width="0dp"
                         android:layout_height="0dp"
-                        android:background="@color/blue_01"
                         app:layout_constraintDimensionRatio="1"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintHorizontal_bias="1.0"
                         app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="parent" />
+                        app:layout_constraintTop_toTopOf="parent"
+                        tools:background="@color/blue_01" />
 
                     <androidx.constraintlayout.widget.Guideline
                         android:id="@+id/gl_purchase_detail_start_16"
@@ -148,10 +148,10 @@
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="11dp"
+                        android:text="3,900원"
                         android:textAppearance="@style/Typography.GsHomeTown.Heading5"
                         app:layout_constraintStart_toStartOf="@id/gl_purchase_detail_start_16"
-                        app:layout_constraintTop_toBottomOf="@id/tv_purchase_detail_title"
-                        android:text="3,900원" />
+                        app:layout_constraintTop_toBottomOf="@id/tv_purchase_detail_title" />
 
                     <TextView
                         android:id="@+id/tv_purchase_detail_info"
