@@ -7,6 +7,13 @@
     <string name="menu_item_order">주문내역</string>
     <string name="menu_item_my_page">MY</string>
     <!-- home -->
+    <string name="home_top_appbar_my_adress">우리집</string>
+    <string name="home_reserve_title">GS25</string>
+    <string name="home_reserve_sub_title">언제나 가까이</string>
+    <string name="home_gsfresh_title">GS더프레시</string>
+    <string name="home_gsfresh_sub_title">신선함이 가득</string>
+    <string name="home_month_event_title">GS25 이달의 행사</string>
+    <string name="home_month_event_sub_title">두근두근 기대되는 이달의 편의점 행사는?</string>
     <!--reserve-->
     <string name="reserve_top_banner">%1$d/%2$d</string>
     <string name="reserve_menu_review">(후기%1$d)</string>

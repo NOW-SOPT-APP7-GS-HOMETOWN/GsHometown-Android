@@ -6,7 +6,7 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import com.sopt.now.gs.databinding.ItemHomeMonthEventBinding
 
-class HomeMonthEventAdapter : ListAdapter<HomeBanner, HomeMonthEventViewHolder>(diffUtil) {
+class HomeMonthEventAdapter : ListAdapter<String, HomeMonthEventViewHolder>(diffUtil) {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): HomeMonthEventViewHolder {
         return HomeMonthEventViewHolder(
@@ -19,16 +19,18 @@ class HomeMonthEventAdapter : ListAdapter<HomeBanner, HomeMonthEventViewHolder>(
     }
 
     override fun onBindViewHolder(holder: HomeMonthEventViewHolder, position: Int) {
-        holder.onBind(getItem(position))
+        holder.onBind(currentList[position % currentList.size])
     }
 
+    override fun getItemCount(): Int = Int.MAX_VALUE
+
     companion object {
-        val diffUtil = object : DiffUtil.ItemCallback<HomeBanner>() {
-            override fun areItemsTheSame(oldItem: HomeBanner, newItem: HomeBanner): Boolean {
-                return oldItem.image == newItem.image
+        val diffUtil = object : DiffUtil.ItemCallback<String>() {
+            override fun areItemsTheSame(oldItem: String, newItem: String): Boolean {
+                return oldItem == newItem
             }
 
-            override fun areContentsTheSame(oldItem: HomeBanner, newItem: HomeBanner): Boolean {
+            override fun areContentsTheSame(oldItem: String, newItem: String): Boolean {
                 return oldItem == newItem
             }
         }

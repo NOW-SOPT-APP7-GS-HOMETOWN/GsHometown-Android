@@ -7,7 +7,7 @@ import androidx.recyclerview.widget.ListAdapter
 import com.sopt.now.gs.databinding.ItemHomeBannerBinding
 
 class HomeBannerAdapter :
-    ListAdapter<HomeBanner, HomeBannerViewHolder>(diffUtil) {
+    ListAdapter<String, HomeBannerViewHolder>(diffUtil) {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): HomeBannerViewHolder {
         return HomeBannerViewHolder(
@@ -24,12 +24,12 @@ class HomeBannerAdapter :
     }
 
     companion object {
-        val diffUtil = object : DiffUtil.ItemCallback<HomeBanner>() {
-            override fun areItemsTheSame(oldItem: HomeBanner, newItem: HomeBanner): Boolean {
-                return oldItem.image == newItem.image
+        val diffUtil = object : DiffUtil.ItemCallback<String>() {
+            override fun areItemsTheSame(oldItem: String, newItem: String): Boolean {
+                return oldItem == newItem
             }
 
-            override fun areContentsTheSame(oldItem: HomeBanner, newItem: HomeBanner): Boolean {
+            override fun areContentsTheSame(oldItem: String, newItem: String): Boolean {
                 return oldItem == newItem
             }
         }

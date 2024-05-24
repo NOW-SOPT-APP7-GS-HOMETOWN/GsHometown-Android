@@ -10,9 +10,9 @@
     <androidx.coordinatorlayout.widget.CoordinatorLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@color/grey_02"
+        android:layout_marginTop="5dp"
 
-        android:layout_marginTop="5dp">
+        android:background="@color/grey_02">
 
         <com.google.android.material.appbar.AppBarLayout
             android:id="@+id/home_top_app_bar"
@@ -38,7 +38,7 @@
                         android:layout_marginVertical="8dp"
                         android:layout_marginStart="16dp"
                         android:fontFamily="@font/pretendard_medium"
-                        android:text="우리집"
+                        android:text="@string/home_top_appbar_my_adress"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent" />
 
@@ -99,10 +99,10 @@
                 <androidx.viewpager2.widget.ViewPager2
                     android:id="@+id/vp_home_top_banner"
                     android:layout_width="0dp"
-                    android:layout_height="wrap_content"
+                    android:layout_height="0dp"
                     android:layout_marginHorizontal="14dp"
                     android:layout_marginTop="53dp"
-                    android:orientation="horizontal"
+                    app:layout_constraintDimensionRatio="330:86"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
@@ -135,7 +135,7 @@
                             android:layout_height="wrap_content"
                             android:layout_marginStart="20dp"
                             android:layout_marginTop="14dp"
-                            android:text="GS25"
+                            android:text="@string/home_reserve_title"
                             android:theme="@style/Typography.GsHomeTown.Heading6"
                             app:layout_constraintStart_toStartOf="parent"
                             app:layout_constraintTop_toTopOf="parent" />
@@ -144,7 +144,7 @@
                             android:id="@+id/tv_home_reserve_text_gs25_additional"
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
-                            android:text="언제나 가까이"
+                            android:text="@string/home_reserve_sub_title"
                             android:theme="@style/Typography.GsHomeTown.Body4.Medium"
                             app:layout_constraintStart_toStartOf="@id/tv_home_reserve_text_gs25"
                             app:layout_constraintTop_toBottomOf="@id/tv_home_reserve_text_gs25" />
@@ -228,7 +228,7 @@
                             android:layout_height="wrap_content"
                             android:layout_marginStart="20dp"
                             android:layout_marginTop="14dp"
-                            android:text="GS더프레시"
+                            android:text="@string/home_gsfresh_title"
                             android:theme="@style/Typography.GsHomeTown.Heading6"
                             app:layout_constraintStart_toStartOf="parent"
                             app:layout_constraintTop_toTopOf="parent" />
@@ -237,7 +237,7 @@
                             android:id="@+id/tv_home_text_gsfresh_additional"
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
-                            android:text="신선함이 가득"
+                            android:text="@string/home_gsfresh_sub_title"
                             android:theme="@style/Typography.GsHomeTown.Body4.Medium"
                             app:layout_constraintStart_toStartOf="@id/tv_home_text_gsfresh"
                             app:layout_constraintTop_toBottomOf="@id/tv_home_text_gsfresh" />
@@ -337,7 +337,7 @@
                             android:layout_height="wrap_content"
                             android:layout_marginStart="16dp"
                             android:layout_marginTop="13dp"
-                            android:text="GS25 이달의 행사"
+                            android:text="@string/home_month_event_title"
                             android:theme="@style/Typography.GsHomeTown.Heading6"
                             app:layout_constraintStart_toStartOf="parent"
                             app:layout_constraintTop_toTopOf="parent" />
@@ -346,7 +346,7 @@
                             android:id="@+id/tv_home_month_event_sub_title"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="두근두근 기대되는 이달의 편의점 행사는?"
+                            android:text="@string/home_month_event_sub_title"
                             app:layout_constraintStart_toStartOf="@id/tv_home_month_event_title"
                             app:layout_constraintTop_toBottomOf="@id/tv_home_month_event_title" />
 
@@ -357,7 +357,6 @@
                             android:layout_marginTop="12dp"
                             android:layout_marginEnd="108dp"
                             android:layout_marginBottom="13dp"
-                            android:src="@drawable/img_home_month_event1"
                             app:layout_constraintBottom_toBottomOf="parent"
                             app:layout_constraintEnd_toEndOf="parent"
                             app:layout_constraintStart_toStartOf="@id/tv_home_month_event_sub_title"
@@ -366,30 +365,24 @@
 
                         <ImageView
                             android:id="@+id/iv_home_month_event_window"
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:layout_marginStart="6dp"
+                            android:layout_width="87dp"
+                            android:layout_height="0dp"
+                            android:visibility="invisible"
+                            app:layout_constraintDimensionRatio="1"
                             android:layout_marginEnd="15dp"
-                            android:adjustViewBounds="true"
                             android:elevation="10dp"
                             android:src="@drawable/img_home_month_event_window"
-                            app:layout_constraintBottom_toBottomOf="@id/vp_home_left_month_event"
                             app:layout_constraintEnd_toEndOf="parent"
-                            app:layout_constraintHorizontal_bias="0.0"
                             app:layout_constraintStart_toEndOf="@id/vp_home_left_month_event"
-                            app:layout_constraintTop_toTopOf="@id/vp_home_left_month_event"
-                            app:layout_constraintVertical_bias="0.0" />
+                            app:layout_constraintTop_toTopOf="@id/vp_home_left_month_event" />
 
                         <androidx.recyclerview.widget.RecyclerView
-                            android:id="@+id/vp_home_right_month_event"
-                            android:layout_marginStart="7dp"
+                            android:layout_marginVertical="3dp"
+                            android:id="@+id/rv_home_right_month_event"
                             android:layout_width="0dp"
                             android:layout_height="0dp"
-                            android:layout_marginBottom="9dp"
-                            android:elevation="0dp"
-                            android:orientation="vertical"
                             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintBottom_toBottomOf="@id/vp_home_left_month_event"
                             app:layout_constraintEnd_toEndOf="@id/iv_home_month_event_window"
                             app:layout_constraintStart_toStartOf="@id/iv_home_month_event_window"
                             app:layout_constraintTop_toTopOf="@id/iv_home_month_event_window"
@@ -397,7 +390,6 @@
                     </androidx.constraintlayout.widget.ConstraintLayout>
 
                 </androidx.cardview.widget.CardView>
-
 
                 <ImageView
                     android:id="@+id/iv_home_week_event"
@@ -412,9 +404,10 @@
                 <androidx.viewpager2.widget.ViewPager2
                     android:id="@+id/vp_home_bottom_banner"
                     android:layout_width="0dp"
-                    android:layout_height="wrap_content"
+                    android:layout_height="0dp"
                     android:layout_marginHorizontal="14dp"
                     android:orientation="horizontal"
+                    app:layout_constraintDimensionRatio="332:150"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/iv_home_week_event"

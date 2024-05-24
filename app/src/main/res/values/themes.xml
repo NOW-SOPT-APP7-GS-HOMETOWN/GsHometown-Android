@@ -28,6 +28,10 @@
         <item name="cornerSize">50%</item>
     </style>
 
+    <style name="HomeImageRadius">
+        <item name="cornerSize">14dp</item>
+    </style>
+
     <style name="ShapeAppearanceOverlay.App.CornerRadius9" parent="">
         <item name="cornerSize">9dp</item>
     </style>
