@@ -9,6 +9,7 @@ import com.sopt.now.gs.data.response.BaseResponse
 import com.sopt.now.gs.data.response.ResponseHomeDto
 import com.sopt.now.gs.data.response.ResponseLikedDto
 import com.sopt.now.gs.data.response.ResponsePurchaseDetailDto
+import com.sopt.now.gs.data.response.ResponseReserveEventDto
 import com.sopt.now.gs.data.response.ResponseReserveGspayDto
 import retrofit2.Response
 import retrofit2.http.Body
@@ -41,4 +42,9 @@ interface GsHometownService {
     suspend fun deleteLiked(
         @Body productId: RequestLikedDto,
     ): Response<BaseResponse<ResponseLikedDto>>
+
+    @GET("$API/$PRODUCTS")
+    suspend fun getReserveEvent(
+        @Query("type") type: String,
+    ): Response<BaseResponse<ResponseReserveEventDto>>
 }

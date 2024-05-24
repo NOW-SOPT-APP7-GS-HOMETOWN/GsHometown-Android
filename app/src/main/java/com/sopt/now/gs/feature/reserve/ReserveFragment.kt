@@ -1,13 +1,17 @@
 package com.sopt.now.gs.feature.reserve
 
+import android.util.Log
 import androidx.core.os.bundleOf
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import androidx.viewpager2.widget.ViewPager2
+import coil.load
 import com.sopt.now.gs.R
 import com.sopt.now.gs.core.base.BindingFragment
+import com.sopt.now.gs.core.util.fragment.snackBar
 import com.sopt.now.gs.core.view.UiState
+import com.sopt.now.gs.data.response.ResponseReserveEventDto
 import com.sopt.now.gs.data.response.ResponseReserveGspayDto
 import com.sopt.now.gs.databinding.FragmentReserveBinding
 import com.sopt.now.gs.feature.util.KeyStorage.USER_ID
@@ -41,6 +45,8 @@ class ReserveFragment : BindingFragment<FragmentReserveBinding>(R.layout.fragmen
         setMenuCategoryBottomItems()
         initMenuCategoryBottomAdapter()
 
+        initObserveReserveEvent()
+
         moveToTop()
     }
 
@@ -71,6 +77,7 @@ class ReserveFragment : BindingFragment<FragmentReserveBinding>(R.layout.fragmen
                     initDiscountMenuAdapter(state.data)
                     initBannerAdapter(state.data)
                 }
+
                 else -> Unit
             }
         }
@@ -109,6 +116,7 @@ class ReserveFragment : BindingFragment<FragmentReserveBinding>(R.layout.fragmen
                     ViewPager2.SCROLL_STATE_IDLE -> {
                         if (!bannerJob.isActive) scrollJobCreate()
                     }
+
                     ViewPager2.SCROLL_STATE_DRAGGING -> bannerJob.cancel()
                 }
             }
@@ -247,6 +255,39 @@ class ReserveFragment : BindingFragment<FragmentReserveBinding>(R.layout.fragmen
                 onItemClicked = { navigateToImageDetailFragment(it) },
             )
         binding.gvReserveCategoryBottomMenu.adapter = menuCategory2Adapter
+    }
+
+    private fun initObserveReserveEvent() {
+        gspayViewModel.reserveEventState.observe(viewLifecycleOwner) { state ->
+            when (state) {
+                is UiState.Success -> {
+                    handleReserveEventUi(state.data)
+                }
+
+                is UiState.Failure -> {
+                    snackBar(binding.root, state.errorMessage)
+                    Log.d("ReserveFragment", "initObserveReserveEvent: ${state.errorMessage}")
+                }
+
+                else -> Unit
+            }
+        }
+    }
+
+    private fun handleReserveEventUi(data: ResponseReserveEventDto) = with(binding) {
+        tvReserveEventTitle.text = data.headerTitle
+        tvReserveEventDate.text = data.date
+        ivReserveEventMenuImage.load(data.products.first().image)
+        clickReserveEventImage(data.products.first().productId)
+    }
+
+    private fun clickReserveEventImage(productId: Int) {
+        binding.ivReserveEventMenuImage.setOnClickListener {
+            findNavController().navigate(
+                R.id.fragment_purchase_detail,
+                bundleOf(USER_ID to productId),
+            )
+        }
     }
 
     private fun moveToTop() {
