@@ -116,8 +116,6 @@ class HomeFragment : BindingFragment<FragmentHomeBinding>(R.layout.fragment_home
     private fun initRightMonthEvent() {
         val tempList = homeViewModel.homeState.value?.monthlyEvents?.subBanners
         val t = (tempList?.plus(tempList))?.toList()
-        Log.d("qweqwe", homeViewModel.homeState.value?.monthlyEvents?.mainBanners.toString())
-        Log.d("qweqwe", homeViewModel.homeState.value?.monthlyEvents?.subBanners.toString())
 
         binding.rvHomeRightMonthEvent.adapter = rightMonthEventAdapter
         rightMonthEventAdapter?.submitList(t)
@@ -153,10 +151,8 @@ class HomeFragment : BindingFragment<FragmentHomeBinding>(R.layout.fragment_home
                     val centerView = homeSnapHelper.findSnapView(layoutManager)
                     centerView?.run {
                         val pos = layoutManager.getPosition(this)
-                        Log.e("pos", pos.toString())
 //                        binding.rvHomeRightMonthEvent.scrollToPosition((pos - 1) % 3)
                         val item = homeMonthEventAdapter.currentList.getOrNull(pos)
-                        Log.d("RecyclerView", "현재 포지션: $pos, 아이템: $item")
                         homeViewModel.updateLeftMonthEventImage(pos % 3)
                     }
                 }

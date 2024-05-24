@@ -1,6 +1,5 @@
 package com.sopt.now.gs.feature.home
 
-import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -26,12 +25,11 @@ class HomeViewModel : ViewModel() {
                         _homeState.value = it.data
                     }
                 }
-                .onFailure { Log.d("homeApi", it.message.toString()) }
+                .onFailure {}
         }
     }
 
     fun updateLeftMonthEventImage(resource: Int) {
         _leftMonthEventResource.value = resource
-
     }
 }

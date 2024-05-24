@@ -38,7 +38,7 @@
                         android:layout_marginVertical="8dp"
                         android:layout_marginStart="16dp"
                         android:fontFamily="@font/pretendard_medium"
-                        android:text="우리집"
+                        android:text="@string/home_top_appbar_my_adress"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent" />
 
@@ -135,7 +135,7 @@
                             android:layout_height="wrap_content"
                             android:layout_marginStart="20dp"
                             android:layout_marginTop="14dp"
-                            android:text="GS25"
+                            android:text="@string/home_reserve_title"
                             android:theme="@style/Typography.GsHomeTown.Heading6"
                             app:layout_constraintStart_toStartOf="parent"
                             app:layout_constraintTop_toTopOf="parent" />
@@ -144,7 +144,7 @@
                             android:id="@+id/tv_home_reserve_text_gs25_additional"
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
-                            android:text="언제나 가까이"
+                            android:text="@string/home_reserve_sub_title"
                             android:theme="@style/Typography.GsHomeTown.Body4.Medium"
                             app:layout_constraintStart_toStartOf="@id/tv_home_reserve_text_gs25"
                             app:layout_constraintTop_toBottomOf="@id/tv_home_reserve_text_gs25" />
@@ -228,7 +228,7 @@
                             android:layout_height="wrap_content"
                             android:layout_marginStart="20dp"
                             android:layout_marginTop="14dp"
-                            android:text="GS더프레시"
+                            android:text="@string/home_gsfresh_title"
                             android:theme="@style/Typography.GsHomeTown.Heading6"
                             app:layout_constraintStart_toStartOf="parent"
                             app:layout_constraintTop_toTopOf="parent" />
@@ -237,7 +237,7 @@
                             android:id="@+id/tv_home_text_gsfresh_additional"
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
-                            android:text="신선함이 가득"
+                            android:text="@string/home_gsfresh_sub_title"
                             android:theme="@style/Typography.GsHomeTown.Body4.Medium"
                             app:layout_constraintStart_toStartOf="@id/tv_home_text_gsfresh"
                             app:layout_constraintTop_toBottomOf="@id/tv_home_text_gsfresh" />
@@ -337,7 +337,7 @@
                             android:layout_height="wrap_content"
                             android:layout_marginStart="16dp"
                             android:layout_marginTop="13dp"
-                            android:text="GS25 이달의 행사"
+                            android:text="@string/home_month_event_title"
                             android:theme="@style/Typography.GsHomeTown.Heading6"
                             app:layout_constraintStart_toStartOf="parent"
                             app:layout_constraintTop_toTopOf="parent" />
@@ -346,7 +346,7 @@
                             android:id="@+id/tv_home_month_event_sub_title"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="두근두근 기대되는 이달의 편의점 행사는?"
+                            android:text="@string/home_month_event_sub_title"
                             app:layout_constraintStart_toStartOf="@id/tv_home_month_event_title"
                             app:layout_constraintTop_toBottomOf="@id/tv_home_month_event_title" />
 
