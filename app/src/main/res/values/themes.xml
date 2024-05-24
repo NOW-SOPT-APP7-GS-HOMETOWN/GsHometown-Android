@@ -27,4 +27,8 @@
         <item name="android:elevation">0dp</item>
         <item name="cornerSize">50%</item>
     </style>
+    
+    <style name="HomeImageRadius">
+        <item name="cornerSize">25%</item>
+    </style>
 </resources>

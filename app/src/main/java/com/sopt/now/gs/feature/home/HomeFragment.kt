@@ -56,7 +56,6 @@ class HomeFragment : BindingFragment<FragmentHomeBinding>(R.layout.fragment_home
             initTopBanner()
             initBottomBanner()
             initRightMonthEvent()
-            initMonthEventJob()
         }
     }
 
@@ -144,28 +143,35 @@ class HomeFragment : BindingFragment<FragmentHomeBinding>(R.layout.fragment_home
                     centerView?.run {
                         val pos = layoutManager.getPosition(this)
                         Log.e("pos", pos.toString())
-                        binding.rvHomeRightMonthEvent.scrollToPosition((pos-1)%3)
+                        binding.rvHomeRightMonthEvent.scrollToPosition((pos - 1) % 3)
                         val item = homeMonthEventAdapter.currentList.getOrNull(pos)
                         Log.d("RecyclerView", "현재 포지션: $pos, 아이템: $item")
-                        homeViewModel.updateLeftMonthEventImage(pos%3)
+                        homeViewModel.updateLeftMonthEventImage(pos % 3)
                     }
                 }
             }
         })
+        initMonthEventJob(homeSnapHelper)
     }
-    private fun initMonthEventJob() {
+
+    private fun initMonthEventJob(homeSnapHelper: LinearSnapHelper) {
+        val layoutManager = binding.rvHomeRightMonthEvent.layoutManager as LinearLayoutManager
+        val centerView = homeSnapHelper.findSnapView(layoutManager)
         monthEventJob = lifecycleScope.launch {
+
             while (true) {
-                delay(1000)
                 if (monthCurrentPosition >= 5) {
+                    delay(1000)
                     binding.rvHomeRightMonthEvent.smoothScrollToPosition(monthCurrentPosition)
                     monthCurrentPosition = 3
                 } else {
+                    delay(1000)
                     binding.rvHomeRightMonthEvent.smoothScrollToPosition(monthCurrentPosition++)
                 }
             }
         }
     }
+
     private fun observeSelectedImage() {
         homeViewModel.leftMonthEventResource.observe(viewLifecycleOwner) {
             binding.vpHomeLeftMonthEvent.load(homeViewModel.leftMonthEventResource.value?.let { it ->

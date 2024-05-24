@@ -102,7 +102,6 @@
                     android:layout_height="0dp"
                     android:layout_marginHorizontal="14dp"
                     android:layout_marginTop="53dp"
-                    android:orientation="horizontal"
                     app:layout_constraintDimensionRatio="330:86"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
@@ -366,8 +365,8 @@
 
                         <ImageView
                             android:id="@+id/iv_home_month_event_window"
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
+                            android:layout_width="84dp"
+                            android:layout_height="80dp"
                             android:layout_marginStart="6dp"
                             android:layout_marginEnd="15dp"
                             android:adjustViewBounds="true"
@@ -381,13 +380,12 @@
                             app:layout_constraintVertical_bias="0.0" />
 
                         <androidx.recyclerview.widget.RecyclerView
-                            android:id="@+id/vp_home_right_month_event"
+                            android:id="@+id/rv_home_right_month_event"
                             android:layout_width="0dp"
                             android:layout_height="0dp"
                             android:layout_marginStart="7dp"
                             android:layout_marginBottom="9dp"
                             android:elevation="0dp"
-                            android:orientation="vertical"
                             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
                             app:layout_constraintBottom_toBottomOf="parent"
                             app:layout_constraintEnd_toEndOf="@id/iv_home_month_event_window"
