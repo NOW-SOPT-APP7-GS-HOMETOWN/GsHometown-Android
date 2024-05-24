@@ -10,8 +10,7 @@
         android:title="@string/menu_item_search" />
     <item
         android:id="@+id/fragment_pay"
-        android:icon="@drawable/ic_nav_pay_grey_24"
-        android:title="@string/menu_item_pay" />
+        android:title="" />
     <item
         android:id="@+id/fragment_order"
         android:icon="@drawable/ic_nav_order_black_24"
