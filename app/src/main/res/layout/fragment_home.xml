@@ -365,29 +365,24 @@
 
                         <ImageView
                             android:id="@+id/iv_home_month_event_window"
-                            android:layout_width="84dp"
-                            android:layout_height="80dp"
-                            android:layout_marginStart="6dp"
+                            android:layout_width="87dp"
+                            android:layout_height="0dp"
+                            app:layout_constraintDimensionRatio="1"
                             android:layout_marginEnd="15dp"
-                            android:adjustViewBounds="true"
                             android:elevation="10dp"
                             android:src="@drawable/img_home_month_event_window"
-                            app:layout_constraintBottom_toBottomOf="@id/vp_home_left_month_event"
                             app:layout_constraintEnd_toEndOf="parent"
-                            app:layout_constraintHorizontal_bias="0.0"
                             app:layout_constraintStart_toEndOf="@id/vp_home_left_month_event"
-                            app:layout_constraintTop_toTopOf="@id/vp_home_left_month_event"
-                            app:layout_constraintVertical_bias="0.0" />
+                            app:layout_constraintTop_toTopOf="@id/vp_home_left_month_event" />
 
                         <androidx.recyclerview.widget.RecyclerView
+                            android:layout_marginStart="6dp"
+                            android:layout_marginVertical="3dp"
                             android:id="@+id/rv_home_right_month_event"
                             android:layout_width="0dp"
                             android:layout_height="0dp"
-                            android:layout_marginStart="7dp"
-                            android:layout_marginBottom="9dp"
-                            android:elevation="0dp"
                             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintBottom_toBottomOf="@id/vp_home_left_month_event"
                             app:layout_constraintEnd_toEndOf="@id/iv_home_month_event_window"
                             app:layout_constraintStart_toStartOf="@id/iv_home_month_event_window"
                             app:layout_constraintTop_toTopOf="@id/iv_home_month_event_window"
@@ -395,7 +390,6 @@
                     </androidx.constraintlayout.widget.ConstraintLayout>
 
                 </androidx.cardview.widget.CardView>
-
 
                 <ImageView
                     android:id="@+id/iv_home_week_event"

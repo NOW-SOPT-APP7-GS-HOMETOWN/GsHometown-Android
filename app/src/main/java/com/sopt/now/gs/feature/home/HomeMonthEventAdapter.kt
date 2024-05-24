@@ -19,8 +19,10 @@ class HomeMonthEventAdapter : ListAdapter<String, HomeMonthEventViewHolder>(diff
     }
 
     override fun onBindViewHolder(holder: HomeMonthEventViewHolder, position: Int) {
-        holder.onBind(getItem(position))
+        holder.onBind(currentList[position % currentList.size])
     }
+
+    override fun getItemCount(): Int = Int.MAX_VALUE
 
     companion object {
         val diffUtil = object : DiffUtil.ItemCallback<String>() {

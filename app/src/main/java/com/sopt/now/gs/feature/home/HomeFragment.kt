@@ -119,9 +119,20 @@ class HomeFragment : BindingFragment<FragmentHomeBinding>(R.layout.fragment_home
         Log.d("qweqwe", homeViewModel.homeState.value?.monthlyEvents?.mainBanners.toString())
         Log.d("qweqwe", homeViewModel.homeState.value?.monthlyEvents?.subBanners.toString())
 
-
         binding.rvHomeRightMonthEvent.adapter = rightMonthEventAdapter
         rightMonthEventAdapter?.submitList(t)
+
+        /*  if (binding.rvHomeRightMonthEvent.itemDecorationCount == 0) {
+              binding.rvHomeRightMonthEvent.addItemDecoration(
+                  SnapBannerItemDecorator(requireContext()),
+              )
+          }*/
+
+        binding.vpHomeLeftMonthEvent.load(
+            homeViewModel.homeState.value?.monthlyEvents?.mainBanners?.get(
+                1
+            )
+        )
 
         val homeSnapHelper = LinearSnapHelper().apply {
             attachToRecyclerView(binding.rvHomeRightMonthEvent)
@@ -143,7 +154,7 @@ class HomeFragment : BindingFragment<FragmentHomeBinding>(R.layout.fragment_home
                     centerView?.run {
                         val pos = layoutManager.getPosition(this)
                         Log.e("pos", pos.toString())
-                        binding.rvHomeRightMonthEvent.scrollToPosition((pos - 1) % 3)
+//                        binding.rvHomeRightMonthEvent.scrollToPosition((pos - 1) % 3)
                         val item = homeMonthEventAdapter.currentList.getOrNull(pos)
                         Log.d("RecyclerView", "현재 포지션: $pos, 아이템: $item")
                         homeViewModel.updateLeftMonthEventImage(pos % 3)
@@ -151,21 +162,19 @@ class HomeFragment : BindingFragment<FragmentHomeBinding>(R.layout.fragment_home
                 }
             }
         })
-        initMonthEventJob(homeSnapHelper)
+
+        if (!monthEventJob?.isActive!!) initMonthEventJob()
     }
 
-    private fun initMonthEventJob(homeSnapHelper: LinearSnapHelper) {
-        val layoutManager = binding.rvHomeRightMonthEvent.layoutManager as LinearLayoutManager
-        val centerView = homeSnapHelper.findSnapView(layoutManager)
+    private fun initMonthEventJob() {
         monthEventJob = lifecycleScope.launch {
-
             while (true) {
-                if (monthCurrentPosition >= 5) {
-                    delay(1000)
+                if ((monthCurrentPosition % 3) == 5) {
+                    delay(1500)
                     binding.rvHomeRightMonthEvent.smoothScrollToPosition(monthCurrentPosition)
                     monthCurrentPosition = 3
                 } else {
-                    delay(1000)
+                    delay(1500)
                     binding.rvHomeRightMonthEvent.smoothScrollToPosition(monthCurrentPosition++)
                 }
             }
@@ -174,12 +183,24 @@ class HomeFragment : BindingFragment<FragmentHomeBinding>(R.layout.fragment_home
 
     private fun observeSelectedImage() {
         homeViewModel.leftMonthEventResource.observe(viewLifecycleOwner) {
-            binding.vpHomeLeftMonthEvent.load(homeViewModel.leftMonthEventResource.value?.let { it ->
-                homeViewModel.homeState.value?.monthlyEvents?.mainBanners?.get(
-                    it
-                )
-            })
+            binding.vpHomeLeftMonthEvent.load(
+                homeViewModel.leftMonthEventResource.value?.let { it ->
+                    homeViewModel.homeState.value?.monthlyEvents?.mainBanners?.get(
+                        it
+                    )
+                }
+            )
         }
+    }
+
+    override fun onResume() {
+        super.onResume()
+        initMonthEventJob()
+    }
+
+    override fun onPause() {
+        super.onPause()
+        monthEventJob?.cancel()
     }
 
     override fun onDestroyView() {
