@@ -33,28 +33,47 @@
                     app:contentInsetStart="0dp"
                     app:layout_scrollFlags="scroll|enterAlways">
 
-                    <TextView
-                        android:id="@+id/tv_purchase_detail_back"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center"
-                        android:src="@drawable/ic_topbar_back_left_24"
-                        android:text="@string/menu_item_my_page"
-                        android:textAppearance="@style/Typography.GsHomeTown.Heading5" />
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
 
-                    <ImageView
-                        android:id="@+id/iv_purchase_detail_home"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="end"
-                        android:layout_marginEnd="9dp"
-                        android:src="@drawable/ic_topbar_home_right" />
+                        <TextView
+                            android:id="@+id/tv_my_detail_back"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:text="@string/menu_item_my_page"
+                            android:textAppearance="@style/Typography.GsHomeTown.Heading5"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                        <ImageView
+                            android:id="@+id/iv_my_chatbot"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginEnd="10dp"
+                            android:src="@drawable/ic_chatbot"
+                            app:layout_constraintEnd_toStartOf="@id/iv_my_setting"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                        <ImageView
+                            android:id="@+id/iv_my_setting"
+                            android:layout_width="24dp"
+                            android:layout_height="24dp"
+                            android:layout_marginEnd="19dp"
+                            android:src="@drawable/ic_setting"
+                            app:layout_constraintBottom_toBottomOf="@id/iv_my_chatbot"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintTop_toTopOf="@id/iv_my_chatbot" />
+                    </androidx.constraintlayout.widget.ConstraintLayout>
 
                 </androidx.appcompat.widget.Toolbar>
             </com.google.android.material.appbar.AppBarLayout>
 
             <androidx.core.widget.NestedScrollView
-                android:id="@+id/sv_purchase_detail"
+                android:id="@+id/sv_my_detail"
                 android:layout_width="0dp"
                 android:layout_height="0dp"
                 android:fillViewport="true"
@@ -111,7 +130,7 @@
                         android:src="@drawable/ic_arrow_right_01"
                         app:layout_constraintBottom_toBottomOf="@id/tv_my_welcome_name"
                         app:layout_constraintStart_toEndOf="@id/tv_my_welcome_name"
-                        app:layout_constraintTop_toTopOf="@id/tv_my_welcome_name" />
+                        app:layout_constraintTop_toTopOf="@id/tv_my_welcome" />
 
                     <TextView
                         android:id="@+id/tv_my_get_location"
